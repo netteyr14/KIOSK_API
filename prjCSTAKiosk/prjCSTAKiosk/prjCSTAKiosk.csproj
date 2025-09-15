@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{415B300B-99E1-4F79-BE09-7DAAE531849D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>prjCSTAKiosk</RootNamespace>
+    <AssemblyName>prjCSTAKiosk</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClasCon.cs" />
+    <Compile Include="FormsModals\ModalClassSched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsModals\ModalClassSched.Designer.cs">
+      <DependentUpon>ModalClassSched.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsModals\ModalLostFound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsModals\ModalLostFound.Designer.cs">
+      <DependentUpon>ModalLostFound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsModals\ModalStudentManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsModals\ModalStudentManagement.Designer.cs">
+      <DependentUpon>ModalStudentManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsModals\ModalAnnouncements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsModals\ModalAnnouncements.Designer.cs">
+      <DependentUpon>ModalAnnouncements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub Forms\frmLostFound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub Forms\frmLostFound.Designer.cs">
+      <DependentUpon>frmLostFound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub Forms\frmAnnouncements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub Forms\frmAnnouncements.Designer.cs">
+      <DependentUpon>frmAnnouncements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub Forms\frmAttendanceMonitoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub Forms\frmAttendanceMonitoring.Designer.cs">
+      <DependentUpon>frmAttendanceMonitoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub Forms\frmClassSched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub Forms\frmClassSched.Designer.cs">
+      <DependentUpon>frmClassSched.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Main Forms\frmMainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Forms\frmMainPage.Designer.cs">
+      <DependentUpon>frmMainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub Forms\frmStudentManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub Forms\frmStudentManagement.Designer.cs">
+      <DependentUpon>frmStudentManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub Forms\frmSuggestion_Box.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub Forms\frmSuggestion_Box.Designer.cs">
+      <DependentUpon>frmSuggestion_Box.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormsModals\ModalClassSched.resx">
+      <DependentUpon>ModalClassSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsModals\ModalLostFound.resx">
+      <DependentUpon>ModalLostFound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsModals\ModalStudentManagement.resx">
+      <DependentUpon>ModalStudentManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsModals\ModalAnnouncements.resx">
+      <DependentUpon>ModalAnnouncements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub Forms\frmLostFound.resx">
+      <DependentUpon>frmLostFound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub Forms\frmAnnouncements.resx">
+      <DependentUpon>frmAnnouncements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub Forms\frmAttendanceMonitoring.resx">
+      <DependentUpon>frmAttendanceMonitoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Forms\frmMainPage.resx">
+      <DependentUpon>frmMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Sub Forms\frmClassSched.resx">
+      <DependentUpon>frmClassSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub Forms\frmStudentManagement.resx">
+      <DependentUpon>frmStudentManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub Forms\frmSuggestion_Box.resx">
+      <DependentUpon>frmSuggestion_Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CSTA LOGOs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SIT LOGOs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Student Management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Attendance Monitoring.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Announcement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lost and Found.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CSTA_LOGO_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
