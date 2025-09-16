@@ -46,11 +46,11 @@ namespace prjCSTAKiosk
 
         private void Suggestion_Box_Load(object sender, EventArgs e)
         {
-            DataTable dt = con.GetDataTable("SELECT * FROM tblsb");
-            dgvSugg.DataSource = dt;
-            dgvSugg.ClearSelection();
-            dgvSugg.Tag = 0;
-            this.BeginInvoke((Action)(() => this.ActiveControl = null));
+            //DataTable dt = con.GetDataTable("SELECT * FROM tblsb");
+            //dgvSugg.DataSource = dt;
+            //dgvSugg.ClearSelection();
+            //dgvSugg.Tag = 0;
+            //this.BeginInvoke((Action)(() => this.ActiveControl = null));
         }
     }
 }

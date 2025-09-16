@@ -60,11 +60,11 @@ namespace prjCSTAKiosk
 
         private void Lost_Found_Load(object sender, EventArgs e)
         {
-            DataTable dt = con.GetDataTable("SELECT * FROM tbllf");
-            dgvLF.DataSource = dt;
-            dgvLF.ClearSelection();
-            dgvLF.Tag = 0;
-            this.BeginInvoke((Action)(() => this.ActiveControl = null));
+            //DataTable dt = con.GetDataTable("SELECT * FROM tbllf");
+            //dgvLF.DataSource = dt;
+            //dgvLF.ClearSelection();
+            //dgvLF.Tag = 0;
+            //this.BeginInvoke((Action)(() => this.ActiveControl = null));
         }
 
         private void tsadd_LF_Click(object sender, EventArgs e)

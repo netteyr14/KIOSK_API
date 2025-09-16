@@ -52,11 +52,11 @@ namespace prjCSTAKiosk
 
         private void Student_Management_Load(object sender, EventArgs e)
         {
-             DataTable dt = con.GetDataTable("SELECT * FROM tblsm");
-             dgvStud.DataSource = dt;
-             dgvStud.ClearSelection();
-             dgvStud.Tag = 0;
-             this.BeginInvoke((Action)(() => this.ActiveControl = null));     
+             //DataTable dt = con.GetDataTable("SELECT * FROM tblsm");
+             //dgvStud.DataSource = dt;
+             //dgvStud.ClearSelection();
+             //dgvStud.Tag = 0;
+             //this.BeginInvoke((Action)(() => this.ActiveControl = null));     
         }
 
         private void tsadd_SM_Click(object sender, EventArgs e)
