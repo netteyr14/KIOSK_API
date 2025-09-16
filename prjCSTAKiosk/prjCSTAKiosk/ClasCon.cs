@@ -15,7 +15,7 @@ namespace prjCSTAKiosk
     class ClasCon
     {
         public OdbcConnection conn;
-        private string conStr = "server=localhost;uid=root;password=Ambin123456123456;database=dbIPT;Driver={MYSQL ODBC 3.51 Driver};";
+        private string conStr = "server=localhost;uid=root;password=PASS_MO;database=dbIPT;Driver={MYSQL ODBC 3.51 Driver};";
         private static HttpClient client = new HttpClient();
 
         public ClasCon()
