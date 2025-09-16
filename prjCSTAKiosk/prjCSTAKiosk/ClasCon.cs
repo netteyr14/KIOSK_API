@@ -66,7 +66,7 @@ namespace prjCSTAKiosk
                     url += "?" + queryString;
                 }
 
-                // Show the full URL for debugging
+                // debugging url route test
                 MessageBox.Show("Request URL:\n" + url, "Debug URL", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 var response = await client.GetStringAsync(url);
