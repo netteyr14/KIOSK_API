@@ -3,11 +3,13 @@ from get_tables.load_tables import tbl_class_sched, tbl_student_management
 app = Flask(__name__)
 
 #Routes
-@app.route('/tbl_class_sched', methods=['GET'])
+@app.route('/view_class_sched', methods=['GET'])
 def load_tbl_class_sched():
-    return tbl_class_sched()
+    student_number = request.args.get("student_number")  # key matches C# dictionary
+    data = tbl_class_sched(student_number)
+    return jsonify(data)
 
-@app.route('/tbl_student_management', methods=['GET'])
+@app.route('/view_student_management', methods=['GET'])
 def load_tbl_student_management():
     return tbl_student_management()
 
