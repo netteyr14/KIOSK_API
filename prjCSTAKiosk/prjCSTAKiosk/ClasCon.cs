@@ -53,13 +53,22 @@ namespace prjCSTAKiosk
         //    return dt;
         //}
 
-        public async Task LoadDataAsync(DataGridView dgv_param, string table_route)
+        public async Task LoadDataAsync(DataGridView dgv_param, string table_route, Dictionary<string, string> queryParams = null)
         {
-
-            string url = $"http://192.168.1.7:8080/{table_route}";
-
             try
             {
+                string url = $"http://192.168.1.7:8080/{table_route}";
+
+                // Append query parameters if provided
+                if (queryParams != null && queryParams.Count > 0)
+                {
+                    string queryString = string.Join("&", queryParams.Select(kvp => $"{kvp.Key}={Uri.EscapeDataString(kvp.Value)}"));
+                    url += "?" + queryString;
+                }
+
+                // Show the full URL for debugging
+                MessageBox.Show("Request URL:\n" + url, "Debug URL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 var response = await client.GetStringAsync(url);
                 DataTable dt = JsonConvert.DeserializeObject<DataTable>(response);
 
@@ -75,16 +84,16 @@ namespace prjCSTAKiosk
                     dgv_param.Rows.Clear();
                 }
             }
-            catch
+            catch (Exception ex) 
             {
                 if (dgv_param.DataSource is DataTable dt)
                     dt.Rows.Clear();
                 else
                     dgv_param.Rows.Clear();
 
-                MessageBox.Show("Message: Cannot connect to the server!",
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Message: "+ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

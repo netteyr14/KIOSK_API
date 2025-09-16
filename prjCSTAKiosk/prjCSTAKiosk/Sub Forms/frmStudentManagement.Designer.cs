@@ -41,7 +41,7 @@
             this.tsdelete_SM = new System.Windows.Forms.ToolStripButton();
             this.tsrefresh_SM = new System.Windows.Forms.ToolStripButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designName_stud_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,7 +129,7 @@
             this.dgvStud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStud.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2,
+            this.designName_stud_num,
             this.Column3,
             this.Column4,
             this.Column5,
@@ -209,12 +209,12 @@
             this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
-            // Column2
+            // designName_stud_num
             // 
-            this.Column2.DataPropertyName = "stud_number";
-            this.Column2.HeaderText = "Student Number";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.designName_stud_num.DataPropertyName = "stud_number";
+            this.designName_stud_num.HeaderText = "Student Number";
+            this.designName_stud_num.Name = "designName_stud_num";
+            this.designName_stud_num.ReadOnly = true;
             // 
             // Column3
             // 
@@ -307,7 +307,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn designName_stud_num;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;

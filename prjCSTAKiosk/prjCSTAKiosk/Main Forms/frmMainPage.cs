@@ -77,8 +77,25 @@ namespace prjCSTAKiosk
 
         private void tsClass_Sched_Click(object sender, EventArgs e)
         {
-            ToggleForm(ref sched, () => new Class_Sched());
+            if (studManForm != null && !studManForm.IsDisposed)
+            {
+                string studNumber = studManForm.SelectedStudentNumber;
+
+                if (!string.IsNullOrEmpty(studNumber))
+                {
+                    ToggleForm(ref sched, () => new Class_Sched(studNumber));
+                }
+                else
+                {
+                    MessageBox.Show("Please select a student first.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Student Management form is not open.");
+            }
         }
+
 
         private void tsAtten_Moni_Click(object sender, EventArgs e)
         {

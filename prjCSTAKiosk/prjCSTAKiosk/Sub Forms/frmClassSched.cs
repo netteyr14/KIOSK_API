@@ -20,17 +20,29 @@ namespace prjCSTAKiosk
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         static extern int SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
         const int EM_SETCUEBANNER = 0x1501;
-        public Class_Sched()
+
+        private string studentNumber;
+        public Class_Sched(string studNumber)
         {
             InitializeComponent();
             tsControls.ImageScalingSize = new Size(32, 32);
             SendMessage(txtSearch.Handle, EM_SETCUEBANNER, 0, "Search by Subject");
             dgvDesign();
+
+            studentNumber = studNumber;
         }
 
         private async void Class_Sched_Load(object sender, EventArgs e)
         {
-            await con.LoadDataAsync(dgvCSched, "tbl_class_sched");
+            lblSelectedStudName.Text = studentNumber;
+            dgvCSched.AutoGenerateColumns = false;
+            dgvCSched.ClearSelection();
+            var parameters = new Dictionary<string, string>
+            {
+                { "stud_number", studentNumber }  // or whatever parameter your API expects
+            };
+
+            await con.LoadDataAsync(dgvCSched, "view_class_sched", parameters);
         }
 
         private void dgvDesign()
@@ -62,13 +74,19 @@ namespace prjCSTAKiosk
 
         private void tsadd_CS_Click(object sender, EventArgs e)
         {
+            dgvCSched.ClearSelection();
             ModalClassSched modalsc = new ModalClassSched();
             modalsc.Show();
         }
 
         private async void tsrefresh_CS_Click(object sender, EventArgs e)
         {
-            await con.LoadDataAsync(dgvCSched, "tbl_class_sched");
+            var parameters = new Dictionary<string, string>
+            {
+                { "stud_number", studentNumber }  // or whatever parameter your API expects
+            };
+
+            await con.LoadDataAsync(dgvCSched, "view_class_sched", parameters);
         }
     }
 }
