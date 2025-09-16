@@ -28,44 +28,9 @@ namespace prjCSTAKiosk
             dgvDesign();
         }
 
-        private async Task LoadDataAsync()
-        {
-            string url = "http://192.168.1.7:8080/tbl_class_sched";
-
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    var response = await client.GetStringAsync(url);
-                    DataTable dt = JsonConvert.DeserializeObject<DataTable>(response);
-
-                    // binding ng tables rows from dt(from response)
-                    dgvCSched.DataSource = dt;
-                    dgvCSched.ClearSelection();
-                    dgvCSched.Tag = 0;
-                    this.BeginInvoke((Action)(() => this.ActiveControl = null));
-                }
-                catch
-                {
-                    // If already bound to a DataTable clear lang yung rows to retain yung column at i load yung dt rows
-                    if (dgvCSched.DataSource is DataTable dt)
-                    {
-                        dt.Rows.Clear();
-                    }
-                    else
-                    {
-                        dgvCSched.Rows.Clear(); // if walang na fetch na value si dt its either walang data or server is offline
-                    }
-
-                    MessageBox.Show("Message: Cannot connect to the server!",
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
         private async void Class_Sched_Load(object sender, EventArgs e)
         {
-            await LoadDataAsync();
+            await con.LoadDataAsync(dgvCSched, "tbl_class_sched");
         }
 
         private void dgvDesign()
@@ -103,7 +68,7 @@ namespace prjCSTAKiosk
 
         private async void tsrefresh_CS_Click(object sender, EventArgs e)
         {
-            await LoadDataAsync();
+            await con.LoadDataAsync(dgvCSched, "tbl_class_sched");
         }
     }
 }
