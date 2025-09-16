@@ -29,8 +29,17 @@
         private void InitializeComponent()
         {
             this.pStud_Manage = new System.Windows.Forms.Panel();
+            this.pSearch = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pDgv = new System.Windows.Forms.Panel();
             this.dgvStud = new System.Windows.Forms.DataGridView();
+            this.tsControls = new System.Windows.Forms.ToolStrip();
+            this.tsadd_SM = new System.Windows.Forms.ToolStripButton();
+            this.tsedit_SM = new System.Windows.Forms.ToolStripButton();
+            this.tsdelete_SM = new System.Windows.Forms.ToolStripButton();
+            this.tsrefresh_SM = new System.Windows.Forms.ToolStripButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,20 +49,11 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsControls = new System.Windows.Forms.ToolStrip();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pSearch = new System.Windows.Forms.Panel();
-            this.tsadd_SM = new System.Windows.Forms.ToolStripButton();
-            this.tsedit_SM = new System.Windows.Forms.ToolStripButton();
-            this.tsdelete_SM = new System.Windows.Forms.ToolStripButton();
-            this.tsrefresh_SM = new System.Windows.Forms.ToolStripButton();
             this.pStud_Manage.SuspendLayout();
+            this.pSearch.SuspendLayout();
             this.pDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStud)).BeginInit();
             this.tsControls.SuspendLayout();
-            this.pSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // pStud_Manage
@@ -67,6 +67,45 @@
             this.pStud_Manage.Name = "pStud_Manage";
             this.pStud_Manage.Size = new System.Drawing.Size(1331, 778);
             this.pStud_Manage.TabIndex = 0;
+            // 
+            // pSearch
+            // 
+            this.pSearch.Controls.Add(this.label2);
+            this.pSearch.Controls.Add(this.txtSearch);
+            this.pSearch.Controls.Add(this.label1);
+            this.pSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pSearch.Location = new System.Drawing.Point(0, 25);
+            this.pSearch.Name = "pSearch";
+            this.pSearch.Size = new System.Drawing.Size(1331, 47);
+            this.pSearch.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1072, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(142, 22);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Total Students:";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(94, 16);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(484, 31);
+            this.txtSearch.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 22);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Search:";
             // 
             // pDgv
             // 
@@ -82,9 +121,9 @@
             this.dgvStud.AllowUserToAddRows = false;
             this.dgvStud.AllowUserToDeleteRows = false;
             this.dgvStud.AllowUserToResizeColumns = false;
-            this.dgvStud.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvStud.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvStud.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStud.BackgroundColor = System.Drawing.Color.White;
             this.dgvStud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -106,70 +145,6 @@
             this.dgvStud.Size = new System.Drawing.Size(1308, 688);
             this.dgvStud.TabIndex = 12;
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "sm_id";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "studnum";
-            this.Column2.HeaderText = "Student Number";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "rfid";
-            this.Column3.HeaderText = "RFID";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "fname";
-            this.Column4.HeaderText = "First Name";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "mname";
-            this.Column5.HeaderText = "Middle Name";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "lname";
-            this.Column6.HeaderText = "Last Name";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "course";
-            this.Column7.HeaderText = "Course";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "yrl";
-            this.Column8.HeaderText = "Year";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "section";
-            this.Column9.HeaderText = "Section";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
             // tsControls
             // 
             this.tsControls.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
@@ -183,45 +158,6 @@
             this.tsControls.Name = "tsControls";
             this.tsControls.Size = new System.Drawing.Size(1331, 25);
             this.tsControls.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 22);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Search:";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(94, 16);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(484, 31);
-            this.txtSearch.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1072, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 22);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Total Students:";
-            // 
-            // pSearch
-            // 
-            this.pSearch.Controls.Add(this.label2);
-            this.pSearch.Controls.Add(this.txtSearch);
-            this.pSearch.Controls.Add(this.label1);
-            this.pSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pSearch.Location = new System.Drawing.Point(0, 25);
-            this.pSearch.Name = "pSearch";
-            this.pSearch.Size = new System.Drawing.Size(1331, 47);
-            this.pSearch.TabIndex = 12;
             // 
             // tsadd_SM
             // 
@@ -263,6 +199,71 @@
             this.tsrefresh_SM.Padding = new System.Windows.Forms.Padding(25, 0, 25, 0);
             this.tsrefresh_SM.Size = new System.Drawing.Size(123, 22);
             this.tsrefresh_SM.Text = "REFRESH";
+            this.tsrefresh_SM.Click += new System.EventHandler(this.tsrefresh_SM_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "student_id";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "stud_number";
+            this.Column2.HeaderText = "Student Number";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "rfid_card";
+            this.Column3.HeaderText = "RFID";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "fname";
+            this.Column4.HeaderText = "First Name";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "mname";
+            this.Column5.HeaderText = "Middle Name";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "lname";
+            this.Column6.HeaderText = "Last Name";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "course_code";
+            this.Column7.HeaderText = "Course";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "year_level";
+            this.Column8.HeaderText = "Year";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "section";
+            this.Column9.HeaderText = "Section";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // Student_Management
             // 
@@ -273,7 +274,7 @@
             this.Controls.Add(this.pStud_Manage);
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Student_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student_Management";
@@ -281,12 +282,12 @@
             this.Load += new System.EventHandler(this.Student_Management_Load);
             this.pStud_Manage.ResumeLayout(false);
             this.pStud_Manage.PerformLayout();
+            this.pSearch.ResumeLayout(false);
+            this.pSearch.PerformLayout();
             this.pDgv.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStud)).EndInit();
             this.tsControls.ResumeLayout(false);
             this.tsControls.PerformLayout();
-            this.pSearch.ResumeLayout(false);
-            this.pSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -298,6 +299,13 @@
         private System.Windows.Forms.ToolStripButton tsadd_SM;
         private System.Windows.Forms.Panel pDgv;
         private System.Windows.Forms.DataGridView dgvStud;
+        private System.Windows.Forms.ToolStripButton tsedit_SM;
+        private System.Windows.Forms.ToolStripButton tsdelete_SM;
+        private System.Windows.Forms.ToolStripButton tsrefresh_SM;
+        private System.Windows.Forms.Panel pSearch;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -307,13 +315,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.ToolStripButton tsedit_SM;
-        private System.Windows.Forms.ToolStripButton tsdelete_SM;
-        private System.Windows.Forms.ToolStripButton tsrefresh_SM;
-        private System.Windows.Forms.Panel pSearch;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label label1;
-
     }
 }
