@@ -29,27 +29,29 @@ namespace prjCSTAKiosk
                 conn.Open();
         }
 
-        public DataTable GetDataTable(string sql)
-        {
-            DataTable dt = new DataTable();
-            try
-            {
-                connection();
-                using (OdbcDataAdapter da = new OdbcDataAdapter(sql, conn))
-                {
-                    da.Fill(dt);
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error: " + e.ToString(), "Error");
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return dt;
-        }
+        //REPLACE TO
+
+        //public DataTable GetDataTable(string sql)
+        //{
+        //    DataTable dt = new DataTable();
+        //    try
+        //    {
+        //        connection();
+        //        using (OdbcDataAdapter da = new OdbcDataAdapter(sql, conn))
+        //        {
+        //            da.Fill(dt);
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show("Error: " + e.ToString(), "Error");
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //    return dt;
+        //}
 
         public async Task LoadDataAsync(DataGridView dgv_param, string table_route)
         {

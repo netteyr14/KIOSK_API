@@ -46,11 +46,11 @@ namespace prjCSTAKiosk
 
         private void Attendance_Monitoring_Load(object sender, EventArgs e)
         {
-            DataTable dt = con.GetDataTable("SELECT * FROM tblam");
-            dgvAttenMoni.DataSource = dt;
-            dgvAttenMoni.ClearSelection();
-            dgvAttenMoni.Tag = 0;
-            this.BeginInvoke((Action)(() => this.ActiveControl = null));
+            //DataTable dt = con.GetDataTable("SELECT * FROM tblam");
+            //dgvAttenMoni.DataSource = dt;
+            //dgvAttenMoni.ClearSelection();
+            //dgvAttenMoni.Tag = 0;
+            //this.BeginInvoke((Action)(() => this.ActiveControl = null));
         }
     }
 }

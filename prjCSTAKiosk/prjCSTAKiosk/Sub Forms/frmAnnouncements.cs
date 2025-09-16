@@ -52,11 +52,11 @@ namespace prjCSTAKiosk
 
         private void Announcements_Load(object sender, EventArgs e)
         {
-            DataTable dt = con.GetDataTable("SELECT * FROM tblann");
-            dgvAnn.DataSource = dt;
-            dgvAnn.ClearSelection();
-            dgvAnn.Tag = 0;
-            this.BeginInvoke((Action)(() => this.ActiveControl = null));
+            //DataTable dt = con.GetDataTable("SELECT * FROM tblann");
+            //dgvAnn.DataSource = dt;
+            //dgvAnn.ClearSelection();
+            //dgvAnn.Tag = 0;
+            //this.BeginInvoke((Action)(() => this.ActiveControl = null));
         }
 
         private void tsadd_Ann_Click(object sender, EventArgs e)
