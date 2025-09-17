@@ -87,12 +87,12 @@ namespace prjCSTAKiosk
                 }
                 else
                 {
-                    MessageBox.Show("Please select a student first.");
+                    MessageBox.Show("Please select a student first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Student Management form is not open.");
+                MessageBox.Show("Student Management form is not open.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
