@@ -1,7 +1,11 @@
 from waitress import serve
 from server.server_flask import app
-import os
+import argparse
+
 if __name__ == '__main__':
-    print("[INFO] Starting the server...")
-    # print("@127.0.0.1:5000 or 192.168.1.7:5000 on Host")
-    serve(app, host='localhost', port=5000, threads=20)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--port", type=int, default=5000)
+    args = parser.parse_args()
+
+    print(f"[INFO] Starting Waitress on port {args.port}...")
+    serve(app, host='localhost', port=args.port, threads=20)

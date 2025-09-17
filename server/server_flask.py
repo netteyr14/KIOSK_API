@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from get_tables.load_tables import tbl_class_sched, tbl_student_management
+from get_functions.load_tables import tbl_class_sched, tbl_student_management
 app = Flask(__name__)
 
 #Routes

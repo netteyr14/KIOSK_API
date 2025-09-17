@@ -1,0 +1,10 @@
+On Terminal VSCode/CMD(locate proper dir first):
+#USES TWO PROCESSES (Each ng waitress has 20 Threads)
+waitress-serve --listen=localhost:5001 server.server_flask:app
+waitress-serve --listen=localhost:5002 server.server_flask:app
+#ctrl+c to stop
+
+On Terminal VSCode/CMD(locate proper dir first):
+start nginx
+#./nginx -s quit = for vscode terminal
+#nginx -s quit = for cmd
