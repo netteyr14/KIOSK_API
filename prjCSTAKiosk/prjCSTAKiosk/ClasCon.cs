@@ -95,6 +95,7 @@ namespace prjCSTAKiosk
             }
         }
 
+<<<<<<< HEAD
         public async Task LoadComboBoxAsync(ComboBox combo, string table_route, string displayMember, string valueMember)
         {
             try
@@ -122,5 +123,7 @@ namespace prjCSTAKiosk
             }
         }
 
+=======
+>>>>>>> 7c6c2ccd053b229f6b52d9cbdc1f9023ecdd1bc0
     }
 }
