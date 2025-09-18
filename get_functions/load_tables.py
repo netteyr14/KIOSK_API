@@ -19,13 +19,13 @@ def fetch_all(query, params=None):
 #===============METHODS=================#
 
 #LOAD STUDENT MANAGEMENT TABLE TO
-def tbl_student_management():
-    sql = "SELECT stud_number, rfid_card, fname, mname, lname, course_code, year_level, section FROM vw_students"
+def get_tbl_student_management():
+    sql = "SELECT stud_number, rfid_card, fname, mname, lname, course_name, year_level, student_section FROM vw_students"
     data = fetch_all(sql)
     return jsonify(data)
 
 #LOAD CLASS SCHED TABLE TO
-def tbl_class_sched(student_number=None):
+def get_tbl_class_sched(student_number=None):
     sql = """
         SELECT 
             subject_name, 
