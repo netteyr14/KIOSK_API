@@ -68,6 +68,7 @@ namespace prjCSTAKiosk
             //dgvStud.DataSource = dt;
             dgvStud.AutoGenerateColumns = false;
             dgvStud.ClearSelection();
+            dgvStud.CurrentCell = null;
             //dgvStud.Tag = 0;
             //this.BeginInvoke((Action)(() => this.ActiveControl = null));     
 

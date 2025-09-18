@@ -37,6 +37,7 @@ namespace prjCSTAKiosk
             lblSelectedStudName.Text = studentNumber;
             dgvCSched.AutoGenerateColumns = false;
             dgvCSched.ClearSelection();
+            dgvCSched.CurrentCell = null;
             var parameters = new Dictionary<string, string>
             {
                 { "stud_number", studentNumber }  // or whatever parameter your API expects

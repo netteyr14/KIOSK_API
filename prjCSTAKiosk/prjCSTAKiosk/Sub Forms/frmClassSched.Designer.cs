@@ -30,23 +30,23 @@
         {
             this.pCS = new System.Windows.Forms.Panel();
             this.pSearch = new System.Windows.Forms.Panel();
+            this.lblSelectedStudName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pDgv = new System.Windows.Forms.Panel();
             this.dgvCSched = new System.Windows.Forms.DataGridView();
-            this.tsControls = new System.Windows.Forms.ToolStrip();
-            this.tsadd_CS = new System.Windows.Forms.ToolStripButton();
-            this.tsedit_CS = new System.Windows.Forms.ToolStripButton();
-            this.tsdelete_CS = new System.Windows.Forms.ToolStripButton();
-            this.tsrefresh_CS = new System.Windows.Forms.ToolStripButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblSelectedStudName = new System.Windows.Forms.Label();
+            this.tsControls = new System.Windows.Forms.ToolStrip();
+            this.tsadd_CS = new System.Windows.Forms.ToolStripButton();
+            this.tsedit_CS = new System.Windows.Forms.ToolStripButton();
+            this.tsdelete_CS = new System.Windows.Forms.ToolStripButton();
+            this.tsrefresh_CS = new System.Windows.Forms.ToolStripButton();
             this.pCS.SuspendLayout();
             this.pSearch.SuspendLayout();
             this.pDgv.SuspendLayout();
@@ -79,6 +79,26 @@
             this.pSearch.Name = "pSearch";
             this.pSearch.Size = new System.Drawing.Size(1331, 47);
             this.pSearch.TabIndex = 15;
+            // 
+            // lblSelectedStudName
+            // 
+            this.lblSelectedStudName.AutoSize = true;
+            this.lblSelectedStudName.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectedStudName.Location = new System.Drawing.Point(755, 24);
+            this.lblSelectedStudName.Name = "lblSelectedStudName";
+            this.lblSelectedStudName.Size = new System.Drawing.Size(108, 23);
+            this.lblSelectedStudName.TabIndex = 6;
+            this.lblSelectedStudName.Text = "<NUMBER>";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(583, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 22);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Student Number:";
             // 
             // txtSearch
             // 
@@ -134,6 +154,48 @@
             this.dgvCSched.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCSched.Size = new System.Drawing.Size(1301, 682);
             this.dgvCSched.TabIndex = 12;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "subject_name";
+            this.Column1.HeaderText = "Subject";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "f_fullname";
+            this.Column2.HeaderText = "Faculty";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "day_of_week";
+            this.Column3.HeaderText = "Day of Week";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "time_start";
+            this.Column4.HeaderText = "Time Start";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "time_end";
+            this.Column5.HeaderText = "Time End";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "room";
+            this.Column6.HeaderText = "Room";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // tsControls
             // 
@@ -192,68 +254,6 @@
             this.tsrefresh_CS.Size = new System.Drawing.Size(123, 22);
             this.tsrefresh_CS.Text = "REFRESH";
             this.tsrefresh_CS.Click += new System.EventHandler(this.tsrefresh_CS_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "subject_name";
-            this.Column1.HeaderText = "Subject";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "f_fullname";
-            this.Column2.HeaderText = "Faculty";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "day_of_week";
-            this.Column3.HeaderText = "Day of Week";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "time_start";
-            this.Column4.HeaderText = "Time Start";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "time_end";
-            this.Column5.HeaderText = "Time End";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "room";
-            this.Column6.HeaderText = "Room";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(583, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 22);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Student Number:";
-            // 
-            // lblSelectedStudName
-            // 
-            this.lblSelectedStudName.AutoSize = true;
-            this.lblSelectedStudName.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedStudName.Location = new System.Drawing.Point(755, 24);
-            this.lblSelectedStudName.Name = "lblSelectedStudName";
-            this.lblSelectedStudName.Size = new System.Drawing.Size(108, 23);
-            this.lblSelectedStudName.TabIndex = 6;
-            this.lblSelectedStudName.Text = "<NUMBER>";
             // 
             // Class_Sched
             // 

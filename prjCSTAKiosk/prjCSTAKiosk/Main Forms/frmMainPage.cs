@@ -73,6 +73,7 @@ namespace prjCSTAKiosk
         private void tsStud_Man_Click(object sender, EventArgs e)
         {
             ToggleForm(ref studManForm, () => new Student_Management());
+
         }
 
         private void tsClass_Sched_Click(object sender, EventArgs e)

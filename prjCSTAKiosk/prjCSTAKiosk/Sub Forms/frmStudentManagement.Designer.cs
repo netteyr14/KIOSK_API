@@ -246,7 +246,7 @@
             // 
             // Column7
             // 
-            this.Column7.DataPropertyName = "course_code";
+            this.Column7.DataPropertyName = "course_name";
             this.Column7.HeaderText = "Course";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -260,7 +260,7 @@
             // 
             // Column9
             // 
-            this.Column9.DataPropertyName = "section";
+            this.Column9.DataPropertyName = "student_section";
             this.Column9.HeaderText = "Section";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;

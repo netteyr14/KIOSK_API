@@ -33,6 +33,9 @@
             this.btnCancel_SM = new System.Windows.Forms.Button();
             this.btnSave_SM = new System.Windows.Forms.Button();
             this.gbstud_management = new System.Windows.Forms.GroupBox();
+            this.cboCOM = new System.Windows.Forms.ComboBox();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnDisconnect = new System.Windows.Forms.Button();
             this.cbYearSM = new System.Windows.Forms.ComboBox();
             this.cbSectionSM = new System.Windows.Forms.ComboBox();
             this.cbCourseSM = new System.Windows.Forms.ComboBox();
@@ -63,7 +66,7 @@
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(468, 528);
+            this.panel1.Size = new System.Drawing.Size(468, 611);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -85,7 +88,7 @@
             this.btnCancel_SM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel_SM.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel_SM.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCancel_SM.Location = new System.Drawing.Point(359, 476);
+            this.btnCancel_SM.Location = new System.Drawing.Point(359, 557);
             this.btnCancel_SM.Name = "btnCancel_SM";
             this.btnCancel_SM.Size = new System.Drawing.Size(96, 42);
             this.btnCancel_SM.TabIndex = 10;
@@ -100,15 +103,19 @@
             this.btnSave_SM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave_SM.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_SM.ForeColor = System.Drawing.Color.White;
-            this.btnSave_SM.Location = new System.Drawing.Point(257, 476);
+            this.btnSave_SM.Location = new System.Drawing.Point(257, 557);
             this.btnSave_SM.Name = "btnSave_SM";
             this.btnSave_SM.Size = new System.Drawing.Size(96, 42);
             this.btnSave_SM.TabIndex = 9;
             this.btnSave_SM.Text = "Save";
             this.btnSave_SM.UseVisualStyleBackColor = false;
+            this.btnSave_SM.Click += new System.EventHandler(this.btnSave_SM_Click);
             // 
             // gbstud_management
             // 
+            this.gbstud_management.Controls.Add(this.cboCOM);
+            this.gbstud_management.Controls.Add(this.btnDisconnect);
+            this.gbstud_management.Controls.Add(this.btnConnect);
             this.gbstud_management.Controls.Add(this.cbYearSM);
             this.gbstud_management.Controls.Add(this.cbSectionSM);
             this.gbstud_management.Controls.Add(this.cbCourseSM);
@@ -128,21 +135,48 @@
             this.gbstud_management.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbstud_management.Location = new System.Drawing.Point(12, 64);
             this.gbstud_management.Name = "gbstud_management";
-            this.gbstud_management.Size = new System.Drawing.Size(443, 406);
+            this.gbstud_management.Size = new System.Drawing.Size(443, 487);
             this.gbstud_management.TabIndex = 8;
             this.gbstud_management.TabStop = false;
+            // 
+            // cboCOM
+            // 
+            this.cboCOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCOM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCOM.FormattingEnabled = true;
+            this.cboCOM.Location = new System.Drawing.Point(347, 458);
+            this.cboCOM.Name = "cboCOM";
+            this.cboCOM.Size = new System.Drawing.Size(90, 24);
+            this.cboCOM.TabIndex = 11;
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnect.Location = new System.Drawing.Point(245, 458);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(96, 23);
+            this.btnConnect.TabIndex = 10;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // btnDisconnect
+            // 
+            this.btnDisconnect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDisconnect.Location = new System.Drawing.Point(245, 458);
+            this.btnDisconnect.Name = "btnDisconnect";
+            this.btnDisconnect.Size = new System.Drawing.Size(96, 23);
+            this.btnDisconnect.TabIndex = 9;
+            this.btnDisconnect.Text = "Disconnect";
+            this.btnDisconnect.UseVisualStyleBackColor = true;
+            this.btnDisconnect.Visible = false;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // cbYearSM
             // 
             this.cbYearSM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbYearSM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbYearSM.FormattingEnabled = true;
-            this.cbYearSM.Items.AddRange(new object[] {
-            "1ST YEAR",
-            "2ND YEAR",
-            "3RD YEAR",
-            "4TH YEAR",
-            "IRREGULAR"});
             this.cbYearSM.Location = new System.Drawing.Point(167, 361);
             this.cbYearSM.Name = "cbYearSM";
             this.cbYearSM.Size = new System.Drawing.Size(200, 25);
@@ -163,10 +197,6 @@
             this.cbCourseSM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCourseSM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCourseSM.FormattingEnabled = true;
-            this.cbCourseSM.Items.AddRange(new object[] {
-            "BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY",
-            "BACHELOR OF SCIENCE IN HOSPITALITY MANAGEMENT",
-            "BACHELOR OF SCIENCE IN TOURISM MANAGEMENT"});
             this.cbCourseSM.Location = new System.Drawing.Point(167, 263);
             this.cbCourseSM.Name = "cbCourseSM";
             this.cbCourseSM.Size = new System.Drawing.Size(200, 25);
@@ -297,7 +327,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(468, 528);
+            this.ClientSize = new System.Drawing.Size(468, 611);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -338,7 +368,8 @@
         private System.Windows.Forms.ComboBox cbSectionSM;
         private System.Windows.Forms.ComboBox cbCourseSM;
         private System.Windows.Forms.Label label2;
-
-
+        private System.Windows.Forms.ComboBox cboCOM;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnDisconnect;
     }
 }

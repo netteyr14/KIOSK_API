@@ -95,5 +95,32 @@ namespace prjCSTAKiosk
             }
         }
 
+        public async Task LoadComboBoxAsync(ComboBox combo, string table_route, string displayMember, string valueMember)
+        {
+            try
+            {
+                string url = $"http://csta.api:8080/{table_route}";
+
+                var response = await client.GetStringAsync(url);
+                DataTable dt = JsonConvert.DeserializeObject<DataTable>(response);
+
+                if (dt != null)
+                {
+                    combo.DataSource = dt;
+                    combo.DisplayMember = displayMember;
+                    combo.ValueMember = valueMember;
+                }
+                else
+                {
+                    combo.DataSource = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                combo.DataSource = null;
+                MessageBox.Show("Error: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
