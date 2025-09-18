@@ -26,7 +26,7 @@ namespace prjCSTAKiosk
         //public void connection()
         //{
         //    if (conn.State != ConnectionState.Open)
-                conn.Open();
+                //conn.Open();
         //}
 
         //REPLACE TO
