@@ -39,7 +39,7 @@ namespace prjCSTAKiosk
             pContainer.PerformLayout();
         }
 
-        private void ToggleForm<T>(ref T formRef, Func<T> createForm) where T : Form
+        private void ToggleForm<T>(ref T formRef, Func<T> createForm, Action<T> updateForm = null) where T : Form
         {
             if (formRef != null && pContainer.Controls.Contains(formRef))
             {
@@ -50,6 +50,9 @@ namespace prjCSTAKiosk
             {
                 if (formRef == null || formRef.IsDisposed)
                     formRef = createForm();
+                else
+                    updateForm?.Invoke(formRef); // 👈 refresh existing form
+
                 LoadForm(formRef);
                 pbLogo.Visible = false;
             }
@@ -78,22 +81,19 @@ namespace prjCSTAKiosk
 
         private void tsClass_Sched_Click(object sender, EventArgs e)
         {
-            if (studManForm != null && !studManForm.IsDisposed)
-            {
-                string studNumber = studManForm.SelectedStudentNumber;
+            string studNumber = studManForm?.SelectedStudentNumber;
 
-                if (!string.IsNullOrEmpty(studNumber))
-                {
-                    ToggleForm(ref sched, () => new Class_Sched(studNumber));
-                }
-                else
-                {
-                    MessageBox.Show("Please select a student first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+            if (!string.IsNullOrEmpty(studNumber))
+            {
+                ToggleForm(ref sched,
+                    () => new Class_Sched(studNumber),
+                    (s) => s.SetStudent(studNumber)   // update existing form
+                );
             }
             else
             {
-                MessageBox.Show("Student Management form is not open.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a student first.", "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

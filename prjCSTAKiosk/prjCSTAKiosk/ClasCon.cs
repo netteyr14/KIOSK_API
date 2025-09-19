@@ -122,5 +122,26 @@ namespace prjCSTAKiosk
             }
         }
 
+        public async Task InsertStudentInfo(string table_route, Dictionary<string, string> studentInfo) 
+        {
+            try
+            {
+                string url = $"http://csta.api:8080/{table_route}";
+
+                string json = JsonConvert.SerializeObject(studentInfo);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await client.PostAsync(url, content);
+
+                string result = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(result, "API Response", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
