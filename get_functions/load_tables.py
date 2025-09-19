@@ -48,4 +48,4 @@ def get_tbl_class_sched(student_number=None):
         if isinstance(row.get("time_end"), timedelta):
             row["time_end"] = str(row["time_end"])
 
-    return data
+    return jsonify(data)
