@@ -7,7 +7,11 @@ app = Flask(__name__)
 #Load/Get Routes
 @app.route('/view_class_sched', methods=['GET'])
 def load_tbl_class_sched():
+<<<<<<< HEAD
+    student_number = request.args.get("student_number")  # key matches C# dictionary
+=======
     student_number = request.args.get("stud_number")  # key matches C# dictionary
+>>>>>>> 2f91ba066a1a920fb270ef45b9d794f06ae71f4d
     return get_tbl_class_sched(student_number)
 
 @app.route('/view_student_management', methods=['GET'])
