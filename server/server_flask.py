@@ -7,7 +7,8 @@ app = Flask(__name__)
 @app.route('/view_class_sched', methods=['GET'])
 def load_tbl_class_sched():
     student_number = request.args.get("student_number")  # key matches C# dictionary
-    return get_tbl_class_sched(student_number)
+    data = get_tbl_class_sched(student_number)
+    return jsonify(data)
 
 @app.route('/view_student_management', methods=['GET'])
 def load_tbl_student_management():
