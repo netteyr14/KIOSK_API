@@ -121,7 +121,7 @@ namespace prjCSTAKiosk
                 MessageBox.Show("Error: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+      
         public async Task InsertStudentInfo(string table_route, Dictionary<string, string> studentInfo) 
         {
             try
@@ -142,6 +142,5 @@ namespace prjCSTAKiosk
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }
