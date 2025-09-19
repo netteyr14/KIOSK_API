@@ -95,7 +95,6 @@ namespace prjCSTAKiosk
             }
         }
 
-<<<<<<< HEAD
         public async Task LoadComboBoxAsync(ComboBox combo, string table_route, string displayMember, string valueMember)
         {
             try
@@ -122,8 +121,26 @@ namespace prjCSTAKiosk
                 MessageBox.Show("Error: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+      
+        public async Task InsertStudentInfo(string table_route, Dictionary<string, string> studentInfo) 
+        {
+            try
+            {
+                string url = $"http://csta.api:8080/{table_route}";
 
-=======
->>>>>>> 7c6c2ccd053b229f6b52d9cbdc1f9023ecdd1bc0
+                string json = JsonConvert.SerializeObject(studentInfo);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await client.PostAsync(url, content);
+
+                string result = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(result, "API Response", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -25,11 +25,10 @@ namespace prjCSTAKiosk
         public Class_Sched(string studNumber)
         {
             InitializeComponent();
+            SetStudent(studNumber);
             tsControls.ImageScalingSize = new Size(32, 32);
             SendMessage(txtSearch.Handle, EM_SETCUEBANNER, 0, "Search by Subject");
             dgvDesign();
-
-            studentNumber = studNumber;
         }
 
         private async void Class_Sched_Load(object sender, EventArgs e)
@@ -37,16 +36,13 @@ namespace prjCSTAKiosk
             lblSelectedStudName.Text = studentNumber;
             dgvCSched.AutoGenerateColumns = false;
             dgvCSched.ClearSelection();
-<<<<<<< HEAD
             dgvCSched.CurrentCell = null;
-=======
->>>>>>> 7c6c2ccd053b229f6b52d9cbdc1f9023ecdd1bc0
-            var parameters = new Dictionary<string, string>
-            {
-                { "stud_number", studentNumber }  // or whatever parameter your API expects
-            };
+            //var parameters = new Dictionary<string, string>
+            //{
+            //    { "stud_number", studentNumber }  // or whatever parameter your API expects
+            //};
 
-            await con.LoadDataAsync(dgvCSched, "view_class_sched", parameters);
+            //await con.LoadDataAsync(dgvCSched, "view_class_sched", parameters);
         }
 
         private void dgvDesign()
@@ -78,6 +74,7 @@ namespace prjCSTAKiosk
 
         private void tsadd_CS_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show(studentNumber);
             dgvCSched.ClearSelection();
             ModalClassSched modalsc = new ModalClassSched();
             modalsc.Show();
@@ -91,6 +88,16 @@ namespace prjCSTAKiosk
             };
 
             await con.LoadDataAsync(dgvCSched, "view_class_sched", parameters);
+        }
+
+        public void SetStudent(string studNumber)
+        {
+            studentNumber = studNumber;
+            lblSelectedStudName.Text = studentNumber;
+
+            // reload the grid or any dependent data
+            _ = con.LoadDataAsync(dgvCSched, "view_class_sched",
+                new Dictionary<string, string> { { "stud_number", studentNumber } });
         }
     }
 }

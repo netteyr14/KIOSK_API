@@ -34,8 +34,8 @@
             this.btnSave_SM = new System.Windows.Forms.Button();
             this.gbstud_management = new System.Windows.Forms.GroupBox();
             this.cboCOM = new System.Windows.Forms.ComboBox();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.btnDisconnect = new System.Windows.Forms.Button();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.cbYearSM = new System.Windows.Forms.ComboBox();
             this.cbSectionSM = new System.Windows.Forms.ComboBox();
             this.cbCourseSM = new System.Windows.Forms.ComboBox();
@@ -149,17 +149,6 @@
             this.cboCOM.Size = new System.Drawing.Size(90, 24);
             this.cboCOM.TabIndex = 11;
             // 
-            // btnConnect
-            // 
-            this.btnConnect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnect.Location = new System.Drawing.Point(245, 458);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(96, 23);
-            this.btnConnect.TabIndex = 10;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
             // btnDisconnect
             // 
             this.btnDisconnect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,6 +160,17 @@
             this.btnDisconnect.UseVisualStyleBackColor = true;
             this.btnDisconnect.Visible = false;
             this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnect.Location = new System.Drawing.Point(245, 458);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(96, 23);
+            this.btnConnect.TabIndex = 10;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // cbYearSM
             // 
@@ -228,6 +228,7 @@
             // 
             // txtrfid_SM
             // 
+            this.txtrfid_SM.Enabled = false;
             this.txtrfid_SM.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtrfid_SM.Location = new System.Drawing.Point(167, 71);
             this.txtrfid_SM.Name = "txtrfid_SM";

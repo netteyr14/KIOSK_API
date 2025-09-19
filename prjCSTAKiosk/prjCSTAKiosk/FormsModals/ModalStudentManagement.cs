@@ -158,9 +158,22 @@ namespace prjCSTAKiosk
             }
         }
 
-        private void btnSave_SM_Click(object sender, EventArgs e)
+        private async void btnSave_SM_Click(object sender, EventArgs e)
         {
-
+            var studentInfo = new Dictionary<string, string>
+                {
+                    { "stud_number", txtstudnum_SM.Text },
+                    { "rfid_card", txtrfid_SM.Text },
+                    { "fname", txtfname_SM.Text },
+                    { "mname", txtmname_SM.Text },
+                    { "lname", txtlname_SM.Text },
+                    { "course_no", cbCourseSM.SelectedValue?.ToString() },
+                    { "section", cbSectionSM.SelectedValue?.ToString() },
+                    { "year_level", cbYearSM.SelectedValue?.ToString() },
+                    { "isactive", "1"},
+                    { "isdeleted", "0"}
+                };
+            await con.InsertStudentInfo("student_information", studentInfo);
         }
     }
 }
