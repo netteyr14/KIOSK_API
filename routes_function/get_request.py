@@ -16,7 +16,7 @@ def fetch_all(query, params=None):
         cursor.close()
         conn.close()
 
-#===============METHODS=================#
+#===============GET=================#
 
 #LOAD STUDENT MANAGEMENT TABLE TO
 def get_tbl_student_management():
@@ -49,3 +49,20 @@ def get_tbl_class_sched(student_number=None):
             row["time_end"] = str(row["time_end"])
 
     return jsonify(data)
+<<<<<<< HEAD:get_functions/load_tables.py
+=======
+def get_course_name():
+    sql = "SELECT course_name, course_id FROM tbl_course"
+    rows = fetch_all(sql) 
+    return jsonify(rows) 
+
+def get_section():
+    sql = "SELECT student_section, section_id FROM tbl_section"
+    rows = fetch_all(sql) 
+    return jsonify(rows) 
+
+def get_year():
+    sql = "SELECT year_level, year_id FROM tbl_year"
+    rows = fetch_all(sql) 
+    return jsonify(rows) 
+>>>>>>> 2f91ba066a1a920fb270ef45b9d794f06ae71f4d:routes_function/get_request.py
