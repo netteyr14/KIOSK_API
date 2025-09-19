@@ -14,20 +14,20 @@ namespace prjCSTAKiosk
 {
     class ClasCon
     {
-        public OdbcConnection conn;
-        private string conStr = "server=localhost;uid=root;password=PASS_MO;database=dbIPT;Driver={MYSQL ODBC 3.51 Driver};";
+        //public OdbcConnection conn;
+        //private string conStr = "server=localhost;uid=root;password=PASS_MO;database=dbIPT;Driver={MYSQL ODBC 3.51 Driver};";
         private static HttpClient client = new HttpClient();
 
-        public ClasCon()
-        {
-            conn = new OdbcConnection(conStr);
-        }
+        //public ClasCon()
+        //{
+            //conn = new OdbcConnection(conStr);
+        //}
 
-        public void connection()
-        {
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-        }
+        //public void connection()
+        //{
+        //    if (conn.State != ConnectionState.Open)
+                //conn.Open();
+        //}
 
         //REPLACE TO
 
