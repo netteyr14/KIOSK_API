@@ -1,8 +1,8 @@
 from flask import jsonify, request
-from db.db_connections import init_db_pool_rfid
+from db.db_connections import init_db_pool
 
 #DB CONNECTION
-pool = init_db_pool_rfid()
+pool = init_db_pool()
 # EXECUTE INSERT
 def execute_query(query, params=None):
     conn = pool.get_connection()
@@ -18,7 +18,7 @@ def execute_query(query, params=None):
         cursor.close()
         conn.close()
 
-#===============METHODS=================#
+#===============POST=================#
 
 def post_student_management(student_info=None):
     sql = """INSERT INTO tbl_student
