@@ -13,13 +13,14 @@ def init_db_pool():
     global pool
     try:
         pool = pooling.MySQLConnectionPool(
-            pool_name = "mypool",
-            pool_size = 20,
+            pool_name="mypool",
+            pool_size=20,
             **db0
         )
-        print("[INFO] Database pool created successfully!")
-        return pool     
+        return pool
     except Error as e:
         print(f"[ERROR] Database pool creation failed: {e}")
+        return None
+
 
 

@@ -2,8 +2,12 @@ from flask import jsonify
 from datetime import timedelta 
 from db.db_connections import init_db_pool
 
-#DB CONNECTION
+# DB CONNECTION
 pool = init_db_pool()
+if pool is not None:
+    print("[INFO] Database pool created successfully! - get_request.py")
+else:
+    print("[ERROR] Database pool creation failed! - get_request.py")
 #FETCH TABLE
 def fetch_all(query, params=None):
     conn = pool.get_connection()
