@@ -1,9 +1,9 @@
 from flask import jsonify
 from datetime import timedelta 
-from db.db_connections import init_db_pool_rfid
+from db.db_connections import init_db_pool
 
 #DB CONNECTION
-pool = init_db_pool_rfid()
+pool = init_db_pool()
 #FETCH TABLE
 def fetch_all(query, params=None):
     conn = pool.get_connection()

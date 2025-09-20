@@ -501,3 +501,6 @@
 2025/09/19 23:36:07 [error] 15320#6336: *6 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: csta.api, request: "GET /tbl_section HTTP/1.1", upstream: "http://[::1]:5002/tbl_section", host: "csta.api:8080"
 2025/09/19 23:36:09 [error] 15320#6336: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: csta.api, request: "GET /tbl_course HTTP/1.1", upstream: "http://127.0.0.1:5002/tbl_course", host: "csta.api:8080"
 2025/09/19 23:37:18 [notice] 17656#18300: signal process started
+2025/09/20 17:38:11 [notice] 4780#6612: signal process started
+2025/09/20 17:38:13 [notice] 15292#15272: signal process started
+2025/09/20 17:38:13 [error] 15292#15272: CreateFile() "D:\KIOSK_API\server\nginx-1.28.0/logs/nginx.pid" failed (2: The system cannot find the file specified)

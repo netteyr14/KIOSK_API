@@ -26,7 +26,7 @@ def load_tbl_section():
 def load_tbl_year():
     return get_year()
 
-#Post Routes
+#Insert/Post Routes
 @app.route('/student_information', methods=['POST'])
 def insert_student_information():
     student_info = request.get_json()

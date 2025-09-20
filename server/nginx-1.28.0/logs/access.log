@@ -6638,3 +6638,7 @@
 127.0.0.1 - - [20/Sep/2025:15:33:04 +0800] "GET /tbl_course HTTP/1.1" 200 150 "-" "-"
 127.0.0.1 - - [20/Sep/2025:15:33:04 +0800] "GET /tbl_section HTTP/1.1" 200 166 "-" "-"
 127.0.0.1 - - [20/Sep/2025:15:33:04 +0800] "GET /tbl_year HTTP/1.1" 200 193 "-" "-"
+127.0.0.1 - - [20/Sep/2025:17:36:54 +0800] "GET /view_student_management HTTP/1.1" 200 545 "-" "-"
+127.0.0.1 - - [20/Sep/2025:17:36:58 +0800] "GET /view_class_sched?stud_number=2400099 HTTP/1.1" 200 3 "-" "-"
+127.0.0.1 - - [20/Sep/2025:17:37:01 +0800] "GET /view_class_sched?stud_number=2400077 HTTP/1.1" 200 3 "-" "-"
+127.0.0.1 - - [20/Sep/2025:17:37:03 +0800] "GET /view_class_sched?stud_number=2400084 HTTP/1.1" 200 139 "-" "-"
