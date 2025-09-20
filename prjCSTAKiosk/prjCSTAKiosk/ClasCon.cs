@@ -57,7 +57,7 @@ namespace prjCSTAKiosk
         {
             try
             {
-                string url = $"http://csta.api:8080/{table_route}";
+                string url = $"http://192.168.1.7:8080/{table_route}";
 
                 // Append query parameters if provided
                 if (queryParams != null && queryParams.Count > 0)
@@ -99,7 +99,7 @@ namespace prjCSTAKiosk
         {
             try
             {
-                string url = $"http://csta.api:8080/{table_route}";
+                string url = $"http://192.168.1.7:8080/{table_route}";
 
                 var response = await client.GetStringAsync(url);
                 DataTable dt = JsonConvert.DeserializeObject<DataTable>(response);
@@ -126,7 +126,7 @@ namespace prjCSTAKiosk
         {
             try
             {
-                string url = $"http://csta.api:8080/{table_route}";
+                string url = $"http://192.168.1.7:8080/{table_route}";
 
                 string json = JsonConvert.SerializeObject(studentInfo);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
