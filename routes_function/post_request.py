@@ -1,8 +1,12 @@
 from flask import jsonify, request
 from db.db_connections import init_db_pool
 
-#DB CONNECTION
+# DB CONNECTION
 pool = init_db_pool()
+if pool is not None:
+    print("[INFO] Database pool created successfully! - post_request.py")
+else:
+    print("[ERROR] Database pool creation failed! - post_request.py")
 # EXECUTE INSERT
 def execute_query(query, params=None):
     conn = pool.get_connection()

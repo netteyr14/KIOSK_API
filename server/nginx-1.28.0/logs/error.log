@@ -504,3 +504,10 @@
 2025/09/20 17:38:11 [notice] 4780#6612: signal process started
 2025/09/20 17:38:13 [notice] 15292#15272: signal process started
 2025/09/20 17:38:13 [error] 15292#15272: CreateFile() "D:\KIOSK_API\server\nginx-1.28.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2025/09/20 17:51:20 [notice] 1244#15524: signal process started
+2025/09/20 17:52:32 [notice] 6248#1108: signal process started
+2025/09/20 17:56:03 [notice] 10092#4000: signal process started
+2025/09/20 17:57:55 [notice] 1576#4104: signal process started
+2025/09/20 18:03:14 [notice] 13536#8632: signal process started
+2025/09/20 18:04:00 [notice] 15756#10920: signal process started
+2025/09/20 18:04:28 [notice] 3996#5392: signal process started
