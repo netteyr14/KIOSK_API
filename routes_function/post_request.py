@@ -8,7 +8,7 @@ if pool is not None:
 else:
     print("[ERROR] Database pool creation failed! - post_request.py")
 # EXECUTE INSERT
-def execute_query(query, params=None):
+def execute_query(query, params=None):  
     conn = pool.get_connection()
     cursor = conn.cursor(dictionary=True)
     try:
