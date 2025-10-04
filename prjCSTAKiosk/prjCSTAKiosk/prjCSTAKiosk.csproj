@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B46E662-6F77-46C2-849E-C42F90D75A0C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>prjCSTAKiosk</RootNamespace>
+    <AssemblyName>prjCSTAKiosk</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>sit.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="class_con.cs" />
+    <Compile Include="Functions\clsCon.cs" />
+    <Compile Include="Maintenance\frmCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\frmCourse.Designer.cs">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\frmDECourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\frmDECourse.Designer.cs">
+      <DependentUpon>frmDECourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\frmDEDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\frmDEDevice.Designer.cs">
+      <DependentUpon>frmDEDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\frmDEFaculty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\frmDEFaculty.Designer.cs">
+      <DependentUpon>frmDEFaculty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\frmDESubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\frmDESubject.Designer.cs">
+      <DependentUpon>frmDESubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\frmDevices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\frmDevices.Designer.cs">
+      <DependentUpon>frmDevices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\frmFaculty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\frmFaculty.Designer.cs">
+      <DependentUpon>frmFaculty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\frmSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintenance\frmSubject.Designer.cs">
+      <DependentUpon>frmSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmAnnouncement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmAnnouncement.Designer.cs">
+      <DependentUpon>frmAnnouncement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmAttendance.Designer.cs">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmClassScheduling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmClassScheduling.Designer.cs">
+      <DependentUpon>frmClassScheduling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmLostFound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmLostFound.Designer.cs">
+      <DependentUpon>frmLostFound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmScheduling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmScheduling.Designer.cs">
+      <DependentUpon>frmScheduling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmStudentManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmStudentManagement.Designer.cs">
+      <DependentUpon>frmStudentManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmSuggestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmSuggestions.Designer.cs">
+      <DependentUpon>frmSuggestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Functions\clsStudent.cs" />
+    <Compile Include="Reports\frmCoverageAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmCoverageAttendance.Designer.cs">
+      <DependentUpon>frmCoverageAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmCoverageStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmCoverageStudent.Designer.cs">
+      <DependentUpon>frmCoverageStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReportAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportAttendance.Designer.cs">
+      <DependentUpon>frmReportAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReportStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStudents.Designer.cs">
+      <DependentUpon>frmReportStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReportSuggestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportSuggestion.Designer.cs">
+      <DependentUpon>frmReportSuggestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Sub\frmClaimItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmClaimItem.Designer.cs">
+      <DependentUpon>frmClaimItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmDEAnnouncement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmDEAnnouncement.Designer.cs">
+      <DependentUpon>frmDEAnnouncement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmDEClassSched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmDEClassSched.Designer.cs">
+      <DependentUpon>frmDEClassSched.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmDELostFound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmDELostFound.Designer.cs">
+      <DependentUpon>frmDELostFound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmDESchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmDESchedule.Designer.cs">
+      <DependentUpon>frmDESchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmDEStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmDEStudent.Designer.cs">
+      <DependentUpon>frmDEStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmSelectStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmSelectStudent.Designer.cs">
+      <DependentUpon>frmSelectStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Systems\frmAboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Systems\frmAboutUs.Designer.cs">
+      <DependentUpon>frmAboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Systems\frmDEUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Systems\frmDEUser.Designer.cs">
+      <DependentUpon>frmDEUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Systems\frmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Systems\frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Maintenance\frmCourse.resx">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\frmDECourse.resx">
+      <DependentUpon>frmDECourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\frmDEDevice.resx">
+      <DependentUpon>frmDEDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\frmDEFaculty.resx">
+      <DependentUpon>frmDEFaculty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\frmDESubject.resx">
+      <DependentUpon>frmDESubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\frmDevices.resx">
+      <DependentUpon>frmDevices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\frmFaculty.resx">
+      <DependentUpon>frmFaculty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintenance\frmSubject.resx">
+      <DependentUpon>frmSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmAnnouncement.resx">
+      <DependentUpon>frmAnnouncement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmAttendance.resx">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmClassScheduling.resx">
+      <DependentUpon>frmClassScheduling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmLostFound.resx">
+      <DependentUpon>frmLostFound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmScheduling.resx">
+      <DependentUpon>frmScheduling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmStudentManagement.resx">
+      <DependentUpon>frmStudentManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmSuggestions.resx">
+      <DependentUpon>frmSuggestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\frmCoverageAttendance.resx">
+      <DependentUpon>frmCoverageAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmCoverageStudent.resx">
+      <DependentUpon>frmCoverageStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportAttendance.resx">
+      <DependentUpon>frmReportAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportStudents.resx">
+      <DependentUpon>frmReportStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportSuggestion.resx">
+      <DependentUpon>frmReportSuggestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmClaimItem.resx">
+      <DependentUpon>frmClaimItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmDEAnnouncement.resx">
+      <DependentUpon>frmDEAnnouncement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmDEClassSched.resx">
+      <DependentUpon>frmDEClassSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmDELostFound.resx">
+      <DependentUpon>frmDELostFound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmDESchedule.resx">
+      <DependentUpon>frmDESchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmDEStudent.resx">
+      <DependentUpon>frmDEStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmSelectStudent.resx">
+      <DependentUpon>frmSelectStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Systems\frmAboutUs.resx">
+      <DependentUpon>frmAboutUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Systems\frmDEUser.resx">
+      <DependentUpon>frmDEUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Systems\frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SIT_Logo-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\icons8-print-24.png" />
+    <None Include="Resources\icons8-search-24.png" />
+    <None Include="Resources\icons8-refresh-24.png" />
+    <None Include="Resources\icons8-delete-file-24.png" />
+    <None Include="Resources\icons8-edit-file-24.png" />
+    <None Include="Resources\icons8-new-file-24.png" />
+    <None Include="Resources\icons8-close-30.png" />
+    <None Include="Resources\icons8-close-24.png" />
+    <None Include="Resources\icons8-faq-48.png" />
+    <None Include="Resources\icons8-lost-and-found-48.png" />
+    <None Include="Resources\icons8-announcement-48.png" />
+    <None Include="Resources\icons8-time-48.png" />
+    <None Include="Resources\icons8-class-48.png" />
+    <None Include="Resources\icons8-student-48.png" />
+    <None Include="Resources\icons8-found-51.png" />
+    <None Include="Resources\icons8-found-24.png" />
+    <None Include="Resources\icons8-check-24.png" />
+    <Content Include="sit.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
