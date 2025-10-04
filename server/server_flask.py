@@ -1,7 +1,7 @@
 from flask import Flask, request
 from routes_function.get_request import get_tbl_class_sched, get_tbl_student_management, get_course_name, get_section, get_year
 from routes_function.post_request import post_student_management
-
+from routes_function.login import login_user_function
 app = Flask(__name__)
 
 #Load/Get Routes
@@ -31,6 +31,13 @@ def load_tbl_year():
 def insert_student_information():
     student_info = request.get_json()
     return post_student_management(student_info)
+
+#LOGIN
+@app.route('/login_user', methods=['POST'])
+def login():
+    credentials = request.get_json()
+    return login_user_function(credentials)
+    
 
 #Main
 if __name__ == '__main__':
