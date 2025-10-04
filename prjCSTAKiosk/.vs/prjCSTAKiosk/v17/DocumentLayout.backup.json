@@ -7,15 +7,15 @@
       "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\class_con.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|c:\\users\\netteyr14\\downloads\\compressed\\prjcstakiosk_2\\prjcstakiosk\\prjcstakiosk\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjcstakiosk\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|c:\\users\\netteyr14\\downloads\\compressed\\prjcstakiosk_2\\prjcstakiosk\\prjcstakiosk\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjcstakiosk\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|c:\\users\\netteyr14\\downloads\\compressed\\prjcstakiosk_2\\prjcstakiosk\\prjcstakiosk\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjcstakiosk\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -36,9 +36,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|prjCSTAKiosk||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|c:\\users\\netteyr14\\downloads\\compressed\\prjcstakiosk_2\\prjcstakiosk\\prjcstakiosk\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -81,8 +78,7 @@
               "RelativeToolTip": "prjCSTAKiosk\\frmLogin.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAD4vyUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T17:47:11.065Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T17:47:11.065Z"
             },
             {
               "$type": "Document",
@@ -93,8 +89,7 @@
               "ToolTip": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjCSTAKiosk\\frmLogin.cs [Design]",
               "RelativeToolTip": "prjCSTAKiosk\\frmLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T17:46:37.406Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-04T17:46:37.406Z"
             },
             {
               "$type": "Document",
@@ -106,8 +101,7 @@
               "RelativeToolTip": "prjCSTAKiosk\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T17:46:18.78Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T17:46:18.78Z"
             },
             {
               "$type": "Document",
@@ -118,8 +112,7 @@
               "ToolTip": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjCSTAKiosk\\prjCSTAKiosk.csproj",
               "RelativeToolTip": "prjCSTAKiosk\\prjCSTAKiosk.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-04T17:45:07.157Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T17:45:07.157Z"
             },
             {
               "$type": "Document",
@@ -131,8 +124,7 @@
               "RelativeToolTip": "prjCSTAKiosk\\Reports\\frmReportAttendance.Designer.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAUwGYAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T17:44:45.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T17:44:45.925Z"
             },
             {
               "$type": "Document",
@@ -144,8 +136,7 @@
               "RelativeToolTip": "prjCSTAKiosk\\Reports\\frmReportSuggestion.Designer.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAUwGcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T17:44:43.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T17:44:43.129Z"
             },
             {
               "$type": "Document",
@@ -157,8 +148,7 @@
               "RelativeToolTip": "prjCSTAKiosk\\Reports\\frmReportStudents.Designer.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAUwGkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T17:43:34.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T17:43:34.22Z"
             },
             {
               "$type": "Document",
@@ -169,8 +159,7 @@
               "ToolTip": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjCSTAKiosk\\frmMain.cs [Design]",
               "RelativeToolTip": "prjCSTAKiosk\\frmMain.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T17:43:13.262Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-04T17:43:13.262Z"
             }
           ]
         }
