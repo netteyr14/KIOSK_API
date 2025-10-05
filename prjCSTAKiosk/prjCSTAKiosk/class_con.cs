@@ -63,11 +63,11 @@ namespace prjCSTAKiosk
             
         }
 
-        public async Task loaddgv(DataGridView dgv, string route, string search="") {
+        public async Task loaddgv(DataGridView dgv, string route, string search="", string cbo_selection="") {
             string fullUrl = url + route;
             if (!string.IsNullOrEmpty(search))
             {
-                fullUrl += $"?search={search}";
+                fullUrl += $"?search={Uri.EscapeDataString(search)}&selection={Uri.EscapeDataString(cbo_selection)}";
             }
             try {
                 var response = await client.GetStringAsync(fullUrl);
@@ -87,7 +87,21 @@ namespace prjCSTAKiosk
             catch (Exception e) {
                 MessageBox.Show($"Error Message: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+        }
+
+        public async Task loadcbo(ToolStripComboBox tscbo, string route, string displaymem, string valuemem) { 
+            string finalUrl = url + route;
+            var responce = await client.GetStringAsync(finalUrl);
+            DataTable dt = JsonConvert.DeserializeObject<DataTable>(responce);
+            if (dt != null)
+            {
+                tscbo.ComboBox.DataSource = dt;
+                tscbo.ComboBox.DisplayMember = displaymem;
+                tscbo.ComboBox.ValueMember = valuemem;
+            }
+            else {
+                tscbo.ComboBox.DataSource = null;
+            } 
         }
     }
 }

@@ -43,6 +43,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscboFilter = new System.Windows.Forms.ToolStripComboBox();
+            this.tscboSelection = new System.Windows.Forms.ToolStripComboBox();
             this.tstbSearch = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearch = new System.Windows.Forms.ToolStripButton();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
@@ -99,6 +100,7 @@
             this.toolStripSeparator3,
             this.toolStripLabel1,
             this.tscboFilter,
+            this.tscboSelection,
             this.tstbSearch,
             this.tsbSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 47);
@@ -169,6 +171,7 @@
             this.tsbRefresh.Name = "tsbRefresh";
             this.tsbRefresh.Size = new System.Drawing.Size(83, 28);
             this.tsbRefresh.Text = "REFRESH";
+            this.tsbRefresh.Click += new System.EventHandler(this.tsbRefresh_Click);
             // 
             // toolStripSeparator3
             // 
@@ -185,15 +188,21 @@
             // 
             this.tscboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tscboFilter.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.tscboFilter.Items.AddRange(new object[] {
-            "STUDENT NUMBER",
-            "LAST NAME",
-            "FIRST NAME"});
             this.tscboFilter.Name = "tscboFilter";
             this.tscboFilter.Size = new System.Drawing.Size(130, 31);
+            this.tscboFilter.SelectedIndexChanged += new System.EventHandler(this.tscboFilter_SelectedIndexChanged);
+            // 
+            // tscboSelection
+            // 
+            this.tscboSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscboSelection.Enabled = false;
+            this.tscboSelection.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.tscboSelection.Name = "tscboSelection";
+            this.tscboSelection.Size = new System.Drawing.Size(130, 31);
             // 
             // tstbSearch
             // 
+            this.tstbSearch.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tstbSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tstbSearch.Name = "tstbSearch";
             this.tstbSearch.Size = new System.Drawing.Size(300, 31);
@@ -206,6 +215,7 @@
             this.tsbSearch.Name = "tsbSearch";
             this.tsbSearch.Size = new System.Drawing.Size(82, 28);
             this.tsbSearch.Text = "SEARCH";
+            this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
             // dgvStudent
             // 
@@ -291,7 +301,7 @@
             // 
             // Column10
             // 
-            this.Column10.DataPropertyName = "student_section";
+            this.Column10.DataPropertyName = "section";
             this.Column10.HeaderText = "SECTION";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
@@ -348,8 +358,9 @@
         private System.Windows.Forms.ToolStripButton tsbSearch;
         private System.Windows.Forms.DataGridView dgvStudent;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripComboBox tscboFilter;
+        private System.Windows.Forms.ToolStripComboBox tscboSelection;
         private System.Windows.Forms.ToolStripTextBox tstbSearch;
+        private System.Windows.Forms.ToolStripComboBox tscboFilter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;

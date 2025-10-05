@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjcstakiosk\\class_con.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\class_con.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|c:\\users\\netteyr14\\downloads\\compressed\\prjcstakiosk_2\\prjcstakiosk\\prjcstakiosk\\main\\frmstudentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\main\\frmstudentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjcstakiosk\\main\\frmstudentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\main\\frmstudentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|c:\\users\\netteyr14\\downloads\\compressed\\prjcstakiosk_2\\prjcstakiosk\\prjcstakiosk\\main\\frmstudentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\main\\frmstudentmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjcstakiosk\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjcstakiosk\\class_con.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\class_con.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjcstakiosk\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjcstakiosk\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B46E662-6F77-46C2-849E-C42F90D75A0C}|prjCSTAKiosk\\prjCSTAKiosk.csproj|solutionrelative:prjcstakiosk\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,13 +46,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "class_con.cs",
               "DocumentMoniker": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjCSTAKiosk\\class_con.cs",
               "RelativeDocumentMoniker": "prjCSTAKiosk\\class_con.cs",
               "ToolTip": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjCSTAKiosk\\class_con.cs",
               "RelativeToolTip": "prjCSTAKiosk\\class_con.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwDgAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAswEoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-04T17:48:11.629Z",
               "EditorCaption": ""
@@ -65,14 +65,14 @@
               "RelativeDocumentMoniker": "prjCSTAKiosk\\Main\\frmStudentManagement.cs",
               "ToolTip": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjCSTAKiosk\\Main\\frmStudentManagement.cs",
               "RelativeToolTip": "prjCSTAKiosk\\Main\\frmStudentManagement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABcAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAWwEcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T03:11:56.788Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "frmStudentManagement.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjCSTAKiosk\\Main\\frmStudentManagement.cs",
               "RelativeDocumentMoniker": "prjCSTAKiosk\\Main\\frmStudentManagement.cs",
@@ -84,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "frmMain.cs",
               "DocumentMoniker": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjCSTAKiosk\\frmMain.cs",
               "RelativeDocumentMoniker": "prjCSTAKiosk\\frmMain.cs",
@@ -96,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "frmMain.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Netteyr14\\Downloads\\Compressed\\prjCSTAKiosk_2\\prjCSTAKiosk\\prjCSTAKiosk\\frmMain.cs",
               "RelativeDocumentMoniker": "prjCSTAKiosk\\frmMain.cs",
