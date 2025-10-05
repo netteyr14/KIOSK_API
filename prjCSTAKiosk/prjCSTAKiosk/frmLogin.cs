@@ -19,14 +19,15 @@ namespace prjCSTAKiosk
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            if (await cls.login(txtUsername.Text, txtPassword.Text)) {
-                frmMain main = new frmMain();
+            var result = await cls.login(txtUsername.Text, txtPassword.Text);
+            if (result.success)
+            {
+                frmMain main = new frmMain(result.fullname ?? "none", result.role ?? "none");
                 this.Hide();
                 main.Show();
-            } else if (!await cls.login(txtUsername.Text, txtPassword.Text)) {
-                MessageBox.Show("Incorrect Username or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            txtUsername.Text = "";
+            txtPassword.Text = "";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
