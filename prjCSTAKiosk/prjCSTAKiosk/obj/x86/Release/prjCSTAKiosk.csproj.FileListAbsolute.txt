@@ -106,3 +106,4 @@ C:\Users\Netteyr14\Downloads\Compressed\prjCSTAKiosk_2\prjCSTAKiosk\prjCSTAKiosk
 C:\Users\Netteyr14\Downloads\Compressed\prjCSTAKiosk_2\prjCSTAKiosk\prjCSTAKiosk\obj\x86\Release\prjCSTAK.6D512A5C.Up2Date
 C:\Users\Netteyr14\Downloads\Compressed\prjCSTAKiosk_2\prjCSTAKiosk\prjCSTAKiosk\obj\x86\Release\prjCSTAKiosk.exe
 C:\Users\Netteyr14\Downloads\Compressed\prjCSTAKiosk_2\prjCSTAKiosk\prjCSTAKiosk\obj\x86\Release\prjCSTAKiosk.pdb
+C:\Users\Netteyr14\Downloads\Compressed\prjCSTAKiosk_2\prjCSTAKiosk\prjCSTAKiosk\obj\x86\Release\prjCSTAKiosk.exe.config

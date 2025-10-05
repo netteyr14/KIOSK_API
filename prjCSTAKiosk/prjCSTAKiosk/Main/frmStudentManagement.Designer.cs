@@ -32,12 +32,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbClose = new System.Windows.Forms.ToolStripButton();
+            this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.tscboFilter = new System.Windows.Forms.ToolStripComboBox();
+            this.tstbSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.tsbSearch = new System.Windows.Forms.ToolStripButton();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,15 +55,6 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tstbSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tscboFilter = new System.Windows.Forms.ToolStripComboBox();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.tsbNew = new System.Windows.Forms.ToolStripButton();
-            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
-            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
-            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
-            this.tsbSearch = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
@@ -108,147 +107,6 @@
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
-            // 
-            // dgvStudent
-            // 
-            this.dgvStudent.AllowUserToAddRows = false;
-            this.dgvStudent.AllowUserToDeleteRows = false;
-            this.dgvStudent.AllowUserToResizeColumns = false;
-            this.dgvStudent.AllowUserToResizeRows = false;
-            this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column9,
-            this.Column10,
-            this.Column11});
-            this.dgvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvStudent.Location = new System.Drawing.Point(0, 78);
-            this.dgvStudent.Name = "dgvStudent";
-            this.dgvStudent.ReadOnly = true;
-            this.dgvStudent.RowHeadersVisible = false;
-            this.dgvStudent.Size = new System.Drawing.Size(1366, 671);
-            this.dgvStudent.TabIndex = 6;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "STUDENT NO.";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 110;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "RFID";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 130;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "FIRST NAME";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 170;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "MIDDLE NAME";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 170;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "LAST NAME";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 170;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.HeaderText = "COURSE";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "YEAR";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 120;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "SECTION";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.FalseValue = "0";
-            this.Column11.HeaderText = "ACTIVE";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column11.TrueValue = "1";
-            this.Column11.Width = 60;
-            // 
-            // tstbSearch
-            // 
-            this.tstbSearch.Name = "tstbSearch";
-            this.tstbSearch.Size = new System.Drawing.Size(300, 31);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(71, 28);
-            this.toolStripLabel1.Text = "SEARCH BY";
-            // 
-            // tscboFilter
-            // 
-            this.tscboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tscboFilter.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.tscboFilter.Items.AddRange(new object[] {
-            "STUDENT NUMBER",
-            "LAST NAME",
-            "FIRST NAME"});
-            this.tscboFilter.Name = "tscboFilter";
-            this.tscboFilter.Size = new System.Drawing.Size(130, 31);
-            // 
             // tsbClose
             // 
             this.tsbClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -270,6 +128,11 @@
             this.tsbNew.Text = "NEW";
             this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
             // tsbEdit
             // 
             this.tsbEdit.Image = global::prjCSTAKiosk.Properties.Resources.icons8_edit_file_24;
@@ -278,6 +141,11 @@
             this.tsbEdit.Name = "tsbEdit";
             this.tsbEdit.Size = new System.Drawing.Size(59, 28);
             this.tsbEdit.Text = "EDIT";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // tsbDelete
             // 
@@ -288,6 +156,11 @@
             this.tsbDelete.Size = new System.Drawing.Size(74, 28);
             this.tsbDelete.Text = "DELETE";
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
+            // 
             // tsbRefresh
             // 
             this.tsbRefresh.Image = global::prjCSTAKiosk.Properties.Resources.icons8_refresh_24;
@@ -297,6 +170,34 @@
             this.tsbRefresh.Size = new System.Drawing.Size(83, 28);
             this.tsbRefresh.Text = "REFRESH";
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(71, 28);
+            this.toolStripLabel1.Text = "SEARCH BY";
+            // 
+            // tscboFilter
+            // 
+            this.tscboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscboFilter.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.tscboFilter.Items.AddRange(new object[] {
+            "STUDENT NUMBER",
+            "LAST NAME",
+            "FIRST NAME"});
+            this.tscboFilter.Name = "tscboFilter";
+            this.tscboFilter.Size = new System.Drawing.Size(130, 31);
+            // 
+            // tstbSearch
+            // 
+            this.tstbSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tstbSearch.Name = "tstbSearch";
+            this.tstbSearch.Size = new System.Drawing.Size(300, 31);
+            // 
             // tsbSearch
             // 
             this.tsbSearch.Image = global::prjCSTAKiosk.Properties.Resources.icons8_search_24;
@@ -305,6 +206,107 @@
             this.tsbSearch.Name = "tsbSearch";
             this.tsbSearch.Size = new System.Drawing.Size(82, 28);
             this.tsbSearch.Text = "SEARCH";
+            // 
+            // dgvStudent
+            // 
+            this.dgvStudent.AllowUserToAddRows = false;
+            this.dgvStudent.AllowUserToDeleteRows = false;
+            this.dgvStudent.AllowUserToResizeColumns = false;
+            this.dgvStudent.AllowUserToResizeRows = false;
+            this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column9,
+            this.Column10,
+            this.Column11});
+            this.dgvStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvStudent.Location = new System.Drawing.Point(0, 78);
+            this.dgvStudent.Name = "dgvStudent";
+            this.dgvStudent.ReadOnly = true;
+            this.dgvStudent.RowHeadersVisible = false;
+            this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStudent.Size = new System.Drawing.Size(1366, 671);
+            this.dgvStudent.TabIndex = 6;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "stud_number";
+            this.Column2.HeaderText = "STUDENT NO.";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 110;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "rfid_card";
+            this.Column3.HeaderText = "RFID";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 130;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "fname";
+            this.Column4.HeaderText = "FIRST NAME";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 170;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "mname";
+            this.Column5.HeaderText = "MIDDLE NAME";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 170;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "lname";
+            this.Column6.HeaderText = "LAST NAME";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 170;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.DataPropertyName = "course_name";
+            this.Column7.HeaderText = "COURSE";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "year_level";
+            this.Column9.HeaderText = "YEAR";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 120;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "student_section";
+            this.Column10.HeaderText = "SECTION";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "isactive";
+            this.Column11.FalseValue = "0";
+            this.Column11.HeaderText = "ACTIVE";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column11.TrueValue = "1";
+            this.Column11.Width = 60;
             // 
             // frmStudentManagement
             // 
@@ -345,7 +347,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbSearch;
         private System.Windows.Forms.DataGridView dgvStudent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox tscboFilter;
+        private System.Windows.Forms.ToolStripTextBox tstbSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -355,8 +359,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column11;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripComboBox tscboFilter;
-        private System.Windows.Forms.ToolStripTextBox tstbSearch;
     }
 }

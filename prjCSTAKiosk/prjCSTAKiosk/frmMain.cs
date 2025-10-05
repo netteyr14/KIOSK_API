@@ -11,9 +11,13 @@ namespace prjCSTAKiosk
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        string username;
+        string role;
+        public frmMain(string username_data="", string role_data="")
         {
             InitializeComponent();
+            username = username_data;
+            role = role_data;
         }
 
         private void OpenForm(Form frm)
@@ -31,6 +35,8 @@ namespace prjCSTAKiosk
         private void frmMain_Load(object sender, EventArgs e)
         {
             tDateTime.Start();
+            sslUsername.Text = username;
+            sslPosition.Text = role;
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
