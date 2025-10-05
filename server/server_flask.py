@@ -1,5 +1,5 @@
 from flask import Flask, request
-from routes_function.get_request import get_tbl_class_sched, get_tbl_student_management, get_course_name, get_section, get_year
+from routes_function.get_request import get_tbl_class_sched, get_tbl_student_management, get_course_name
 from routes_function.post_request import post_student_management
 from routes_function.login import login_user_function
 app = Flask(__name__)
@@ -12,19 +12,13 @@ def load_tbl_class_sched():
 
 @app.route('/view_student_management', methods=['GET'])
 def load_tbl_student_management():
-    return get_tbl_student_management()
+    search = request.args.get("search")
+    selection = request.args.get("selection")
+    return get_tbl_student_management(search, selection)
 
 @app.route('/tbl_course', methods=['GET'])
 def load_tbl_course():
     return get_course_name()
-
-@app.route('/tbl_section', methods=['GET'])
-def load_tbl_section():
-    return get_section()
-
-@app.route('/tbl_year', methods=['GET'])
-def load_tbl_year():
-    return get_year()
 
 #Insert/Post Routes
 @app.route('/student_information', methods=['POST'])

@@ -1,0 +1,16 @@
+#DONE ROUTES
+//GET ROUTES
+*view_student_management(searching and displaying)
+*tbl_course(displaying)
+
+//POST ROUTES
+*student_information(insert students)
+*login_user(credential validation)
+
+#ONGOING
+*UPDATE
+*DELETE
+
+#Removed(non existing in the latest db)
+*route for tbl_section
+*route for tbl_year
