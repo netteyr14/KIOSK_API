@@ -7,7 +7,7 @@ app = Flask(__name__)
 #Load/Get Routes
 @app.route('/view_class_sched', methods=['GET'])
 def load_tbl_class_sched():
-    student_number = request.args.get("stud_number")  # key matches ?stud_number as for inline payload instead of passing a json as argument
+    student_number = request.args.get("stud_number")  # key matches ?stud_number= as for inline payload instead of passing a json as argument
     return get_tbl_class_sched(student_number)
 
 @app.route('/view_student_management', methods=['GET'])
