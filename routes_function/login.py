@@ -12,11 +12,15 @@ def login_user_function(credentials):
     try:
         sql = "SELECT * FROM tbl_admin WHERE uname = %s AND pword = %s"
         cursor.execute(sql, (uname, pword))
-        user = cursor.fetchone()
+        user = cursor.fetchone()       
         if user:
-            return jsonify({"status": "success", "message": "Login successful", "user": user})
+            fullname = user["fullname"]
+            role = user["role"]
+            return jsonify({"status": "success", "message": "Login successful", "fullname": fullname,  "role": role})
         else:
             return jsonify({"status": "failure", "message": "Invalid username or password"}), 401
+    except Exception as e:
+        return jsonify({"status": "failure", "message": f"An error occurred during login: {str(e)}"}), 500
     finally:
         cursor.close()
         conn.close()
