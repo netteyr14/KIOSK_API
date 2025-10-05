@@ -24,7 +24,7 @@ def fetch_all(query, params=None):
 
 #LOAD STUDENT MANAGEMENT TABLE TO
 def get_tbl_student_management():
-    sql = "SELECT stud_number, rfid_card, fname, mname, lname, course_name, year_level, student_section FROM vw_students"
+    sql = "SELECT stud_number, rfid_card, fname, mname, lname, course_name, year_level, student_section, isactive FROM vw_students"
     data = fetch_all(sql)
     return jsonify(data)
 
