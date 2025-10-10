@@ -99,7 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="class_con.cs" />
+    <Compile Include="Functions\class_con.cs" />
     <Compile Include="Functions\clsCon.cs" />
     <Compile Include="Maintenance\frmCourse.cs">
       <SubType>Form</SubType>
@@ -237,6 +237,7 @@
       <DependentUpon>frmReportSuggestion.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="student_obj.cs" />
     <Compile Include="Sub\frmClaimItem.cs">
       <SubType>Form</SubType>
     </Compile>

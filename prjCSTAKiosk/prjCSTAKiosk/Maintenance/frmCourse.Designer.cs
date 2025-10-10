@@ -32,19 +32,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbClose = new System.Windows.Forms.ToolStripButton();
+            this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvSchedule = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.tsbNew = new System.Windows.Forms.ToolStripButton();
-            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
-            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
-            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
@@ -93,20 +93,68 @@
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tsbClose
+            // 
+            this.tsbClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbClose.Image = global::prjCSTAKiosk.Properties.Resources.icons8_close_24;
+            this.tsbClose.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbClose.Name = "tsbClose";
+            this.tsbClose.Size = new System.Drawing.Size(74, 28);
+            this.tsbClose.Text = "CLOSE";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
+            // 
+            // tsbNew
+            // 
+            this.tsbNew.Image = global::prjCSTAKiosk.Properties.Resources.icons8_new_file_24;
+            this.tsbNew.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNew.Name = "tsbNew";
+            this.tsbNew.Size = new System.Drawing.Size(64, 28);
+            this.tsbNew.Text = "NEW";
+            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // tsbEdit
+            // 
+            this.tsbEdit.Image = global::prjCSTAKiosk.Properties.Resources.icons8_edit_file_24;
+            this.tsbEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEdit.Name = "tsbEdit";
+            this.tsbEdit.Size = new System.Drawing.Size(59, 28);
+            this.tsbEdit.Text = "EDIT";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
+            // tsbDelete
+            // 
+            this.tsbDelete.Image = global::prjCSTAKiosk.Properties.Resources.icons8_delete_file_24;
+            this.tsbDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(74, 28);
+            this.tsbDelete.Text = "DELETE";
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
+            // 
+            // tsbRefresh
+            // 
+            this.tsbRefresh.Image = global::prjCSTAKiosk.Properties.Resources.icons8_refresh_24;
+            this.tsbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRefresh.Name = "tsbRefresh";
+            this.tsbRefresh.Size = new System.Drawing.Size(83, 28);
+            this.tsbRefresh.Text = "REFRESH";
             // 
             // toolStripSeparator3
             // 
@@ -134,6 +182,7 @@
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "course_id";
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -141,6 +190,7 @@
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "course_code";
             this.Column2.HeaderText = "CODE";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -149,57 +199,10 @@
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "course_name";
             this.Column4.HeaderText = "DESCRIPTION";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            // 
-            // tsbClose
-            // 
-            this.tsbClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbClose.Image = global::prjCSTAKiosk.Properties.Resources.icons8_close_24;
-            this.tsbClose.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(74, 28);
-            this.tsbClose.Text = "CLOSE";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
-            // 
-            // tsbNew
-            // 
-            this.tsbNew.Image = global::prjCSTAKiosk.Properties.Resources.icons8_new_file_24;
-            this.tsbNew.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(64, 28);
-            this.tsbNew.Text = "NEW";
-            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
-            // 
-            // tsbEdit
-            // 
-            this.tsbEdit.Image = global::prjCSTAKiosk.Properties.Resources.icons8_edit_file_24;
-            this.tsbEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEdit.Name = "tsbEdit";
-            this.tsbEdit.Size = new System.Drawing.Size(59, 28);
-            this.tsbEdit.Text = "EDIT";
-            // 
-            // tsbDelete
-            // 
-            this.tsbDelete.Image = global::prjCSTAKiosk.Properties.Resources.icons8_delete_file_24;
-            this.tsbDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(74, 28);
-            this.tsbDelete.Text = "DELETE";
-            // 
-            // tsbRefresh
-            // 
-            this.tsbRefresh.Image = global::prjCSTAKiosk.Properties.Resources.icons8_refresh_24;
-            this.tsbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRefresh.Name = "tsbRefresh";
-            this.tsbRefresh.Size = new System.Drawing.Size(83, 28);
-            this.tsbRefresh.Text = "REFRESH";
             // 
             // frmCourse
             // 
@@ -219,6 +222,7 @@
             this.Name = "frmCourse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Courses | List";
+            this.Load += new System.EventHandler(this.frmCourse_Load);
             this.panel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

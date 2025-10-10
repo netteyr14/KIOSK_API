@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtStudNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRFID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtFname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,8 +53,13 @@
             this.ofdImage = new System.Windows.Forms.OpenFileDialog();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.btnBrowse = new System.Windows.Forms.Button();
+            this.cboCom = new System.Windows.Forms.ComboBox();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnDisconnect = new System.Windows.Forms.Button();
+            this.gb_fields = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.gb_fields.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,15 +88,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(233, 101);
+            this.label1.Location = new System.Drawing.Point(6, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 16);
+            this.label1.Size = new System.Drawing.Size(102, 16);
             this.label1.TabIndex = 130;
             this.label1.Text = "STUDENT NUMBER";
             // 
             // txtStudNumber
             // 
-            this.txtStudNumber.Location = new System.Drawing.Point(236, 120);
+            this.txtStudNumber.Location = new System.Drawing.Point(9, 73);
             this.txtStudNumber.Name = "txtStudNumber";
             this.txtStudNumber.Size = new System.Drawing.Size(258, 21);
             this.txtStudNumber.TabIndex = 0;
@@ -99,34 +104,35 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 58);
+            this.label2.Location = new System.Drawing.Point(6, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 16);
+            this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 132;
             this.label2.Text = "RFID NUMBER";
             // 
-            // textBox1
+            // txtRFID
             // 
-            this.textBox1.Location = new System.Drawing.Point(236, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(258, 21);
-            this.textBox1.TabIndex = 131;
-            this.textBox1.TabStop = false;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRFID.Enabled = false;
+            this.txtRFID.Location = new System.Drawing.Point(9, 30);
+            this.txtRFID.Name = "txtRFID";
+            this.txtRFID.ReadOnly = true;
+            this.txtRFID.Size = new System.Drawing.Size(258, 21);
+            this.txtRFID.TabIndex = 131;
+            this.txtRFID.TabStop = false;
+            this.txtRFID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(233, 144);
+            this.label4.Location = new System.Drawing.Point(6, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 16);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 134;
             this.label4.Text = "FIRST NAME";
             // 
             // txtFname
             // 
-            this.txtFname.Location = new System.Drawing.Point(236, 163);
+            this.txtFname.Location = new System.Drawing.Point(9, 116);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(258, 21);
             this.txtFname.TabIndex = 1;
@@ -134,15 +140,15 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(233, 187);
+            this.label5.Location = new System.Drawing.Point(6, 140);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 16);
+            this.label5.Size = new System.Drawing.Size(83, 16);
             this.label5.TabIndex = 136;
             this.label5.Text = "MIDDLE NAME";
             // 
             // txtMname
             // 
-            this.txtMname.Location = new System.Drawing.Point(236, 206);
+            this.txtMname.Location = new System.Drawing.Point(9, 159);
             this.txtMname.Name = "txtMname";
             this.txtMname.Size = new System.Drawing.Size(258, 21);
             this.txtMname.TabIndex = 2;
@@ -150,15 +156,15 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(233, 230);
+            this.label6.Location = new System.Drawing.Point(6, 183);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 16);
+            this.label6.Size = new System.Drawing.Size(65, 16);
             this.label6.TabIndex = 138;
             this.label6.Text = "LAST NAME";
             // 
             // txtLname
             // 
-            this.txtLname.Location = new System.Drawing.Point(236, 249);
+            this.txtLname.Location = new System.Drawing.Point(9, 202);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(258, 21);
             this.txtLname.TabIndex = 3;
@@ -167,7 +173,7 @@
             // 
             this.cboCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCourse.FormattingEnabled = true;
-            this.cboCourse.Location = new System.Drawing.Point(236, 293);
+            this.cboCourse.Location = new System.Drawing.Point(9, 246);
             this.cboCourse.Name = "cboCourse";
             this.cboCourse.Size = new System.Drawing.Size(128, 24);
             this.cboCourse.TabIndex = 4;
@@ -175,24 +181,24 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(233, 273);
+            this.label8.Location = new System.Drawing.Point(6, 226);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 16);
+            this.label8.Size = new System.Drawing.Size(53, 16);
             this.label8.TabIndex = 158;
             this.label8.Text = "COURSE";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(233, 320);
+            this.label7.Location = new System.Drawing.Point(6, 273);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 16);
+            this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 160;
             this.label7.Text = "SECTION";
             // 
             // txtSection
             // 
-            this.txtSection.Location = new System.Drawing.Point(236, 339);
+            this.txtSection.Location = new System.Drawing.Point(9, 292);
             this.txtSection.Name = "txtSection";
             this.txtSection.Size = new System.Drawing.Size(258, 21);
             this.txtSection.TabIndex = 6;
@@ -206,7 +212,7 @@
             "2ND YEAR",
             "3RD YEAR",
             "4TH YEAR"});
-            this.cboYear.Location = new System.Drawing.Point(370, 293);
+            this.cboYear.Location = new System.Drawing.Point(143, 246);
             this.cboYear.Name = "cboYear";
             this.cboYear.Size = new System.Drawing.Size(124, 24);
             this.cboYear.TabIndex = 5;
@@ -214,9 +220,9 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(367, 273);
+            this.label9.Location = new System.Drawing.Point(140, 226);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 16);
+            this.label9.Size = new System.Drawing.Size(34, 16);
             this.label9.TabIndex = 162;
             this.label9.Text = "YEAR";
             // 
@@ -234,6 +240,7 @@
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -252,7 +259,7 @@
             this.chkActive.AutoSize = true;
             this.chkActive.Location = new System.Drawing.Point(12, 316);
             this.chkActive.Name = "chkActive";
-            this.chkActive.Size = new System.Drawing.Size(64, 20);
+            this.chkActive.Size = new System.Drawing.Size(63, 20);
             this.chkActive.TabIndex = 8;
             this.chkActive.Text = "ACTIVE";
             this.chkActive.UseVisualStyleBackColor = true;
@@ -284,6 +291,60 @@
             this.btnBrowse.UseVisualStyleBackColor = false;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
+            // cboCom
+            // 
+            this.cboCom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCom.FormattingEnabled = true;
+            this.cboCom.Location = new System.Drawing.Point(101, 339);
+            this.cboCom.Name = "cboCom";
+            this.cboCom.Size = new System.Drawing.Size(121, 24);
+            this.cboCom.TabIndex = 172;
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(101, 310);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(121, 23);
+            this.btnConnect.TabIndex = 173;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // btnDisconnect
+            // 
+            this.btnDisconnect.Location = new System.Drawing.Point(101, 310);
+            this.btnDisconnect.Name = "btnDisconnect";
+            this.btnDisconnect.Size = new System.Drawing.Size(121, 23);
+            this.btnDisconnect.TabIndex = 174;
+            this.btnDisconnect.Text = "Disconnect";
+            this.btnDisconnect.UseVisualStyleBackColor = true;
+            this.btnDisconnect.Visible = false;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
+            // 
+            // gb_fields
+            // 
+            this.gb_fields.Controls.Add(this.label2);
+            this.gb_fields.Controls.Add(this.txtStudNumber);
+            this.gb_fields.Controls.Add(this.label1);
+            this.gb_fields.Controls.Add(this.txtRFID);
+            this.gb_fields.Controls.Add(this.txtFname);
+            this.gb_fields.Controls.Add(this.label4);
+            this.gb_fields.Controls.Add(this.txtMname);
+            this.gb_fields.Controls.Add(this.label5);
+            this.gb_fields.Controls.Add(this.txtLname);
+            this.gb_fields.Controls.Add(this.cboYear);
+            this.gb_fields.Controls.Add(this.label6);
+            this.gb_fields.Controls.Add(this.label9);
+            this.gb_fields.Controls.Add(this.label8);
+            this.gb_fields.Controls.Add(this.label7);
+            this.gb_fields.Controls.Add(this.cboCourse);
+            this.gb_fields.Controls.Add(this.txtSection);
+            this.gb_fields.Location = new System.Drawing.Point(228, 47);
+            this.gb_fields.Name = "gb_fields";
+            this.gb_fields.Size = new System.Drawing.Size(278, 323);
+            this.gb_fields.TabIndex = 175;
+            this.gb_fields.TabStop = false;
+            // 
             // frmDEStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -291,27 +352,15 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(506, 422);
             this.ControlBox = false;
+            this.Controls.Add(this.gb_fields);
+            this.Controls.Add(this.btnDisconnect);
+            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.cboCom);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.chkActive);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.pbImage);
-            this.Controls.Add(this.cboYear);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtSection);
-            this.Controls.Add(this.cboCourse);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtLname);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtMname);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtFname);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtStudNumber);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -321,8 +370,11 @@
             this.Name = "frmDEStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student | Data Entry";
+            this.Load += new System.EventHandler(this.frmDEStudent_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.gb_fields.ResumeLayout(false);
+            this.gb_fields.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,7 +387,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtStudNumber;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRFID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtFname;
         private System.Windows.Forms.Label label5;
@@ -354,5 +406,9 @@
         private System.Windows.Forms.CheckBox chkActive;
         private System.Windows.Forms.OpenFileDialog ofdImage;
         private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.ComboBox cboCom;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnDisconnect;
+        private System.Windows.Forms.GroupBox gb_fields;
     }
 }
