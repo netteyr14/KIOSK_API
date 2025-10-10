@@ -26,21 +26,21 @@ def execute_query(query, params=None):
 
 def post_student_management(student_info=None):
     sql = """INSERT INTO tbl_student
-    (stud_number, rfid_card, fname, mname, lname, course_no, section, year_level, isactive, isdeleted)
+    (stud_number, rfid_card, fname, mname, lname, course_no, year_level, section, isactive, image_path)
     VALUES
     (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
 
     params = (
-        student_info["stud_number"],
-        student_info["rfid_card"],
+        student_info["stud_num"],
+        student_info["rfid"],
         student_info["fname"],
         student_info["mname"],
         student_info["lname"],
         student_info["course_no"],
-        student_info["section"],
         student_info["year_level"],
+        student_info["section"],
         student_info["isactive"],
-        student_info["isdeleted"]
+        student_info["image_path"]
     )
 
     data = execute_query(sql, params)
