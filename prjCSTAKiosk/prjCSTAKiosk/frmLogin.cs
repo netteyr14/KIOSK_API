@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using prjCSTAKiosk.Functions;
 
 namespace prjCSTAKiosk
 {
     public partial class frmLogin : Form
     {
-        class_con cls = new class_con();
+        private class_con cls = new class_con();
         public frmLogin()
         {
             InitializeComponent();

@@ -3,20 +3,21 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace prjCSTAKiosk
+
+namespace prjCSTAKiosk.Functions
 {
-    public class class_con
+    internal class class_con
     {
         private static HttpClient client = new HttpClient();
-        private string url = "http://192.168.1.7:8080/";
+        private string url = "http://192.168.1.6:8080/";
 
-        public async Task<(bool success, string fullname, string role)> login(string username="", string password="") {
+        public async Task<(bool success, string fullname, string role)> login(string username = "", string password = "")
+        {
 
             var loginData = new
             {
@@ -29,8 +30,10 @@ namespace prjCSTAKiosk
                 MessageBox.Show("Empty fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return (false, null, null);
             }
-            else {
-                try {
+            else
+            {
+                try
+                {
                     string json = JsonConvert.SerializeObject(loginData);
                     StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
                     string loginUrl = url + "login_user";
@@ -38,7 +41,7 @@ namespace prjCSTAKiosk
                     string result = await response.Content.ReadAsStringAsync();
                     var jsonResult = JObject.Parse(result);
 
-                    string status = jsonResult["status"].ToString() ?? ""; //left will execute if not null, else gives an empty string. ternary operator to
+                    string status = jsonResult["status"].ToString(); //left will execute if not null, else gives an empty string. ternary operator to
                     string fullname = jsonResult["fullname"]?.ToString();
                     string role = jsonResult["role"]?.ToString();
                     string message = jsonResult["message"]?.ToString();
@@ -54,22 +57,25 @@ namespace prjCSTAKiosk
                         return (false, null, null);
                     }
                 }
-                catch (Exception e) {
+                catch (Exception e)
+                {
                     MessageBox.Show($"Error Message: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return (false, null, null);
                 }
-                
+
             }
-            
+
         }
 
-        public async Task loaddgv(DataGridView dgv, string route, string search="", string cbo_selection="") {
+        public async Task loaddgv(DataGridView dgv, string route, string search = "", string cbo_selection = "")
+        {
             string fullUrl = url + route;
             if (!string.IsNullOrEmpty(search))
             {
                 fullUrl += $"?search={Uri.EscapeDataString(search)}&selection={Uri.EscapeDataString(cbo_selection)}";
             }
-            try {
+            try
+            {
                 var response = await client.GetStringAsync(fullUrl);
                 DataTable dt = JsonConvert.DeserializeObject<DataTable>(response);
                 if (dt != null)
@@ -84,12 +90,31 @@ namespace prjCSTAKiosk
                     dgv.Rows.Clear();
                 }
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 MessageBox.Show($"Error Message: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public async Task loadcbo(ToolStripComboBox tscbo, string route, string displaymem, string valuemem) { 
+        public async Task loadcbo(ComboBox cbo, string route, string displaymem, string valuemem)
+        {
+            string finalUrl = url + route;
+            var responce = await client.GetStringAsync(finalUrl);
+            DataTable dt = JsonConvert.DeserializeObject<DataTable>(responce);
+            if (dt != null)
+            {
+                cbo.DataSource = dt;
+                cbo.DisplayMember = displaymem;
+                cbo.ValueMember = valuemem;
+            }
+            else
+            {
+                cbo.DataSource = null;
+            }
+        }
+
+        public async Task loadcbo_ts(ToolStripComboBox tscbo, string route, string displaymem, string valuemem)
+        {
             string finalUrl = url + route;
             var responce = await client.GetStringAsync(finalUrl);
             DataTable dt = JsonConvert.DeserializeObject<DataTable>(responce);
@@ -99,9 +124,29 @@ namespace prjCSTAKiosk
                 tscbo.ComboBox.DisplayMember = displaymem;
                 tscbo.ComboBox.ValueMember = valuemem;
             }
-            else {
+            else
+            {
                 tscbo.ComboBox.DataSource = null;
-            } 
+            }
+        }
+        public async Task insert_student(student_obj student_info) {
+            string finalUrl = url + "insert_student_information";
+            string json = JsonConvert.SerializeObject(student_info);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await client.PostAsync(finalUrl, content);
+
+            string result = await response.Content.ReadAsStringAsync();
+            var jsonResult = JObject.Parse(result);
+            string status = jsonResult["message"]?.ToString();
+            if (status.Equals("Added Successfully", StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Message: " + result, "message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else { 
+                MessageBox.Show("Message: " + result, "error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
     }
 }

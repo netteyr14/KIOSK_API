@@ -6,12 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using prjCSTAKiosk.Functions;
 namespace prjCSTAKiosk
 {
     public partial class frmStudentManagement : Form
     {
-        class_con cls = new class_con();
+        private class_con cls = new class_con();
         public frmStudentManagement()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace prjCSTAKiosk
 
         private async void frmStudentManagement_Load(object sender, EventArgs e)
         {
-            await cls.loaddgv(dgvStudent, "view_student_management");
+            await cls.loaddgv(dgvStudent, "load_tbl_student_management");
             
             tscboFilter.Items.Add("Course");
             tscboFilter.Items.Add("Year");
@@ -51,7 +51,7 @@ namespace prjCSTAKiosk
             switch (selectedFilter)
             {
                 case "Course":
-                    await cls.loadcbo(tscboSelection, "tbl_course", "course_name", "course_id");
+                    await cls.loadcbo_ts(tscboSelection, "load_tbl_course_cbo", "course_name", "course_id");
                     break;
 
                 case "Year":
@@ -65,12 +65,12 @@ namespace prjCSTAKiosk
 
         private async void tsbSearch_Click(object sender, EventArgs e)
         {
-            await cls.loaddgv(dgvStudent, "view_student_management", tstbSearch.Text, tscboSelection.Text);
+            await cls.loaddgv(dgvStudent, "load_tbl_student_management", tstbSearch.Text, tscboSelection.Text);
         }
 
         private async void tsbRefresh_Click(object sender, EventArgs e)
         {
-            await cls.loaddgv(dgvStudent, "view_student_management");
+            await cls.loaddgv(dgvStudent, "load_tbl_student_management");
             dgvStudent.ClearSelection();
             dgvStudent.BeginInvoke((Action)(()=>dgvStudent.FindForm().ActiveControl=null));
         }
