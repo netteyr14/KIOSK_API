@@ -82,7 +82,12 @@ def get_tbl_class_sched(student_number=None):
             row["time_end"] = str(row["time_end"])
     return jsonify(data)
 
-def get_course_name():
+def get_course_cbo():
     sql = "SELECT course_name, course_id FROM tbl_course"
+    rows = fetch_all(sql) 
+    return jsonify(rows)
+
+def get_course_dgv():
+    sql = "SELECT course_name, course_code FROM tbl_course"
     rows = fetch_all(sql) 
     return jsonify(rows)
