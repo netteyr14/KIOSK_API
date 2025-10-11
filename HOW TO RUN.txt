@@ -1,12 +1,15 @@
-On Terminal VSCode/CMD(locate proper dir first):
-#USES TWO PROCESSES (Each ng waitress has 20 Threads)
-* python -m server.run_waitress --port=5001
-* python -m server.run_waitress --port=5002
-* ctrl+c to stop
+How to run:
+1. Import dbcstakiosk_new.sql(copy and F9/Run it on SQLYog)
+2. Go to \KIOSK_API\server\nginx-1.28.0\conf and open nginx.conf
+3. Change the IP Address based sa IP mo(make sure to change the IP on class_con.cs url)
+4. Run start_server.bat file
 
-#On Terminal VSCode/CMD(locate proper dir first):
-* start nginx
-* ./nginx -s quit = for vscode terminal
-* nginx -s quit = for cmd
+Do this first:
+# Python install
+* python --version (muna to check kung anong version at kung meron ba or wala)
+* python 3.11.5(gamit ko) or any version ≥ 3.10 recommended(if wala pa)
+* Go to "Edit the system Environment Variables > Environment Variables > System Variables > Path" if wala pa dito locate nyo nalang python version nyo kung saan naka-install. If may multiple python ka, i-move up mo lang gusto mong i-prio na version.
 
-#Or use the batch file
+# Install both in one go
+* pip install Flask waitress
+
