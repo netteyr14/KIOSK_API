@@ -12,6 +12,7 @@ namespace prjCSTAKiosk
     public partial class frmStudentManagement : Form
     {
         private class_con cls = new class_con();
+        private student_obj student_info = new student_obj();
         public frmStudentManagement()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace prjCSTAKiosk
 
         private async void frmStudentManagement_Load(object sender, EventArgs e)
         {
+            dgvStudent.Tag = "";
             await cls.loaddgv(dgvStudent, "load_tbl_student_management");
             
             tscboFilter.Items.Add("Course");
@@ -70,9 +72,51 @@ namespace prjCSTAKiosk
 
         private async void tsbRefresh_Click(object sender, EventArgs e)
         {
+            dgvStudent.Tag = "";
             await cls.loaddgv(dgvStudent, "load_tbl_student_management");
             dgvStudent.ClearSelection();
             dgvStudent.BeginInvoke((Action)(()=>dgvStudent.FindForm().ActiveControl=null));
+        }
+
+        private void tsbEdit_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(dgvStudent.Tag.ToString()))
+            {
+                Sub.frmDEStudent student = new Sub.frmDEStudent(student_info, dgvStudent.Tag.ToString());
+                student.ShowDialog();
+            }
+            else {
+                MessageBox.Show("Message: Please select a rows first!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) { 
+                DataGridViewRow selected_row = dgvStudent.Rows[e.RowIndex];
+                dgvStudent.Tag = selected_row.Cells[0].Value.ToString();
+                student_info.stud_num = selected_row.Cells[0].Value.ToString();
+                student_info.rfid = selected_row.Cells[1].Value.ToString();
+                student_info.fname = selected_row.Cells[2].Value.ToString();
+                student_info.mname = selected_row.Cells[3].Value.ToString();
+                student_info.lname = selected_row.Cells[4].Value.ToString();
+                student_info.course_name = selected_row.Cells[5].Value.ToString();
+                student_info.year_level = selected_row.Cells[6].Value.ToString();
+                student_info.section = selected_row.Cells[7].Value.ToString();
+                student_info.isactive = Convert.ToInt32(selected_row.Cells[8].Value.ToString());
+            }
+        }
+
+        private async void tsbDelete_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(dgvStudent.Tag.ToString()))
+            {
+                await cls.CUD_Operation_Student(student_info, "delete_student_information");
+            }
+            else
+            {
+                MessageBox.Show("Message: Please select a rows first!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

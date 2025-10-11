@@ -17,11 +17,15 @@ namespace prjCSTAKiosk.Sub
         private SerialPort serial_port;
         private class_con cls = new class_con();
         private student_obj student_info = new student_obj();
-        public frmDEStudent()
+        private string dgvtag;
+        public frmDEStudent(student_obj received_student_info = null, string dgvtag = "")
         {
             InitializeComponent();
             // Initialize SerialPort
+            // this.Load += new System.EventHandler(this.frmDEStudent_Load);
             serial_port = new SerialPort("COM4", 9600);
+            student_info = received_student_info;
+            this.dgvtag = dgvtag;
         }
 
         private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)// RFID RECIEVER
@@ -81,30 +85,62 @@ namespace prjCSTAKiosk.Sub
             {
                 pbImage.ImageLocation = ofdImage.FileName;
                 filepath = ofdImage.FileName;
-                MessageBox.Show(filepath);
             }
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            student_info.stud_num = txtStudNumber.Text;
-            student_info.rfid = txtRFID.Text;
-            student_info.fname = txtFname.Text;
-            student_info.mname = txtMname.Text;
-            student_info.lname = txtLname.Text;
-            student_info.course_no = Convert.ToInt32(cboCourse.SelectedValue);
-            student_info.year_level = cboYear.Text;
-            student_info.section = txtSection.Text;
-            int isactive_entry = chkActive.Checked ? 1 : 0;
-            student_info.isactive = isactive_entry;
-            student_info.image_path = filepath;
-            if (check_fields(gb_fields))
+            if (!string.IsNullOrEmpty(dgvtag))
             {
-                await cls.insert_student(student_info);
+                student_info.stud_num = txtStudNumber.Text;
+                student_info.rfid = txtRFID.Text;
+                student_info.fname = txtFname.Text;
+                student_info.mname = txtMname.Text;
+                student_info.lname = txtLname.Text;
+                student_info.course_no = Convert.ToInt32(cboCourse.SelectedValue);
+                student_info.year_level = cboYear.Text;
+                student_info.section = txtSection.Text;
+                int isactive_entry = chkActive.Checked ? 1 : 0;
+                student_info.isactive = isactive_entry;
+                if (string.IsNullOrEmpty(filepath))
+                {
+                    student_info.image_path = await cls.get_image_path("load_a_column", "select image_path from tbl_student", dgvtag);
+                }
+                else {
+                    student_info.image_path = filepath;
+                }
+                    
+                if (check_fields(gb_fields))
+                {
+                    await cls.CUD_Operation_Student(student_info, "update_student_information");
+                }
+                else
+                {
+                    MessageBox.Show("Message: " + "Empty Fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else {
-                MessageBox.Show("Message: "+"Empty Fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                student_info.stud_num = txtStudNumber.Text;
+                student_info.rfid = txtRFID.Text;
+                student_info.fname = txtFname.Text;
+                student_info.mname = txtMname.Text;
+                student_info.lname = txtLname.Text;
+                student_info.course_no = Convert.ToInt32(cboCourse.SelectedValue);
+                student_info.year_level = cboYear.Text;
+                student_info.section = txtSection.Text;
+                int isactive_entry = chkActive.Checked ? 1 : 0;//if not check then 0. true : false
+                student_info.isactive = isactive_entry;
+                student_info.image_path = filepath;
+                if (check_fields(gb_fields)&&!string.IsNullOrEmpty(student_info.image_path))//all txtfield must be filled and image path is not empty
+                {
+                    await cls.CUD_Operation_Student(student_info, "insert_student_information");
+                }
+                else
+                {
+                    MessageBox.Show("Message: " + "Empty Fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
+            
         }
 
         private async void frmDEStudent_Load(object sender, EventArgs e)
@@ -117,6 +153,26 @@ namespace prjCSTAKiosk.Sub
                 cboCom.SelectedIndex = 0;
             else
                 cboCom.Items.Add("No COM ports found");
+
+            if (!string.IsNullOrEmpty(dgvtag)) {
+                student_info.image_path = await cls.get_image_path("load_a_column", "select image_path from tbl_student", dgvtag);
+                txtRFID.Text = student_info.rfid;
+                txtStudNumber.Text = student_info.stud_num;
+                txtFname.Text = student_info.fname;
+                txtMname.Text = student_info.mname;
+                txtLname.Text = student_info.lname;
+                cboCourse.DisplayMember = student_info.course_name;
+                cboYear.Text = student_info.year_level;
+                txtSection.Text = student_info.section;
+                if (student_info.isactive == 1)
+                {
+                    chkActive.Checked = true;
+                }
+                else {
+                    chkActive.Checked = false;
+                }
+                pbImage.ImageLocation = student_info.image_path;
+            }
         }
 
         private void btnConnect_Click(object sender, EventArgs e)

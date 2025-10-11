@@ -14,6 +14,7 @@ namespace prjCSTAKiosk
         public string mname { get; set; }
         public string lname { get; set; }
         public int course_no { get; set; }
+        public string course_name { get; set; }
         public string year_level { get; set; }
         public string section { get; set; }
         public int isactive { get; set; }
