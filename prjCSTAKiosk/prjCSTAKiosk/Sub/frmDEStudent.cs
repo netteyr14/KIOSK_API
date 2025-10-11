@@ -8,6 +8,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using static prjCSTAKiosk.Functions.class_con;
 
 namespace prjCSTAKiosk.Sub
 {
@@ -16,7 +17,7 @@ namespace prjCSTAKiosk.Sub
         private string filepath;
         private SerialPort serial_port;
         private class_con cls = new class_con();
-        private student_obj student_info = new student_obj();
+        private student_obj student_info;
         private string dgvtag;
         public frmDEStudent(student_obj received_student_info = null, string dgvtag = "")
         {
@@ -24,7 +25,7 @@ namespace prjCSTAKiosk.Sub
             // Initialize SerialPort
             // this.Load += new System.EventHandler(this.frmDEStudent_Load);
             serial_port = new SerialPort("COM4", 9600);
-            student_info = received_student_info;
+            student_info = received_student_info ?? new student_obj();
             this.dgvtag = dgvtag;
         }
 
@@ -90,57 +91,61 @@ namespace prjCSTAKiosk.Sub
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(dgvtag))
-            {
-                student_info.stud_num = txtStudNumber.Text;
-                student_info.rfid = txtRFID.Text;
-                student_info.fname = txtFname.Text;
-                student_info.mname = txtMname.Text;
-                student_info.lname = txtLname.Text;
-                student_info.course_no = Convert.ToInt32(cboCourse.SelectedValue);
-                student_info.year_level = cboYear.Text;
-                student_info.section = txtSection.Text;
-                int isactive_entry = chkActive.Checked ? 1 : 0;
-                student_info.isactive = isactive_entry;
-                if (string.IsNullOrEmpty(filepath))
+            DialogResult confirm = MessageBox.Show("Do you want to save the record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirm == DialogResult.Yes) {
+                if (!string.IsNullOrEmpty(dgvtag))
                 {
-                    student_info.image_path = await cls.get_image_path("load_a_column", "select image_path from tbl_student", dgvtag);
+                    student_info.stud_num = txtStudNumber.Text;
+                    student_info.rfid = txtRFID.Text;
+                    student_info.fname = txtFname.Text;
+                    student_info.mname = txtMname.Text;
+                    student_info.lname = txtLname.Text;
+                    student_info.course_no = Convert.ToInt32(cboCourse.SelectedValue);
+                    student_info.year_level = cboYear.Text;
+                    student_info.section = txtSection.Text;
+                    int isactive_entry = chkActive.Checked ? 1 : 0;
+                    student_info.isactive = isactive_entry;
+                    if (string.IsNullOrEmpty(filepath))
+                    {
+                        student_info.image_path = await cls.get_image_path("load_a_column", "select image_path from tbl_student", dgvtag);
+                    }
+                    else
+                    {
+                        student_info.image_path = filepath;
+                    }
+
+                    if (check_fields(gb_fields))
+                    {
+                        await cls.CUD_Operation_Student(student_info, "update_student_information", HttpMethodType.PUT);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Message: " + "Empty Fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-                else {
+                else
+                {
+                    student_info.stud_num = txtStudNumber.Text;
+                    student_info.rfid = txtRFID.Text;
+                    student_info.fname = txtFname.Text;
+                    student_info.mname = txtMname.Text;
+                    student_info.lname = txtLname.Text;
+                    student_info.course_no = Convert.ToInt32(cboCourse.SelectedValue);
+                    student_info.year_level = cboYear.Text;
+                    student_info.section = txtSection.Text;
+                    int isactive_entry = chkActive.Checked ? 1 : 0;//if not check then 0. true : false
+                    student_info.isactive = isactive_entry;
                     student_info.image_path = filepath;
+                    if (check_fields(gb_fields) && !string.IsNullOrEmpty(student_info.image_path))//all txtfield must be filled and image path is not empty
+                    {
+                        await cls.CUD_Operation_Student(student_info, "insert_student_information", HttpMethodType.POST);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Message: " + "Empty Fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-                    
-                if (check_fields(gb_fields))
-                {
-                    await cls.CUD_Operation_Student(student_info, "update_student_information");
-                }
-                else
-                {
-                    MessageBox.Show("Message: " + "Empty Fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else {
-                student_info.stud_num = txtStudNumber.Text;
-                student_info.rfid = txtRFID.Text;
-                student_info.fname = txtFname.Text;
-                student_info.mname = txtMname.Text;
-                student_info.lname = txtLname.Text;
-                student_info.course_no = Convert.ToInt32(cboCourse.SelectedValue);
-                student_info.year_level = cboYear.Text;
-                student_info.section = txtSection.Text;
-                int isactive_entry = chkActive.Checked ? 1 : 0;//if not check then 0. true : false
-                student_info.isactive = isactive_entry;
-                student_info.image_path = filepath;
-                if (check_fields(gb_fields)&&!string.IsNullOrEmpty(student_info.image_path))//all txtfield must be filled and image path is not empty
-                {
-                    await cls.CUD_Operation_Student(student_info, "insert_student_information");
-                }
-                else
-                {
-                    MessageBox.Show("Message: " + "Empty Fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            
+            }  
         }
 
         private async void frmDEStudent_Load(object sender, EventArgs e)
