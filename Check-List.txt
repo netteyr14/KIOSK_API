@@ -1,15 +1,18 @@
 #DONE ROUTES
 //GET ROUTES
-*view_student_management(searching and displaying)
-*tbl_course(displaying)
+*load_tbl_student_management(searching and displaying)
+*load_tbl_course_cbo(displaying)
+*load_tbl_course_dgv(displaying)
+*load_a_column(for specific column)
 
 //POST ROUTES
-*student_information(insert students)
+*insert_student_information(insert students)
 *login_user(credential validation)
+*update_student_information(update students)
+*delete_student_information(delete students/flagging)
 
 #ONGOING
-*UPDATE
-*DELETE
+*ADMIN SIDE ACCOUNTS
 
 #Removed(non existing in the latest db)
 *route for tbl_section
