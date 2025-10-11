@@ -129,24 +129,47 @@ namespace prjCSTAKiosk.Functions
                 tscbo.ComboBox.DataSource = null;
             }
         }
-        public async Task insert_student(student_obj student_info) {
-            string finalUrl = url + "insert_student_information";
+
+        public async Task CUD_Operation_Student(student_obj student_info, string route) {
+            string finalUrl = url + route;
             string json = JsonConvert.SerializeObject(student_info);
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = await client.PostAsync(finalUrl, content);
 
             string result = await response.Content.ReadAsStringAsync();
-            var jsonResult = JObject.Parse(result);
-            string status = jsonResult["message"]?.ToString();
-            if (status.Equals("Added Successfully", StringComparison.OrdinalIgnoreCase))
-            {
-                MessageBox.Show("Message: " + result, "message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else { 
-                MessageBox.Show("Message: " + result, "error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
+            var jsonResult = JObject.Parse(result);
+            string status = jsonResult["status"]?.ToString();
+            string message = jsonResult["message"]?.ToString();
+
+            if (status.Equals("success"))
+            {
+                MessageBox.Show("Message: " + status, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Message: " + status, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+        public async Task<string> get_image_path(string route, string sql, string stud_num)
+        {
+            string finalUrl = url + route + $"?stud_num={Uri.EscapeDataString(stud_num)}&sql={Uri.EscapeDataString(sql)}";
+
+            try
+            {
+                var response = await client.GetStringAsync(finalUrl);
+                var jsonResult = JObject.Parse(response);
+                string status = jsonResult["image_path"]?.ToString();
+                return status ?? "No message field found";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return null;
+            }
+        }
+
     }
 }

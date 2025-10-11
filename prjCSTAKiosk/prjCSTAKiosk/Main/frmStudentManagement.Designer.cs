@@ -143,6 +143,7 @@
             this.tsbEdit.Name = "tsbEdit";
             this.tsbEdit.Size = new System.Drawing.Size(59, 28);
             this.tsbEdit.Text = "EDIT";
+            this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
             // 
             // toolStripSeparator2
             // 
@@ -157,6 +158,7 @@
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(74, 28);
             this.tsbDelete.Text = "DELETE";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator4
             // 
@@ -242,6 +244,7 @@
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(1366, 671);
             this.dgvStudent.TabIndex = 6;
+            this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
             // 
             // Column2
             // 
