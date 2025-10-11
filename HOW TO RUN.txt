@@ -11,5 +11,6 @@ How to run:
 1. Import dbcstakiosk_new.sql(copy and F9/Run it on SQLYog)
 2. Go to \KIOSK_API\server\nginx-1.28.0\conf and open nginx.conf
 3. Change the IP Address based sa IP mo(make sure to change the IP on class_con.cs url)
-4. Run start_server.bat file
+4. Change db_connections.py password based sa root mo user mo
+5. Run start_server.bat file
 
