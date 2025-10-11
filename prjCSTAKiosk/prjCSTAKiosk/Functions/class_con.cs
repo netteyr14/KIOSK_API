@@ -13,6 +13,11 @@ namespace prjCSTAKiosk.Functions
 {
     internal class class_con
     {
+        public enum HttpMethodType
+        {
+            POST,
+            PUT
+        }
         private static HttpClient client = new HttpClient();
         private string url = "http://192.168.1.6:8080/";
 
@@ -130,12 +135,24 @@ namespace prjCSTAKiosk.Functions
             }
         }
 
-        public async Task CUD_Operation_Student(student_obj student_info, string route) {
+        public async Task CUD_Operation_Student(student_obj student_info, string route, HttpMethodType methodType) {
             string finalUrl = url + route;
             string json = JsonConvert.SerializeObject(student_info);
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await client.PostAsync(finalUrl, content);
+            HttpResponseMessage response;
+
+            switch (methodType)
+            {
+                case HttpMethodType.POST:
+                    response = await client.PostAsync(finalUrl, content);
+                    break;
+                case HttpMethodType.PUT:
+                    response = await client.PutAsync(finalUrl, content);
+                    break;
+                default:
+                    throw new InvalidOperationException("Invalid HTTP method type");
+            }
 
             string result = await response.Content.ReadAsStringAsync();
 

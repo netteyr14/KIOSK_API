@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjCSTAKiosk.Functions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,7 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using prjCSTAKiosk.Functions;
+using static prjCSTAKiosk.Functions.class_con;
 namespace prjCSTAKiosk
 {
     public partial class frmStudentManagement : Form
@@ -82,8 +83,11 @@ namespace prjCSTAKiosk
         {
             if (!string.IsNullOrEmpty(dgvStudent.Tag.ToString()))
             {
-                Sub.frmDEStudent student = new Sub.frmDEStudent(student_info, dgvStudent.Tag.ToString());
-                student.ShowDialog();
+                DialogResult confirm = MessageBox.Show("Are you sure you want to edit the record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm == DialogResult.Yes) {
+                    Sub.frmDEStudent student = new Sub.frmDEStudent(student_info, dgvStudent.Tag.ToString());
+                    student.ShowDialog();
+                }
             }
             else {
                 MessageBox.Show("Message: Please select a rows first!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -111,7 +115,10 @@ namespace prjCSTAKiosk
         {
             if (!string.IsNullOrEmpty(dgvStudent.Tag.ToString()))
             {
-                await cls.CUD_Operation_Student(student_info, "delete_student_information");
+                DialogResult confirm = MessageBox.Show("Are you sure you want to delete the record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (confirm == DialogResult.Yes) {
+                    await cls.CUD_Operation_Student(student_info, "delete_student_information", HttpMethodType.POST);
+                }    
             }
             else
             {
