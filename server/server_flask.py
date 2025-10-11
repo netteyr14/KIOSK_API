@@ -1,6 +1,8 @@
 from flask import Flask, request
-from routes_function.get_request import get_tbl_class_sched, get_tbl_student_management, get_course_cbo, get_course_dgv
+from routes_function.get_request import get_tbl_class_sched, get_tbl_student_management, get_course_cbo, get_course_dgv, get_a_column
 from routes_function.post_request import post_student_management
+from routes_function.put_request import put_student_management
+from routes_function.del_request import del_student_management
 from routes_function.login import login_user_function
 app = Flask(__name__)
 
@@ -24,11 +26,29 @@ def load_tbl_course_cbo():
 def load_tbl_course_dgv():
     return get_course_dgv()
 
+@app.route('/load_a_column', methods=['GET'])
+def load_a_column():
+    stud_num = request.args.get("stud_num")
+    sql = request.args.get("sql")
+    return get_a_column(stud_num, sql)
+
 #Insert/Post Routes
 @app.route('/insert_student_information', methods=['POST'])
 def insert_student_information():
     student_info = request.get_json()
     return post_student_management(student_info)
+
+#Update/Put Routes
+@app.route('/update_student_information', methods=['PUT'])
+def update_student_information():
+    student_info = request.get_json()
+    return put_student_management(student_info)
+
+#Delete/Delete Routes
+@app.route('/delete_student_information', methods=['POST'])
+def delete_student_information():
+    student_info = request.get_json()
+    return del_student_management(student_info)
 
 #LOGIN
 @app.route('/login_user', methods=['POST'])

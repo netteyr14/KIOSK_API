@@ -20,6 +20,17 @@ def fetch_all(query, params=None):
         cursor.close()
         conn.close()
 
+def fetch_one(query, params=None):
+    conn = pool.get_connection()
+    cursor = conn.cursor(dictionary=True, buffered=True)
+
+    try:
+        cursor.execute(query, params or ())
+        return cursor.fetchone()
+    finally:
+        cursor.close()
+        conn.close()
+
 #===============GET=================#
 
 #LOAD STUDENT MANAGEMENT TABLE TO
@@ -35,7 +46,7 @@ def get_tbl_student_management(search=None, selection=None):
                 section, 
                 isactive 
             FROM vw_students 
-            WHERE 1=1 """
+            WHERE 1=1 AND isdeleted = 0"""  # WHERE 1=1 is purely for conventional writting lang para di na lagi i type yung WHERE clause keyword
     params = []
 
     if selection:
@@ -91,3 +102,13 @@ def get_course_dgv():
     sql = "SELECT course_name, course_code FROM tbl_course"
     rows = fetch_all(sql) 
     return jsonify(rows)
+
+def get_a_column(stud_num=None, sql=None): 
+    params = []
+    if stud_num:
+        sql += " WHERE stud_number = %s"
+        params.append(stud_num)
+    rows = fetch_one(sql, params)
+    return jsonify(rows)
+
+
