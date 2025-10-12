@@ -1,6 +1,8 @@
 from waitress import serve
-from server.server_flask import app
+from server.server_flask import create_app
 import argparse
+
+app = create_app()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
