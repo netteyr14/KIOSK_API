@@ -107,7 +107,7 @@ namespace prjCSTAKiosk.Sub
                     student_info.isactive = isactive_entry;
                     if (string.IsNullOrEmpty(filepath))
                     {
-                        student_info.image_path = await cls.get_image_path("load_a_column", "select image_path from tbl_student", dgvtag);
+                        student_info.image_path = await cls.get_image_path("load_an_image", "select image_path from tbl_student", dgvtag);
                     }
                     else
                     {
@@ -160,7 +160,7 @@ namespace prjCSTAKiosk.Sub
                 cboCom.Items.Add("No COM ports found");
 
             if (!string.IsNullOrEmpty(dgvtag)) {
-                student_info.image_path = await cls.get_image_path("load_a_column", "select image_path from tbl_student", dgvtag);
+                student_info.image_path = await cls.get_image_path("load_an_image", "select image_path from tbl_student", dgvtag);
                 txtRFID.Text = student_info.rfid;
                 txtStudNumber.Text = student_info.stud_num;
                 txtFname.Text = student_info.fname;
