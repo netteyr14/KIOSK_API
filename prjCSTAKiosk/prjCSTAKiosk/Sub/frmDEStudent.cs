@@ -23,8 +23,8 @@ namespace prjCSTAKiosk.Sub
         {
             InitializeComponent();
             // Initialize SerialPort
-            // this.Load += new System.EventHandler(this.frmDEStudent_Load);
             serial_port = new SerialPort("COM4", 9600);
+            // if may new then null and "". if edit(may laman yung received_student_info) then use that
             student_info = received_student_info ?? new student_obj();
             this.dgvtag = dgvtag;
         }
@@ -166,7 +166,7 @@ namespace prjCSTAKiosk.Sub
                 txtFname.Text = student_info.fname;
                 txtMname.Text = student_info.mname;
                 txtLname.Text = student_info.lname;
-                cboCourse.DisplayMember = student_info.course_name;
+                cboCourse.SelectedIndex = cboCourse.FindStringExact(student_info.course_name);
                 cboYear.Text = student_info.year_level;
                 txtSection.Text = student_info.section;
                 if (student_info.isactive == 1)
