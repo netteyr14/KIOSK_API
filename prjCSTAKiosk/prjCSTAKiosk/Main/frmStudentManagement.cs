@@ -54,7 +54,7 @@ namespace prjCSTAKiosk
             switch (selectedFilter)
             {
                 case "Course":
-                    await cls.loadcbo_ts(tscboSelection, "load_tbl_course_cbo", "course_name", "course_id");
+                    await cls.loadcbo_ts(tscboSelection, "load_tbl_course_cbo", "course_code", "course_id");
                     break;
 
                 case "Year":
@@ -104,7 +104,7 @@ namespace prjCSTAKiosk
                 student_info.fname = selected_row.Cells[2].Value.ToString();
                 student_info.mname = selected_row.Cells[3].Value.ToString();
                 student_info.lname = selected_row.Cells[4].Value.ToString();
-                student_info.course_name = selected_row.Cells[5].Value.ToString();
+                student_info.course_code = selected_row.Cells[5].Value.ToString();
                 student_info.year_level = selected_row.Cells[6].Value.ToString();
                 student_info.section = selected_row.Cells[7].Value.ToString();
                 student_info.isactive = Convert.ToInt32(selected_row.Cells[8].Value.ToString());

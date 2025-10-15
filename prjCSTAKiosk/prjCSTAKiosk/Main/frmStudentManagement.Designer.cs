@@ -289,7 +289,7 @@
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.DataPropertyName = "course_name";
+            this.Column7.DataPropertyName = "course_code";
             this.Column7.HeaderText = "COURSE";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjCSTAKiosk.Functions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,8 @@ namespace prjCSTAKiosk
 {
     public partial class frmLostFound : Form
     {
+        private class_con cls = new class_con();
+
         public frmLostFound()
         {
             InitializeComponent();
@@ -33,6 +36,12 @@ namespace prjCSTAKiosk
         {
             Sub.frmClaimItem claim = new Sub.frmClaimItem();
             claim.ShowDialog();
+        }
+
+        private async void frmLostFound_Load(object sender, EventArgs e)
+        {
+            dgvLostFound.Tag = "";
+            await cls.loaddgv(dgvLostFound, "load_tbl_lostfound");
         }
     }
 }

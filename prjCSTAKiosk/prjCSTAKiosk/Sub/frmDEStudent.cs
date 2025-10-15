@@ -107,11 +107,11 @@ namespace prjCSTAKiosk.Sub
                     student_info.isactive = isactive_entry;
                     if (string.IsNullOrEmpty(filepath))
                     {
-                        student_info.image_path = await cls.get_image_path("load_an_image", "select image_path from tbl_student", dgvtag);
+                        student_info.img_path = await cls.get_image_path("load_an_image", "select img_path from tbl_student", dgvtag);
                     }
                     else
                     {
-                        student_info.image_path = filepath;
+                        student_info.img_path = filepath;
                     }
 
                     if (check_fields(gb_fields))
@@ -135,8 +135,8 @@ namespace prjCSTAKiosk.Sub
                     student_info.section = txtSection.Text;
                     int isactive_entry = chkActive.Checked ? 1 : 0;//if not check then 0. true : false
                     student_info.isactive = isactive_entry;
-                    student_info.image_path = filepath;
-                    if (check_fields(gb_fields) && !string.IsNullOrEmpty(student_info.image_path))//all txtfield must be filled and image path is not empty
+                    student_info.img_path = filepath;
+                    if (check_fields(gb_fields) && !string.IsNullOrEmpty(student_info.img_path))//all txtfield must be filled and image path is not empty
                     {
                         await cls.CUD_Operation_Student(student_info, "insert_student_information", HttpMethodType.POST);
                     }
@@ -150,7 +150,7 @@ namespace prjCSTAKiosk.Sub
 
         private async void frmDEStudent_Load(object sender, EventArgs e)
         {
-            await cls.loadcbo(cboCourse, "load_tbl_course_cbo", "course_name", "course_id");
+            await cls.loadcbo(cboCourse, "load_tbl_course_cbo", "course_code", "course_id");
             string[] ports = SerialPort.GetPortNames();
             cboCom.Items.AddRange(ports);
 
@@ -160,13 +160,13 @@ namespace prjCSTAKiosk.Sub
                 cboCom.Items.Add("No COM ports found");
 
             if (!string.IsNullOrEmpty(dgvtag)) {
-                student_info.image_path = await cls.get_image_path("load_an_image", "select image_path from tbl_student", dgvtag);
+                student_info.img_path = await cls.get_image_path("load_an_image", "select img_path from tbl_student", dgvtag);
                 txtRFID.Text = student_info.rfid;
                 txtStudNumber.Text = student_info.stud_num;
                 txtFname.Text = student_info.fname;
                 txtMname.Text = student_info.mname;
                 txtLname.Text = student_info.lname;
-                cboCourse.SelectedIndex = cboCourse.FindStringExact(student_info.course_name);
+                cboCourse.SelectedIndex = cboCourse.FindStringExact(student_info.course_code);
                 cboYear.Text = student_info.year_level;
                 txtSection.Text = student_info.section;
                 if (student_info.isactive == 1)
@@ -176,7 +176,7 @@ namespace prjCSTAKiosk.Sub
                 else {
                     chkActive.Checked = false;
                 }
-                pbImage.ImageLocation = student_info.image_path;
+                pbImage.ImageLocation = student_info.img_path;
             }
         }
 
