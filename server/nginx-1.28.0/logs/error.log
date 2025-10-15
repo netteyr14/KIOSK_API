@@ -588,3 +588,25 @@
 2025/10/12 14:51:52 [notice] 14716#10004: signal process started
 2025/10/14 00:39:29 [notice] 4604#13320: signal process started
 2025/10/14 01:01:53 [notice] 2336#1800: signal process started
+2025/10/15 01:56:38 [notice] 13768#4124: signal process started
+2025/10/15 23:05:30 [notice] 18096#18100: signal process started
+2025/10/15 23:08:33 [notice] 10420#1740: signal process started
+2025/10/15 23:10:56 [notice] 14792#18324: signal process started
+2025/10/15 23:47:04 [notice] 18280#15916: signal process started
+2025/10/15 23:49:02 [notice] 16696#13612: signal process started
+2025/10/15 23:55:58 [notice] 2384#4524: signal process started
+2025/10/16 00:04:06 [notice] 17528#16332: signal process started
+2025/10/16 00:08:39 [notice] 18064#10600: signal process started
+2025/10/16 00:09:08 [notice] 6908#17260: signal process started
+2025/10/16 00:24:47 [notice] 4872#16124: signal process started
+2025/10/16 00:26:20 [notice] 6464#16352: signal process started
+2025/10/16 00:33:23 [notice] 14572#7868: signal process started
+2025/10/16 00:36:41 [notice] 9392#2612: signal process started
+2025/10/16 00:36:43 [notice] 17748#17868: signal process started
+2025/10/16 00:36:43 [error] 17748#17868: CreateFile() "D:\KIOSK_API\server\nginx-1.28.0/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2025/10/16 00:37:41 [notice] 4440#17876: signal process started
+2025/10/16 01:13:27 [notice] 4268#408: signal process started
+2025/10/16 01:14:41 [notice] 8544#14816: signal process started
+2025/10/16 01:16:04 [notice] 14776#18396: signal process started
+2025/10/16 01:28:58 [notice] 15616#6708: signal process started
+2025/10/16 01:30:24 [notice] 16112#17292: signal process started

@@ -22,11 +22,11 @@ def execute_query(query, params=None):
         cursor.close()
         conn.close()
 
-#===============POST=================#
+#===============STUDENT=================#
 
 def post_student_management(student_info=None):
     sql = """INSERT INTO tbl_student
-    (stud_number, rfid_card, fname, mname, lname, course_no, year_level, section, isactive, image_path)
+    (stud_number, rfid_card, fname, mname, lname, course_no, year_level, section, isactive, img_path)
     VALUES
     (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
 
@@ -40,7 +40,43 @@ def post_student_management(student_info=None):
         student_info["year_level"],
         student_info["section"],
         student_info["isactive"],
-        student_info["image_path"]
+        student_info["img_path"]
+    )
+
+    data = execute_query(sql, params)
+    return jsonify(data)
+
+#===============LOSTFOUND=================#
+
+def post_lostfound_info(lostfound_info=None):
+    sql = """INSERT INTO tbl_lostfound
+    (item_name, description, reported_by, reported_at, status, image_path)
+    VALUES
+    (%s,%s,%s,%s,%s,%s)"""
+
+    params = (
+        lostfound_info["item_name"],
+        lostfound_info["description"],
+        lostfound_info["reported_by"],
+        lostfound_info["reported_at"],
+        lostfound_info["status"],
+        lostfound_info["image_path"]
+    )
+
+    data = execute_query(sql, params)
+    return jsonify(data)
+
+#===============COURSE-MAINTENANCE=================#
+
+def post_course_information(course_info=None):
+    sql = """INSERT INTO tbl_course
+    (course_name, course_code)
+    VALUES
+    (%s,%s)"""
+
+    params = (
+        course_info["course_name"],
+        course_info["course_code"]
     )
 
     data = execute_query(sql, params)
