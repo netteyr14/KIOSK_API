@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from routes_function.get_request import get_tbl_class_sched, get_tbl_student_management, get_course_cbo, get_a_column
+from routes_function.get_request import get_tbl_class_sched, get_tbl_student_management, get_course_cbo, get_a_column_for_student_management
 from routes_function.post_request import post_student_management
 from routes_function.put_request import put_student_management
 from routes_function.del_request import del_student_management
@@ -12,21 +12,24 @@ def load_tbl_class_sched():
     student_number = request.args.get("stud_number")  # key matches ?stud_number= as for inline payload instead of passing a json as argument
     return get_tbl_class_sched(student_number)
 
+#Loads DGV for Student Management with search and filter
 @students_management_bp.route('/load_tbl_student_management', methods=['GET'])
 def load_tbl_student_management():
     search = request.args.get("search")
     selection = request.args.get("selection")
     return get_tbl_student_management(search, selection)
 
+#Loads ComboBox for Course(toolstrip and regular cbo)
 @students_management_bp.route('/load_tbl_course_cbo', methods=['GET'])
 def load_tbl_course_cbo():
     return get_course_cbo()
 
+#Loads Images on Student Management
 @students_management_bp.route('/load_an_image', methods=['GET'])
 def load_a_column():
     stud_num = request.args.get("stud_num")
     sql = request.args.get("sql")
-    return get_a_column(stud_num, sql)
+    return get_a_column_for_student_management(stud_num, sql)
 
 #Insert/Post Routes
 @students_management_bp.route('/insert_student_information', methods=['POST'])

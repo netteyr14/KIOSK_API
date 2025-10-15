@@ -1,18 +1,63 @@
 #DONE ROUTES
+
 //GET ROUTES
-*load_tbl_student_management(searching and displaying)
-*load_tbl_course_cbo(displaying)
-*load_tbl_course_dgv(displaying)
-*load_a_column(for specific column)
+#===============STUDENT=================#
+*Loads DGV for Student Management with search and filter
+*Loads ComboBox for Course(toolstrip and regular cbo)
+*Loads Images on Student Management
+
+#===============LOSTFOUND=================#
+*Loads DGV for Lost and Found with search and filter
+*Loads Images on Lost and Found
+
+#===============COURSE-MAINTENANCE=================#
+*Loads DGV for Course Maintenance
+
+
+
 
 //POST ROUTES
-*insert_student_information(insert students)
-*login_user(credential validation)
-*update_student_information(update students)
-*delete_student_information(delete students/flagging)
+#===============STUDENT=================#
+*Insert/Post Routes
+
+#===============LOSTFOUND=================#
+*Insert/Post Routes
+
+#===============COURSE-MAINTENANCE=================#
+*Insert/Post Routes
+
+
+
+
+//PUT ROUTES
+#===============STUDENT=================#
+*Update/Put Routes
+
+#===============LOSTFOUND=================#
+*Update/Put Routes
+
+#===============COURSE-MAINTENANCE=================#
+*Update/Put Routes
+
+
+
+
+//DEL ROUTES
+#===============STUDENT=================#
+*Delete/Delete Routes
+
+#===============LOSTFOUND=================#
+*Delete/Delete Routes
+
+#===============COURSE-MAINTENANCE=================#
+*Delete/Delete Routes
+
+
+
+
 
 #ONGOING
-*ADMIN SIDE ACCOUNTS
+*ADMIN SIDE ACCOUNTS ETC...
 
 #Removed(non existing in the latest db)
 *route for tbl_section

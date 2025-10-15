@@ -30,15 +30,14 @@ CREATE TABLE `tbl_admin` (
   `isdeleted` int DEFAULT '0',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_admin` */
 
 LOCK TABLES `tbl_admin` WRITE;
 
 insert  into `tbl_admin`(`admin_id`,`fullname`,`uname`,`pword`,`role`,`isactive`,`isdeleted`,`created_at`) values 
-(1,'Isorena, Arvin Jay','Isorena27','Ambin','Super Administrator',1,0,'2025-10-05 21:09:21'),
-(2,'Gravador, Clark Raiven','Gravador27','Clark','Super Administrator',1,0,'2025-10-05 21:10:06');
+(1,'Isorena, Arvin Jay O.','Isorena27','Ambin','Super Administrator',1,0,'2025-10-15 23:35:03');
 
 UNLOCK TABLES;
 
@@ -124,10 +123,10 @@ CREATE TABLE `tbl_course` (
 LOCK TABLES `tbl_course` WRITE;
 
 insert  into `tbl_course`(`course_id`,`course_code`,`course_name`,`isdeleted`) values 
-(1,'301','BSIT',0),
-(2,'302','BSHM',0),
-(3,'303','BSTM',0),
-(4,'304','BEED',0);
+(1,'BSIT','Bachelor of Science in Information Technology',0),
+(2,'BSTM','Bachelor of Science in Tourism Management',0),
+(3,'BSHM','Bachelor of Science in Hospitality Management',0),
+(4,'BEED','Bachelor of Elementary Education',0);
 
 UNLOCK TABLES;
 
@@ -166,11 +165,14 @@ CREATE TABLE `tbl_lostfound` (
   `claimed_by` varchar(255) DEFAULT '---',
   `claimed_at` datetime DEFAULT NULL,
   PRIMARY KEY (`lostfound_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_lostfound` */
 
 LOCK TABLES `tbl_lostfound` WRITE;
+
+insert  into `tbl_lostfound`(`lostfound_id`,`item_name`,`description`,`image_path`,`status`,`reported_by`,`reported_at`,`claimed_by`,`claimed_at`) values 
+(1,'iPhone XII','asdasdasd','ÿØÿá','LOST','Isorena','2025-10-16 00:18:00','Ambin','2025-10-16 00:39:03');
 
 UNLOCK TABLES;
 
@@ -237,16 +239,19 @@ CREATE TABLE `tbl_student` (
   `section` varchar(20) DEFAULT NULL,
   `isactive` int DEFAULT '1',
   `isdeleted` int DEFAULT '0',
-  `image_path` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `img_path` text,
   PRIMARY KEY (`student_id`),
   KEY `fk_student_course` (`course_no`),
   CONSTRAINT `fk_student_course` FOREIGN KEY (`course_no`) REFERENCES `tbl_course` (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_student` */
 
 LOCK TABLES `tbl_student` WRITE;
+
+insert  into `tbl_student`(`student_id`,`stud_number`,`rfid_card`,`fname`,`mname`,`lname`,`course_no`,`year_level`,`section`,`isactive`,`isdeleted`,`created_at`,`img_path`) values 
+(1,'24-00084','234ASD','Arvin Jay ','Orenzo','Isorena',1,'3RD YEAR','3-1',1,0,'2025-10-16 00:06:43','C:\\Users\\Netteyr14\\Downloads\\IMG_20250822_030444522.jpg');
 
 UNLOCK TABLES;
 
@@ -261,18 +266,11 @@ CREATE TABLE `tbl_subject` (
   `isdeleted` int DEFAULT '0',
   PRIMARY KEY (`subject_id`),
   UNIQUE KEY `subject_code` (`subject_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_subject` */
 
 LOCK TABLES `tbl_subject` WRITE;
-
-insert  into `tbl_subject`(`subject_id`,`subject_code`,`subject_name`,`isdeleted`) values 
-(1,'DBSYS','Database Systems',0),
-(2,'APPDEV','Application Development',0),
-(3,'CSS','Computer Systems Servicing',0),
-(4,'NET1','Networking 1',0),
-(5,'NET2','Networking 2',0);
 
 UNLOCK TABLES;
 
@@ -381,7 +379,8 @@ DROP TABLE IF EXISTS `vw_students`;
  `section` varchar(20) ,
  `isactive` int ,
  `isdeleted` int ,
- `created_at` datetime 
+ `created_at` datetime ,
+ `img_path` text 
 )*/;
 
 /*View structure for view vw_announcements */
@@ -410,7 +409,7 @@ DROP TABLE IF EXISTS `vw_students`;
 /*!50001 DROP TABLE IF EXISTS `vw_students` */;
 /*!50001 DROP VIEW IF EXISTS `vw_students` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_students` AS select `s`.`student_id` AS `student_id`,`s`.`stud_number` AS `stud_number`,`s`.`rfid_card` AS `rfid_card`,`s`.`fname` AS `fname`,`s`.`mname` AS `mname`,`s`.`lname` AS `lname`,`c`.`course_code` AS `course_code`,`c`.`course_name` AS `course_name`,`s`.`year_level` AS `year_level`,`s`.`section` AS `section`,`s`.`isactive` AS `isactive`,`s`.`isdeleted` AS `isdeleted`,`s`.`created_at` AS `created_at` from (`tbl_student` `s` left join `tbl_course` `c` on((`s`.`course_no` = `c`.`course_id`))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_students` AS select `s`.`student_id` AS `student_id`,`s`.`stud_number` AS `stud_number`,`s`.`rfid_card` AS `rfid_card`,`s`.`fname` AS `fname`,`s`.`mname` AS `mname`,`s`.`lname` AS `lname`,`c`.`course_code` AS `course_code`,`c`.`course_name` AS `course_name`,`s`.`year_level` AS `year_level`,`s`.`section` AS `section`,`s`.`isactive` AS `isactive`,`s`.`isdeleted` AS `isdeleted`,`s`.`created_at` AS `created_at`,`s`.`img_path` AS `img_path` from (`tbl_student` `s` left join `tbl_course` `c` on((`s`.`course_no` = `c`.`course_id`))) */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -31,17 +31,17 @@ def fetch_one(query, params=None):
         cursor.close()
         conn.close()
 
-#===============GET=================#
+#===============STUDENT=================#
 
 #LOAD STUDENT MANAGEMENT TABLE TO
 def get_tbl_student_management(search=None, selection=None):
-    sql = f"""SELECT 
+    sql = """SELECT 
                 stud_number, 
                 rfid_card, 
                 fname, 
                 mname, 
                 lname, 
-                course_name, 
+                course_code, 
                 year_level, 
                 section, 
                 isactive 
@@ -50,7 +50,7 @@ def get_tbl_student_management(search=None, selection=None):
     params = []
 
     if selection:
-        sql += " AND (course_name = %s OR year_level = %s)"
+        sql += " AND (course_code = %s OR year_level = %s)"
         params += [selection] * 2
 
     if search:
@@ -60,7 +60,7 @@ def get_tbl_student_management(search=None, selection=None):
                 fname LIKE %s OR 
                 mname LIKE %s OR 
                 lname LIKE %s OR 
-                course_name LIKE %s
+                course_code LIKE %s
             )
         """
         search_param = f"%{search}%"    #left and right matching
@@ -94,16 +94,11 @@ def get_tbl_class_sched(student_number=None):
     return jsonify(data)
 
 def get_course_cbo():
-    sql = "SELECT course_name, course_id FROM tbl_course"
+    sql = "SELECT course_code, course_id FROM tbl_course ORDER BY course_id ASC"
     rows = fetch_all(sql) 
     return jsonify(rows)
 
-def get_course_dgv():
-    sql = "SELECT course_name, course_code FROM tbl_course"
-    rows = fetch_all(sql) 
-    return jsonify(rows)
-
-def get_a_column(stud_num=None, sql=None): 
+def get_a_column_for_student_management(stud_num=None, sql=None): 
     params = []
     if stud_num:
         sql += " WHERE stud_number = %s"
@@ -111,4 +106,55 @@ def get_a_column(stud_num=None, sql=None):
     rows = fetch_one(sql, params)
     return jsonify(rows)
 
+
+#===============LOSTFOUND=================#
+
+def get_tbl_lost_and_found(item_name=None, status=None):
+    sql = """SELECT 
+                lostfound_id,
+                item_name,
+                description,
+                image_path,
+                status,
+                reported_by,
+                reported_at,
+                claimed_by,
+                claimed_at
+            FROM tbl_lostfound
+            WHERE 1=1"""
+    
+    params = []
+
+    if status:
+        sql += " AND (course_code = %s OR year_level = %s)"
+        params += [status] * 2
+
+    if item_name:
+        sql += """ 
+            AND (
+                stud_number LIKE %s OR 
+                fname LIKE %s OR 
+                mname LIKE %s OR 
+                lname LIKE %s OR 
+                course_code LIKE %s
+            )
+        """
+        search_param = f"%{item_name}%"    #left and right matching
+        params += [search_param] * 5     #pasa yung search_param then multiply 5 kasi lima yung search fields
+    data = fetch_all(sql, params)
+    return jsonify(data)
+
+def get_a_column_for_lostfound(lostfound_id=None, sql=None): 
+    params = []
+    if lostfound_id:
+        sql += " WHERE lostfound_id = %s"
+        params.append(lostfound_id)
+    rows = fetch_one(sql, params)
+    return jsonify(rows)
+
+#===============COURSE-MAINTENANCE=================#
+def get_course_dgv():
+    sql = "SELECT course_id, course_name, course_code FROM tbl_course"
+    rows = fetch_all(sql) 
+    return jsonify(rows)
 
