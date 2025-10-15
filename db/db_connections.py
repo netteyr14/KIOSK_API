@@ -14,7 +14,7 @@ def init_db_pool():
     try:
         pool = pooling.MySQLConnectionPool(
             pool_name="mypool",
-            pool_size=6,
+            pool_size=30,
             **db0
         )
         return pool
@@ -23,4 +23,4 @@ def init_db_pool():
         return None
 
 
-
+pool = init_db_pool()

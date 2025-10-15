@@ -1,8 +1,6 @@
 from flask import jsonify
-from db.db_connections import init_db_pool
+from db.db_connections import pool
 
-#DB_CONNECTION
-pool = init_db_pool()
 #LOGIN FUNCTION
 def login_user_function(credentials):
     uname = credentials.get('username')

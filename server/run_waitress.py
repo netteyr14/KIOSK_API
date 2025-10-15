@@ -1,5 +1,5 @@
 from waitress import serve
-from server.server_flask import create_app
+from server.init_server import create_app
 import argparse
 
 app = create_app()
