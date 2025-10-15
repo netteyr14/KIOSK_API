@@ -178,7 +178,7 @@ namespace prjCSTAKiosk.Functions
             {
                 var response = await client.GetStringAsync(finalUrl);
                 var jsonResult = JObject.Parse(response);
-                string status = jsonResult["image_path"]?.ToString();
+                string status = jsonResult["img_path"]?.ToString();
                 return status ?? "No message field found";
             }
             catch (Exception ex)

@@ -32,10 +32,22 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbClose = new System.Windows.Forms.ToolStripButton();
+            this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbClaim = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tscboFilter = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.tstbSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.tsbSearch = new System.Windows.Forms.ToolStripButton();
             this.dgvLostFound = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,18 +58,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.tstbSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.tsbNew = new System.Windows.Forms.ToolStripButton();
-            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
-            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
-            this.tsbClaim = new System.Windows.Forms.ToolStripButton();
-            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
-            this.tsbSearch = new System.Windows.Forms.ToolStripButton();
-            this.tscboFilter = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLostFound)).BeginInit();
@@ -113,25 +113,125 @@
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tsbClose
+            // 
+            this.tsbClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbClose.Image = global::prjCSTAKiosk.Properties.Resources.icons8_close_24;
+            this.tsbClose.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbClose.Name = "tsbClose";
+            this.tsbClose.Size = new System.Drawing.Size(74, 28);
+            this.tsbClose.Text = "CLOSE";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
+            // 
+            // tsbNew
+            // 
+            this.tsbNew.Image = global::prjCSTAKiosk.Properties.Resources.icons8_new_file_24;
+            this.tsbNew.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNew.Name = "tsbNew";
+            this.tsbNew.Size = new System.Drawing.Size(64, 28);
+            this.tsbNew.Text = "NEW";
+            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // tsbEdit
+            // 
+            this.tsbEdit.Image = global::prjCSTAKiosk.Properties.Resources.icons8_edit_file_24;
+            this.tsbEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEdit.Name = "tsbEdit";
+            this.tsbEdit.Size = new System.Drawing.Size(59, 28);
+            this.tsbEdit.Text = "EDIT";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
+            // tsbDelete
+            // 
+            this.tsbDelete.Image = global::prjCSTAKiosk.Properties.Resources.icons8_delete_file_24;
+            this.tsbDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(74, 28);
+            this.tsbDelete.Text = "DELETE";
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
             // 
+            // tsbClaim
+            // 
+            this.tsbClaim.Image = global::prjCSTAKiosk.Properties.Resources.icons8_found_24;
+            this.tsbClaim.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbClaim.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbClaim.Name = "tsbClaim";
+            this.tsbClaim.Size = new System.Drawing.Size(74, 28);
+            this.tsbClaim.Text = "CLAIM";
+            this.tsbClaim.Click += new System.EventHandler(this.tsbClaim_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
+            // 
+            // tsbRefresh
+            // 
+            this.tsbRefresh.Image = global::prjCSTAKiosk.Properties.Resources.icons8_refresh_24;
+            this.tsbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRefresh.Name = "tsbRefresh";
+            this.tsbRefresh.Size = new System.Drawing.Size(83, 28);
+            this.tsbRefresh.Text = "REFRESH";
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
+            // 
+            // tscboFilter
+            // 
+            this.tscboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscboFilter.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.tscboFilter.Items.AddRange(new object[] {
+            "ALL",
+            "LOST",
+            "CLAIMED"});
+            this.tscboFilter.Name = "tscboFilter";
+            this.tscboFilter.Size = new System.Drawing.Size(100, 31);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 31);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(137, 28);
+            this.toolStripLabel2.Text = "SEARCH BY ITEM NAME";
+            // 
+            // tstbSearch
+            // 
+            this.tstbSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tstbSearch.Name = "tstbSearch";
+            this.tstbSearch.Size = new System.Drawing.Size(300, 31);
+            // 
+            // tsbSearch
+            // 
+            this.tsbSearch.Image = global::prjCSTAKiosk.Properties.Resources.icons8_search_24;
+            this.tsbSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSearch.Name = "tsbSearch";
+            this.tsbSearch.Size = new System.Drawing.Size(82, 28);
+            this.tsbSearch.Text = "SEARCH";
             // 
             // dgvLostFound
             // 
@@ -155,18 +255,20 @@
             this.dgvLostFound.Name = "dgvLostFound";
             this.dgvLostFound.ReadOnly = true;
             this.dgvLostFound.RowHeadersVisible = false;
+            this.dgvLostFound.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLostFound.Size = new System.Drawing.Size(1366, 622);
             this.dgvLostFound.TabIndex = 5;
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "lostfound_id";
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "item_name";
             this.Column2.HeaderText = "ITEM NAME";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -175,12 +277,14 @@
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "description";
             this.Column3.HeaderText = "DESCRIPTION";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "image_path";
             this.Column4.HeaderText = "IMAGE PATH";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -188,12 +292,14 @@
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "status";
             this.Column5.HeaderText = "STATUS";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
+            this.Column6.DataPropertyName = "reported_by";
             this.Column6.HeaderText = "REPORTED BY";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -201,6 +307,7 @@
             // 
             // Column7
             // 
+            this.Column7.DataPropertyName = "reported_at";
             this.Column7.HeaderText = "DATE REPORTED";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -208,6 +315,7 @@
             // 
             // Column8
             // 
+            this.Column8.DataPropertyName = "claimed_by";
             this.Column8.HeaderText = "CLAIMED BY";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -215,109 +323,11 @@
             // 
             // Column9
             // 
+            this.Column9.DataPropertyName = "claimed_at";
             this.Column9.HeaderText = "DATE CLAIMED";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             this.Column9.Width = 130;
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(137, 28);
-            this.toolStripLabel2.Text = "SEARCH BY ITEM NAME";
-            // 
-            // tstbSearch
-            // 
-            this.tstbSearch.Name = "tstbSearch";
-            this.tstbSearch.Size = new System.Drawing.Size(300, 31);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
-            // 
-            // tsbClose
-            // 
-            this.tsbClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbClose.Image = global::prjCSTAKiosk.Properties.Resources.icons8_close_24;
-            this.tsbClose.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(74, 28);
-            this.tsbClose.Text = "CLOSE";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
-            // 
-            // tsbNew
-            // 
-            this.tsbNew.Image = global::prjCSTAKiosk.Properties.Resources.icons8_new_file_24;
-            this.tsbNew.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(64, 28);
-            this.tsbNew.Text = "NEW";
-            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
-            // 
-            // tsbEdit
-            // 
-            this.tsbEdit.Image = global::prjCSTAKiosk.Properties.Resources.icons8_edit_file_24;
-            this.tsbEdit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEdit.Name = "tsbEdit";
-            this.tsbEdit.Size = new System.Drawing.Size(59, 28);
-            this.tsbEdit.Text = "EDIT";
-            // 
-            // tsbDelete
-            // 
-            this.tsbDelete.Image = global::prjCSTAKiosk.Properties.Resources.icons8_delete_file_24;
-            this.tsbDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(74, 28);
-            this.tsbDelete.Text = "DELETE";
-            // 
-            // tsbClaim
-            // 
-            this.tsbClaim.Image = global::prjCSTAKiosk.Properties.Resources.icons8_found_24;
-            this.tsbClaim.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbClaim.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClaim.Name = "tsbClaim";
-            this.tsbClaim.Size = new System.Drawing.Size(74, 28);
-            this.tsbClaim.Text = "CLAIM";
-            this.tsbClaim.Click += new System.EventHandler(this.tsbClaim_Click);
-            // 
-            // tsbRefresh
-            // 
-            this.tsbRefresh.Image = global::prjCSTAKiosk.Properties.Resources.icons8_refresh_24;
-            this.tsbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRefresh.Name = "tsbRefresh";
-            this.tsbRefresh.Size = new System.Drawing.Size(83, 28);
-            this.tsbRefresh.Text = "REFRESH";
-            // 
-            // tsbSearch
-            // 
-            this.tsbSearch.Image = global::prjCSTAKiosk.Properties.Resources.icons8_search_24;
-            this.tsbSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSearch.Name = "tsbSearch";
-            this.tsbSearch.Size = new System.Drawing.Size(82, 28);
-            this.tsbSearch.Text = "SEARCH";
-            // 
-            // tscboFilter
-            // 
-            this.tscboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tscboFilter.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.tscboFilter.Items.AddRange(new object[] {
-            "ALL",
-            "LOST",
-            "CLAIMED"});
-            this.tscboFilter.Name = "tscboFilter";
-            this.tscboFilter.Size = new System.Drawing.Size(100, 31);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 31);
             // 
             // frmLostFound
             // 
@@ -333,6 +343,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmLostFound";
             this.Text = "Lost and Found";
+            this.Load += new System.EventHandler(this.frmLostFound_Load);
             this.panel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -358,6 +369,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbSearch;
         private System.Windows.Forms.DataGridView dgvLostFound;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox tstbSearch;
+        private System.Windows.Forms.ToolStripButton tsbClaim;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripComboBox tscboFilter;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -367,11 +384,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripTextBox tstbSearch;
-        private System.Windows.Forms.ToolStripButton tsbClaim;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripComboBox tscboFilter;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     }
 }
