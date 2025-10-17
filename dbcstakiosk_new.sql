@@ -80,11 +80,19 @@ CREATE TABLE `tbl_attendance` (
   KEY `fk_attendance_node` (`node_no`),
   CONSTRAINT `fk_attendance_node` FOREIGN KEY (`node_no`) REFERENCES `tbl_node` (`node_id`),
   CONSTRAINT `fk_attendance_student` FOREIGN KEY (`student_no`) REFERENCES `tbl_student` (`student_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_attendance` */
 
 LOCK TABLES `tbl_attendance` WRITE;
+
+insert  into `tbl_attendance`(`attendance_id`,`student_no`,`node_no`,`logs`) values 
+(4,1,7,'2025-10-18 03:00:47'),
+(5,1,7,'2025-10-18 03:00:54'),
+(6,1,7,'2025-10-18 03:01:11'),
+(7,1,7,'2025-10-18 03:01:18'),
+(8,1,7,'2025-10-18 03:01:24'),
+(9,1,7,'2025-10-18 03:01:35');
 
 UNLOCK TABLES;
 
@@ -142,11 +150,16 @@ CREATE TABLE `tbl_faculty` (
   `isactive` int DEFAULT '1',
   `isdeleted` int DEFAULT '0',
   PRIMARY KEY (`faculty_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_faculty` */
 
 LOCK TABLES `tbl_faculty` WRITE;
+
+insert  into `tbl_faculty`(`faculty_id`,`fname`,`mname`,`lname`,`isactive`,`isdeleted`) values 
+(1,'James','S.','Abenir',1,0),
+(2,'Harold','C.','Lucero',1,0),
+(3,'Arvin Jay','O.','Isorena',1,0);
 
 UNLOCK TABLES;
 
@@ -186,11 +199,20 @@ CREATE TABLE `tbl_node` (
   `location` varchar(100) DEFAULT NULL,
   `device_uid` int DEFAULT NULL,
   PRIMARY KEY (`node_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_node` */
 
 LOCK TABLES `tbl_node` WRITE;
+
+insert  into `tbl_node`(`node_id`,`node_name`,`location`,`device_uid`) values 
+(1,'node 1','LAB 1',1),
+(2,'node 2','LAB 2',2),
+(3,'node 3','LAB 3',3),
+(4,'node 4','LAB 4',4),
+(5,'node 5','LAB 5',5),
+(6,'node 6','LAB 6',6),
+(7,'node 7','TECH ROOM',7);
 
 UNLOCK TABLES;
 
@@ -203,8 +225,8 @@ CREATE TABLE `tbl_schedule` (
   `student_no` int DEFAULT NULL,
   `subject_no` int DEFAULT NULL,
   `day_of_week` varchar(25) DEFAULT NULL,
-  `time_start` time DEFAULT NULL,
-  `time_end` time DEFAULT NULL,
+  `time_start` datetime DEFAULT NULL,
+  `time_end` datetime DEFAULT NULL,
   `room` varchar(20) DEFAULT NULL,
   `faculty_no` int DEFAULT NULL,
   `isdeleted` int DEFAULT '0',
@@ -215,11 +237,14 @@ CREATE TABLE `tbl_schedule` (
   CONSTRAINT `fk_schedule_faculty` FOREIGN KEY (`faculty_no`) REFERENCES `tbl_faculty` (`faculty_id`),
   CONSTRAINT `fk_schedule_student` FOREIGN KEY (`student_no`) REFERENCES `tbl_student` (`student_id`),
   CONSTRAINT `fk_schedule_subject` FOREIGN KEY (`subject_no`) REFERENCES `tbl_subject` (`subject_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_schedule` */
 
 LOCK TABLES `tbl_schedule` WRITE;
+
+insert  into `tbl_schedule`(`schedule_id`,`student_no`,`subject_no`,`day_of_week`,`time_start`,`time_end`,`room`,`faculty_no`,`isdeleted`) values 
+(1,1,2,'SATURDAY','2025-10-18 02:30:00','2025-10-18 03:30:00','7',2,0);
 
 UNLOCK TABLES;
 
@@ -251,7 +276,7 @@ CREATE TABLE `tbl_student` (
 LOCK TABLES `tbl_student` WRITE;
 
 insert  into `tbl_student`(`student_id`,`stud_number`,`rfid_card`,`fname`,`mname`,`lname`,`course_no`,`year_level`,`section`,`isactive`,`isdeleted`,`created_at`,`img_path`) values 
-(1,'24-00084','234ASD','Arvin Jay ','Orenzo','Isorena',1,'3RD YEAR','3-1',1,0,'2025-10-16 00:06:43','C:\\Users\\Netteyr14\\Downloads\\IMG_20250822_030444522.jpg');
+(1,'24-00084','5a959ab7','Arvin Jay ','Orenzo','Isorena',1,'3RD YEAR','3-1',1,0,'2025-10-16 00:06:43','C:\\Users\\Netteyr14\\Downloads\\IMG_20250822_030444522.jpg');
 
 UNLOCK TABLES;
 
@@ -266,11 +291,19 @@ CREATE TABLE `tbl_subject` (
   `isdeleted` int DEFAULT '0',
   PRIMARY KEY (`subject_id`),
   UNIQUE KEY `subject_code` (`subject_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_subject` */
 
 LOCK TABLES `tbl_subject` WRITE;
+
+insert  into `tbl_subject`(`subject_id`,`subject_code`,`subject_name`,`isdeleted`) values 
+(1,'APPDEV','Application Development',0),
+(2,'DBSYS','Database Systems',0),
+(3,'NET-1','Networking 1',0),
+(4,'NET-2','Networking 2',0),
+(5,'IPT','Integrative Programming Technologies',0),
+(6,'ITELECT-2','IT Elective 2',0);
 
 UNLOCK TABLES;
 
@@ -352,8 +385,8 @@ DROP TABLE IF EXISTS `vw_schedules`;
  `subject_code` varchar(20) ,
  `subject_name` varchar(100) ,
  `day_of_week` varchar(25) ,
- `time_start` time ,
- `time_end` time ,
+ `time_start` datetime ,
+ `time_end` datetime ,
  `room` varchar(20) ,
  `faculty_name` varchar(152) ,
  `isdeleted` int 
