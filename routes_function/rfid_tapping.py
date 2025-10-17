@@ -1,5 +1,6 @@
 from db.db_connections import pool
 import serial, threading, time
+from datetime import datetime
 
 recent_inserts = {}
 duplicate_window_records = 5
@@ -23,36 +24,60 @@ def insert_attendance(student_id, node_no, conn):
     except Exception as e:
         print("Error inserting attachment: ", e)
 
-
 def handle_message(device_num, rfid_num):
     conn = pool.get_connection()
-    
     if not conn:
         return
+    
     try:
-        student_id = find_student_by_rfid(rfid_num, conn)# 1
-        if student_id:
-            last = recent_inserts.get(student_id, 0)# if the student id is not found, return 0. Kung meron then return the timestamp stored in the recent_inserts
-            now_ts = time.time()
-            if now_ts - last < duplicate_window_records:
-                print(f"Ignore duplicate for student: {student_id}")
-            else:
-                insert_attendance(student_id, device_num, conn)
-                recent_inserts[student_id] = now_ts
-                print(f"Inserted attendance for student: {student_id} at node {device_num}")
+        student_id = find_student_by_rfid(rfid_num, conn)
+        if not student_id:
+            print(f"No student found for RFID: {rfid_num}")
+            return
+
+        cur = conn.cursor(dictionary=True)
+        sql = "SELECT time_start, time_end, day_of_week, room FROM tbl_schedule WHERE student_no=%s LIMIT 1"
+        cur.execute(sql, (student_id,))
+        schedule = cur.fetchone()
+
+        if not schedule:
+            print(f"No schedule found for student: {student_id}")
+            return
+
+        time_start = schedule['time_start']
+        time_end = schedule['time_end']
+        day_of_week = schedule['day_of_week'].lower()
+        room = int(schedule['room']) # INT ANG DEVICE_NUM KAYA NEED I CONVERT
+
+        now = datetime.now()
+        now_ts = time.time()
+        current_day = now.strftime('%A').lower()
+
+        last = recent_inserts.get(student_id, 0)
+        if now_ts - last < duplicate_window_records:
+            print(f"Ignore duplicate for student: {student_id}")
+            return
+
+        if (time_start <= now <= time_end) and (day_of_week == current_day) and (room == device_num):
+            insert_attendance(student_id, device_num, conn)
+            recent_inserts[student_id] = now_ts
+            print(f"Inserted attendance for student: {student_id} at node {device_num}")
+        else:
+            print(f"Student {student_id} is not scheduled in {room} at this time.")
+            # print(f"[DEBUG]Schedule: {day_of_week} {time_start}-{time_end}, Now: {current_day} {now}, Device: {device_num}")
+
     except Exception as e:
-        print(f"DB error handled_message: ", e)
+        print(f"DB error handle_message:", e)
     finally:
         try:
             conn.close()
         except:
             pass
         
-
 def serial_thread():
     while True:
-        print("Starting serial thread, opening port COM3")
-        ser = serial.Serial("COM3", 115200, timeout=1)
+        print("Starting serial thread, opening port COM7")
+        ser = serial.Serial("COM7", 115200, timeout=1)
         print("Serial port opened successfully!")
         while True:
             try:
@@ -60,7 +85,7 @@ def serial_thread():
                 if not line:
                     time.sleep(0.5)
                     continue
-                print(f"here1: {line}")
+                # print(f"here1: {line}")
                 parts = line.split(',')
                 if len(parts) >=2:
                     try:
