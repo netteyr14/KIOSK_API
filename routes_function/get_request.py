@@ -155,4 +155,7 @@ def get_course_dgv():
     sql = "SELECT course_id, course_name, course_code FROM tbl_course"
     rows = fetch_all(sql) 
     return jsonify(rows)
-
+def serial_num(received_rfid, ser):
+    sql = "select student_id from tbl_student where rfid_Card = %s and isdeleted = 0 limit 1"
+    
+    fetch_one(sql, received_rfid)

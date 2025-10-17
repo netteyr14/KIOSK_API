@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from db.db_connections import pool
+from db.db_connections import pool  
 
 if pool is not None:
     print("[INFO] Database pool created successfully! - del_request.py")
