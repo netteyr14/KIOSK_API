@@ -41,7 +41,7 @@ def handle_message(device_num, rfid_num):
             else:
                 insert_attendance(student_id, device_num, conn)
                 recent_inserts[student_id] = now_ts
-                print(f"Insert attendance for student: {student_id} at node {device_num}")
+                print(f"Inserted attendance for student: {student_id} at node {device_num}")
     except Exception as e:
         print(f"DB error handled_message: ", e)
     finally:

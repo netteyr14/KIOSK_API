@@ -79,3 +79,33 @@ def post_course_information(course_info=None):
 
     data = execute_query(sql, params)
     return jsonify(data)
+
+#===============FACULTY-MAINTENANCE=================#
+def post_faculty_information(faculty_info=None):
+    sql = """INSERT INTO tbl_faculty
+    (first_name, middle_name, last_name)
+    VALUES
+    (%s,%s)"""
+
+    params = (
+        faculty_info["first_name"],
+        faculty_info["middle_name"],
+        faculty_info["last_name"]
+    )
+    data = execute_query(sql, params)
+    return jsonify(data)
+
+#===============SUBJECT-MAINTENANCE=================#
+def post_subject_information(subject_info=None):
+    sql = """INSERT INTO tbl_subject
+    (subject_code, subject_name)
+    VALUES
+    (%s,%s,%s,%s,%s)"""
+
+    params = (
+        subject_info["subject_code"],
+        subject_info["subject_name"],
+    )
+    data = execute_query(sql, params)
+    return jsonify(data)
+
