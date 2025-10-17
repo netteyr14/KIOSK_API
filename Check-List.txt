@@ -1,0 +1,66 @@
+#DONE ROUTES
+
+//GET ROUTES
+#===============STUDENT=================#
+*Loads DGV for Student Management with search and filter
+*Loads ComboBox for Course(toolstrip and regular cbo)
+*Loads Images on Student Management
+
+#===============LOSTFOUND=================#
+*Loads DGV for Lost and Found with search and filter
+*Loads Images on Lost and Found
+
+#===============COURSE-MAINTENANCE=================#
+*Loads DGV for Course Maintenance
+
+
+
+
+//POST ROUTES
+#===============STUDENT=================#
+*Insert/Post Routes
+
+#===============LOSTFOUND=================#
+*Insert/Post Routes
+
+#===============COURSE-MAINTENANCE=================#
+*Insert/Post Routes
+
+
+
+
+//PUT ROUTES
+#===============STUDENT=================#
+*Update/Put Routes
+
+#===============LOSTFOUND=================#
+*Update/Put Routes
+
+#===============COURSE-MAINTENANCE=================#
+*Update/Put Routes
+
+
+
+
+//DEL ROUTES
+#===============STUDENT=================#
+*Delete/Delete Routes
+
+#===============LOSTFOUND=================#
+*Delete/Delete Routes
+
+#===============COURSE-MAINTENANCE=================#
+*Delete/Delete Routes
+
+
+
+
+
+#ONGOING
+*ADMIN SIDE ACCOUNTS ETC...
+
+#Removed(non existing in the latest db)
+*route for tbl_section
+*route for tbl_year
+
+#LOGIN DONE

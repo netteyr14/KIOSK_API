@@ -1,0 +1,11 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+server/nginx-1.28.0/logs/
+
+# OS files (optional)
+.DS_Store
+Thumbs.db

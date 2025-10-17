@@ -1,0 +1,26 @@
+from mysql.connector import Error, pooling
+
+db0 = {
+    'host': 'localhost',                             # ngrok/aiven host
+    'user': 'root',                                  # root/mysql_acc/aiven user
+    'password': 'Luxuria2024',                 # database password for root/mysql_acc/aiven
+    'database': 'dbcstakiosk',                       # database name for root/mysql_acc/aiven
+    'port': 3306                                     # default mysql/aiven port
+    #'ssl_ca': os.environ.get('AIVEN_CA_CERT')       # path to aiven ca certificate
+}
+
+def init_db_pool():
+    global pool
+    try:
+        pool = pooling.MySQLConnectionPool(
+            pool_name="mypool",
+            pool_size=30,
+            **db0
+        )
+        return pool
+    except Error as e:
+        print(f"[ERROR] Database pool creation failed: {e}")
+        return None
+
+
+pool = init_db_pool()
