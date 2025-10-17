@@ -51,8 +51,8 @@ def handle_message(device_num, rfid_num):
 
 def serial_thread():
     while True:
-        print("Starting serial thread, opening port COM6")
-        ser = serial.Serial("COM6", 115200, timeout=1)
+        print("Starting serial thread, opening port COM3")
+        ser = serial.Serial("COM3", 115200, timeout=1)
         print("Serial port opened successfully!")
         while True:
             try:
@@ -74,7 +74,7 @@ def serial_thread():
             except Exception as e:
                 print("Serial port error: ", e)
                 time
-                
+
 def safe_loop():
     while True:
         try:
