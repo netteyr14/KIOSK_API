@@ -80,7 +80,7 @@ CREATE TABLE `tbl_attendance` (
   KEY `fk_attendance_node` (`node_no`),
   CONSTRAINT `fk_attendance_node` FOREIGN KEY (`node_no`) REFERENCES `tbl_node` (`node_id`),
   CONSTRAINT `fk_attendance_student` FOREIGN KEY (`student_no`) REFERENCES `tbl_student` (`student_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_attendance` */
 
@@ -92,7 +92,24 @@ insert  into `tbl_attendance`(`attendance_id`,`student_no`,`node_no`,`logs`) val
 (6,1,7,'2025-10-18 03:01:11'),
 (7,1,7,'2025-10-18 03:01:18'),
 (8,1,7,'2025-10-18 03:01:24'),
-(9,1,7,'2025-10-18 03:01:35');
+(9,1,7,'2025-10-18 03:01:35'),
+(10,1,7,'2025-10-18 20:27:11'),
+(11,1,7,'2025-10-18 20:27:30'),
+(12,1,7,'2025-10-18 20:28:39'),
+(13,1,7,'2025-10-18 20:28:46'),
+(14,1,7,'2025-10-18 20:28:53'),
+(15,1,7,'2025-10-18 21:05:33'),
+(16,1,7,'2025-10-18 21:08:47'),
+(17,1,7,'2025-10-18 21:08:53'),
+(18,1,7,'2025-10-18 21:09:21'),
+(19,1,7,'2025-10-18 21:09:27'),
+(20,1,7,'2025-10-18 21:09:34'),
+(21,1,7,'2025-10-18 21:09:49'),
+(22,1,7,'2025-10-18 21:09:55'),
+(23,1,7,'2025-10-18 21:10:02'),
+(24,1,7,'2025-10-18 21:10:15'),
+(25,1,7,'2025-10-18 21:11:19'),
+(26,1,7,'2025-10-18 21:12:22');
 
 UNLOCK TABLES;
 
@@ -225,8 +242,8 @@ CREATE TABLE `tbl_schedule` (
   `student_no` int DEFAULT NULL,
   `subject_no` int DEFAULT NULL,
   `day_of_week` varchar(25) DEFAULT NULL,
-  `time_start` datetime DEFAULT NULL,
-  `time_end` datetime DEFAULT NULL,
+  `time_start` time DEFAULT NULL,
+  `time_end` time DEFAULT NULL,
   `room` varchar(20) DEFAULT NULL,
   `faculty_no` int DEFAULT NULL,
   `isdeleted` int DEFAULT '0',
@@ -244,7 +261,7 @@ CREATE TABLE `tbl_schedule` (
 LOCK TABLES `tbl_schedule` WRITE;
 
 insert  into `tbl_schedule`(`schedule_id`,`student_no`,`subject_no`,`day_of_week`,`time_start`,`time_end`,`room`,`faculty_no`,`isdeleted`) values 
-(1,1,2,'SATURDAY','2025-10-18 02:30:00','2025-10-18 03:30:00','7',2,0);
+(1,1,2,'SATURDAY','20:20:00','22:30:00','7',2,0);
 
 UNLOCK TABLES;
 
@@ -385,8 +402,8 @@ DROP TABLE IF EXISTS `vw_schedules`;
  `subject_code` varchar(20) ,
  `subject_name` varchar(100) ,
  `day_of_week` varchar(25) ,
- `time_start` datetime ,
- `time_end` datetime ,
+ `time_start` time ,
+ `time_end` time ,
  `room` varchar(20) ,
  `faculty_name` varchar(152) ,
  `isdeleted` int 

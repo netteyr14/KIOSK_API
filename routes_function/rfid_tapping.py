@@ -1,6 +1,6 @@
 from db.db_connections import pool
 import serial, threading, time
-from datetime import datetime
+from datetime import datetime, time as dtime
 
 recent_inserts = {}
 duplicate_window_records = 5
@@ -24,6 +24,13 @@ def insert_attendance(student_id, node_no, conn):
     except Exception as e:
         print("Error inserting attachment: ", e)
 
+def timedelta_to_time(td):
+    total_seconds = td.total_seconds()
+    hours = int(total_seconds // 3600)
+    minutes = int((total_seconds % 3600) // 60)
+    seconds = int(total_seconds % 60)
+    return dtime(hour=hours, minute=minutes, second=seconds)
+
 def handle_message(device_num, rfid_num):
     conn = pool.get_connection()
     if not conn:
@@ -44,21 +51,22 @@ def handle_message(device_num, rfid_num):
             print(f"\nNo schedule found for student: {student_id}")
             return
 
-        time_start = schedule['time_start']
-        time_end = schedule['time_end']
+        time_start = timedelta_to_time(schedule['time_start']) #convert timedelta to time object because database returned it as timedelta
+        time_end = timedelta_to_time(schedule['time_end'])
         day_of_week = schedule['day_of_week'].lower()
         room = int(schedule['room']) # INT ANG DEVICE_NUM KAYA NEED I CONVERT
 
-        now = datetime.now()
-        now_ts = time.time()
-        current_day = now.strftime('%A').lower()
+        now = datetime.now() #gets the date and time now
+        now_ts = time.time() #gets the current time in seconds since epoch
+        current_time  = now.time() #gets only the time part
+        current_day = now.strftime('%A').lower() #gets the current day in full string format and convert to lower case
 
         last = recent_inserts.get(student_id, 0)
         if now_ts - last < duplicate_window_records:
             print(f"Ignore duplicate for student: {student_id}")
             return
 
-        if (time_start <= now <= time_end) and (day_of_week == current_day) and (room == device_num):
+        if (time_start <= current_time <= time_end) and (day_of_week == current_day) and (room == device_num):
             insert_attendance(student_id, device_num, conn)
             recent_inserts[student_id] = now_ts
             print(f"\nInserted attendance for student: {student_number} at node {device_num}")
@@ -76,8 +84,8 @@ def handle_message(device_num, rfid_num):
         
 def serial_thread():
     while True:
-        print("Starting serial thread, opening port COM7")
-        ser = serial.Serial("COM7", 115200, timeout=1)
+        print("Starting serial thread, opening port COM3")
+        ser = serial.Serial("COM3", 115200, timeout=1)
         print("Serial port opened successfully!")
         while True:
             try:
