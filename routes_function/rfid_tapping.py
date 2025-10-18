@@ -8,10 +8,10 @@ duplicate_window_records = 5
 def find_student_by_rfid(rfid_number, conn):
     try:
         cur = conn.cursor(dictionary=True)
-        sql = "select student_id from tbl_student where rfid_card = %s and isdeleted = 0 and isactive = 1 limit 1"
+        sql = "select student_id, stud_number from tbl_student where rfid_card = %s and isdeleted = 0 and isactive = 1 limit 1"
         cur.execute(sql, (str(rfid_number),))
         row = cur.fetchone()
-        return row['student_id'] if row else None
+        return row['student_id']if row else None, row['stud_number'] if row else None
     except Exception as e:
         print("Error finding student: ",e)
 
@@ -30,7 +30,7 @@ def handle_message(device_num, rfid_num):
         return
     
     try:
-        student_id = find_student_by_rfid(rfid_num, conn)
+        student_id, student_number = find_student_by_rfid(rfid_num, conn)# for logging purposes only. needs to follow retrun order
         if not student_id:
             print(f"No student found for RFID: {rfid_num}")
             return
@@ -61,9 +61,9 @@ def handle_message(device_num, rfid_num):
         if (time_start <= now <= time_end) and (day_of_week == current_day) and (room == device_num):
             insert_attendance(student_id, device_num, conn)
             recent_inserts[student_id] = now_ts
-            print(f"Inserted attendance for student: {student_id} at node {device_num}")
+            print(f"\nInserted attendance for student: {student_number} at node {device_num}")
         else:
-            print(f"Student {student_id} is not scheduled in {room} at this time.")
+            print(f"\nStudent {student_number} [RFID: {rfid_num}] is not scheduled in {room} at this time.")
             # print(f"[DEBUG]Schedule: {day_of_week} {time_start}-{time_end}, Now: {current_day} {now}, Device: {device_num}")
 
     except Exception as e:
