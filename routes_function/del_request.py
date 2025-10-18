@@ -1,4 +1,4 @@
-from flask import jsonify, request
+from flask import jsonify
 from db.db_connections import pool  
 
 if pool is not None:

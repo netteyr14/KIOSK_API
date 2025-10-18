@@ -1,6 +1,5 @@
 from routes_function.rfid_tapping import safe_loop
-import threading
-import time
+import threading, time
 
 if __name__ == '__main__':
     print("[INFO] Starting RFID standby service (COM3 handler)...")
