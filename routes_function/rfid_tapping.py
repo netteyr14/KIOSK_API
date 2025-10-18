@@ -32,7 +32,7 @@ def handle_message(device_num, rfid_num):
     try:
         student_id, student_number = find_student_by_rfid(rfid_num, conn)# for logging purposes only. needs to follow retrun order
         if not student_id:
-            print(f"No student found for RFID: {rfid_num}")
+            print(f"\nNo student found for RFID: {rfid_num}")
             return
 
         cur = conn.cursor(dictionary=True)
@@ -41,7 +41,7 @@ def handle_message(device_num, rfid_num):
         schedule = cur.fetchone()
 
         if not schedule:
-            print(f"No schedule found for student: {student_id}")
+            print(f"\nNo schedule found for student: {student_id}")
             return
 
         time_start = schedule['time_start']
