@@ -1,4 +1,4 @@
-from routes_function.rfid_tapping import safe_loop
+from helpers.rfid_tapping import safe_loop
 import threading, time
 
 if __name__ == '__main__':
