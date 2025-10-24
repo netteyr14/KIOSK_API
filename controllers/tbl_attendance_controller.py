@@ -50,7 +50,7 @@ def post(attendance_info=None):
     sql = """INSERT INTO tbl_attendance
     (student_no, node_no, logs)
     VALUES
-    (%s,%s)"""
+    (%s,%s,%s)"""
 
     params = (
         attendance_info["student_no"],

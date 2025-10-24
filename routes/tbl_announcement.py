@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from controllers.tbl_announcement_controller import get_tbl_info, get_a_row, post, put, delete
+from controllers.tbl_announcement_controller import get_tbl_info, get_a_row, post, put, delete, restore
 
 tbl_announcement_bp = Blueprint('tbl_announcement_bp', __name__, url_prefix='/tbl_announcement') #adds this first before routes
 
@@ -22,7 +22,7 @@ def route_get_tbl_info():
     )
 
 @tbl_announcement_bp.route('/get_a_column', methods=['GET'])
-def route_get_a_column():
+def route_get_a_row():
     req_table_name = request.args.get('table_name')
     req_column_name = request.args.get('column_name')
     req_value = request.args.get('value')
@@ -44,7 +44,12 @@ def route_put():
     announcement_info = request.get_json()
     return put(announcement_info)
 
-@tbl_announcement_bp.route('/del', methods=['DELETE'])
+@tbl_announcement_bp.route('/del', methods=['PUT'])
 def route_del():
     announcement_info = request.get_json()
     return delete(announcement_info)
+
+@tbl_announcement_bp.route('/res', methods=['PUT'])
+def route_res():
+    announcement_info = request.get_json()
+    return restore(announcement_info)

@@ -104,7 +104,7 @@ def delete(announcement_info):
     return jsonify(data)
 
 #===============RESTORE=================#
-def delete(announcement_info):
+def restore(announcement_info):
     announcement_id = announcement_info.get("announcement_id")
     sql = f"UPDATE tbl_announcement SET isdeleted = 0 WHERE announcement_id = %s"
     data = execute_query(sql, (announcement_id,))

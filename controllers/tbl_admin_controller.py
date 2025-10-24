@@ -1,5 +1,6 @@
 from flask import jsonify
 from helpers.connection_helpers import fetch_all, fetch_one, execute_query
+from datetime import datetime
 
 #==============GET-A-TABLE=================# #pwedeng magamit ng kahit anong routes as return
 def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None, deleted=None):
@@ -30,7 +31,7 @@ def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None, d
                 created_at LIKE %s)
         """
         search_param = f"%{search}%"
-        params += [search_param] * 6
+        params += [search_param] * 8
 
     if order_by:
         sql += f" ORDER BY {order_by} {order_type or 'ASC'}"
@@ -50,11 +51,15 @@ def get_a_row(table_name=None, column_name=None, value=None):
 
 #===============POST/INSERT=================#
 
+from datetime import datetime
+
 def post(faculty_info=None):
     sql = """INSERT INTO tbl_admin
-    (fullname, uname, pword, role, isactive, isdeleted)
+    (fullname, uname, pword, role, isactive, created_at)
     VALUES
-    (%s,%s,%s,%s,%s,%s)"""
+    (%s,%s,%s,%s,%s,%s)""" 
+
+    faculty_info["created_at"] = datetime.now()
 
     params = (
         faculty_info["fullname"],
@@ -62,7 +67,7 @@ def post(faculty_info=None):
         faculty_info["pword"],
         faculty_info["role"],
         faculty_info["isactive"],
-        faculty_info["isdeleted"]
+        faculty_info["created_at"]
     )
 
     data = execute_query(sql, params)

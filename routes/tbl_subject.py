@@ -1,11 +1,11 @@
 from flask import Blueprint, request
-from controllers.tbl_course_controller import get_tbl_info, get_a_row, post, put, delete, restore
+from controllers.tbl_subject_controller import get_tbl_info, get_a_row, post, put, delete, restore
 
-tbl_course_bp = Blueprint('tbl_course_bp', __name__, url_prefix='/tbl_course') #adds this first before routes
+tbl_subject_bp = Blueprint('tbl_subject_bp', __name__, url_prefix='/tbl_subject') #adds this first before routes.
 
 #Load/Get Routes
 
-@tbl_course_bp.route('/get_tbl_info', methods=['GET'])
+@tbl_subject_bp.route('/get_tbl_info', methods=['GET'])
 def route_get_tbl_info():
     req_table_name = request.args.get('table_name')
     req_order_by = request.args.get('order_by')
@@ -21,7 +21,7 @@ def route_get_tbl_info():
     deleted=req_deleted
     )
 
-@tbl_course_bp.route('/get_a_column', methods=['GET'])
+@tbl_subject_bp.route('/get_a_column', methods=['GET'])
 def route_get_a_row():
     req_table_name = request.args.get('table_name')
     req_column_name = request.args.get('column_name')
@@ -33,23 +33,23 @@ def route_get_a_row():
     value=req_value
     )
 
-#Post/Insert, Put/Update, Delete Routes
-@tbl_course_bp.route('/post', methods=['POST'])
+#Post/Insert, Put/Update, Delete, Restore Routes
+@tbl_subject_bp.route('/post', methods=['POST'])
 def route_post():
-    course_info = request.get_json()
-    return post(course_info)
+    subject_info = request.get_json()
+    return post(subject_info)
 
-@tbl_course_bp.route('/put', methods=['PUT'])
+@tbl_subject_bp.route('/put', methods=['PUT'])
 def route_put():
-    course_info = request.get_json()
-    return put(course_info)
+    subject_info = request.get_json()
+    return put(subject_info)
 
-@tbl_course_bp.route('/del', methods=['PUT'])
+@tbl_subject_bp.route('/del', methods=['PUT'])
 def route_del():
-    course_info = request.get_json()
-    return delete(course_info)
+    subject_info = request.get_json()
+    return delete(subject_info)
 
-@tbl_course_bp.route('/res', methods=['PUT'])
+@tbl_subject_bp.route('/res', methods=['PUT'])
 def route_res():
-    course_info = request.get_json()
-    return restore(course_info)
+    subject_info = request.get_json()
+    return restore(subject_info)

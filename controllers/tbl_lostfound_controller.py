@@ -106,8 +106,8 @@ def put(lostfound_info=None):
 #     data = execute_query(sql, (lostfound_id,))
 #     return jsonify(data)
 
-# #===============DELETE=================#
-# def delete(lostfound_info):
+# #===============RESTORE=================#
+# def restore(lostfound_info):
 #     lostfound_id = lostfound_info.get("lostfound_id")
 #     sql = f"UPDATE tbl_lostfound SET isdeleted = 0 WHERE lostfound_id = %s"
 #     data = execute_query(sql, (lostfound_id,))

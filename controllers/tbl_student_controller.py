@@ -35,7 +35,7 @@ def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None, d
                 img_path LIKE %s)
         """
         search_param = f"%{search}%"
-        params += [search_param] * 12
+        params += [search_param] * 13
 
     if order_by:
         sql += f" ORDER BY {order_by} {order_type or 'ASC'}"
@@ -89,6 +89,7 @@ def put(student_info=None):
     year_level = %s,
     section = %s,
     isactive = %s,
+    created_at = NOW(),
     img_path = %s
     WHERE student_id = %s"""
 
@@ -102,6 +103,7 @@ def put(student_info=None):
         student_info["year_level"],
         student_info["section"],
         student_info["isactive"],
+        student_info["created_at"],
         student_info["img_path"],
         student_info["student_id"]
     )
