@@ -3,7 +3,7 @@ from helpers.connection_helpers import fetch_all, fetch_one, execute_query
 
 #==============GET-A-TABLE=================# #pwedeng magamit ng kahit anong routes as return
 def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None):
-    allowed_tables = ["tbl_announcement"]
+    allowed_tables = ["tbl_attendance"]
     if table_name not in allowed_tables:
         return jsonify({"error": "Invalid table name"}), 400
     
