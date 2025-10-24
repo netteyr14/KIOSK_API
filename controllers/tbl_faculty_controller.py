@@ -67,8 +67,10 @@ def post(faculty_info=None):
 #===============PUT/UPDATE=================#
 def put(faculty_info=None):
     sql = """UPDATE tbl_faculty SET
-    course_code = %s,
-    course_name = %s
+    fname = %s,
+    mname = %s,
+    lname = %s,
+    isactive = %s
     WHERE faculty_id = %s"""
 
     params = (
@@ -89,8 +91,8 @@ def delete(faculty_info):
     data = execute_query(sql, (faculty_id,))
     return jsonify(data)
 
-#===============DELETE=================#
-def delete(faculty_info):
+#===============RESTORE=================#
+def restore(faculty_info):
     faculty_id = faculty_info.get("faculty_id")
     sql = f"UPDATE tbl_faculty SET isdeleted = 0 WHERE course_id = %s"
     data = execute_query(sql, (faculty_id,))

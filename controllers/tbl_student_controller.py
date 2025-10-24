@@ -7,7 +7,7 @@ def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None, d
     if table_name not in allowed_tables:
         return jsonify({"error": "Invalid table name"}), 400
     
-    allowed_columns = ["stud_number", "rfid_card", "fname", "mname", "lname", "course_no", "year_level", "section", "isactive", "isdeleted", "created_at"]
+    allowed_columns = ["student_id", "stud_number", "rfid_card", "fname", "mname", "lname", "course_no", "year_level", "section", "isactive", "isdeleted", "created_at", "img_path"]
     if order_by and order_by not in allowed_columns:
         return jsonify({"error": "Invalid order column"}), 400
 
@@ -20,6 +20,7 @@ def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None, d
 
     if search:
         sql += """ AND (
+                student_id LIKE %s OR
                 stud_number LIKE %s OR 
                 rfid_card LIKE %s OR
                 fname LIKE %s OR 
@@ -30,10 +31,11 @@ def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None, d
                 section LIKE %s OR
                 isactive LIKE %s OR
                 isdeleted LIKE %s OR
-                created_at LIKE %s)
+                created_at LIKE %s OR
+                img_path LIKE %s)
         """
         search_param = f"%{search}%"
-        params += [search_param] * 11
+        params += [search_param] * 12
 
     if order_by:
         sql += f" ORDER BY {order_by} {order_type or 'ASC'}"
@@ -43,7 +45,7 @@ def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None, d
 
 
 def get_a_row(table_name=None, column_name=None, value=None):
-    allowed_columns = ["stud_number", "rfid_card", "fname", "mname", "lname", "course_no", "year_level", "section", "isactive", "isdeleted", "created_at"]
+    allowed_columns = ["student_id", "stud_number", "rfid_card", "fname", "mname", "lname", "course_no", "year_level", "section", "isactive", "isdeleted", "created_at", "img_path"]
     if column_name not in allowed_columns:
         return jsonify({"error": "Invalid column name"}), 400
 
@@ -69,7 +71,7 @@ def post(student_info=None):
         student_info["year_level"],
         student_info["section"],
         student_info["isactive"],
-        student_info["image_path"]
+        student_info["img_path"]
     )
 
     data = execute_query(sql, params)
@@ -78,6 +80,7 @@ def post(student_info=None):
 #===============PUT/UPDATE=================#
 def put(student_info=None):
     sql = """UPDATE tbl_student SET
+    student_number = %s,
     rfid_card = %s,
     fname = %s,
     mname = %s,
@@ -87,9 +90,10 @@ def put(student_info=None):
     section = %s,
     isactive = %s,
     img_path = %s
-    WHERE stud_number = %s"""
+    WHERE student_id = %s"""
 
     params = (
+        student_info["stud_number"],
         student_info["rfid_card"],
         student_info["fname"],
         student_info["mname"],
@@ -98,8 +102,8 @@ def put(student_info=None):
         student_info["year_level"],
         student_info["section"],
         student_info["isactive"],
-        student_info["image_path"],
-        student_info["stud_number"]
+        student_info["img_path"],
+        student_info["student_id"]
     )
 
     data = execute_query(sql, params)

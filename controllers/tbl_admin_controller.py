@@ -97,8 +97,8 @@ def delete(admin_info):
     data = execute_query(sql, (admin_id,))
     return jsonify(data)
 
-#===============DELETE=================#
-def delete(admin_info):
+#===============RESTORE=================#
+def restore(admin_info):
     admin_id = admin_info.get("admin_id")
     sql = f"UPDATE tbl_admin SET isdeleted = 0 WHERE admin_id = %s"
     data = execute_query(sql, (admin_id,))

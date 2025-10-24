@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from controllers.tbl_admin_controller import get_tbl_info, get_a_row, post, put, delete
+from controllers.tbl_admin_controller import get_tbl_info, get_a_row, post, put, delete, restore
 
 tbl_admin_bp = Blueprint('tbl_admin_bp', __name__, url_prefix='/tbl_admin') #adds this first before routes.
 
@@ -48,3 +48,8 @@ def route_put():
 def route_del():
     admin_info = request.get_json()
     return delete(admin_info)
+
+@tbl_admin_bp.route('/res', methods=['DELETE'])
+def route_res():
+    admin_info = request.get_json()
+    return restore(admin_info)

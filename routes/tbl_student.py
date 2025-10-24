@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from controllers.tbl_student_controller import get_tbl_info, get_a_row, post, put, delete
+from controllers.tbl_student_controller import get_tbl_info, get_a_row, post, put, delete, restore
 
 tbl_student_bp = Blueprint('tbl_student_bp', __name__, url_prefix='/tbl_student') #adds this first before routes. Example: /tbl_student/get_tbl_info
 
@@ -33,7 +33,7 @@ def route_get_a_column():
     value=req_value
     )
 
-#Post/Insert, Put/Update, Delete Routes
+#Post/Insert, Put/Update, Delete, Restore Routes
 @tbl_student_bp.route('/post', methods=['POST'])
 def route_post():
     student_info = request.get_json()
@@ -48,3 +48,8 @@ def route_put():
 def route_del():
     student_info = request.get_json()
     return delete(student_info)
+
+@tbl_student_bp.route('/res', methods=['DELETE'])
+def route_res():
+    student_info = request.get_json()
+    return restore(student_info)

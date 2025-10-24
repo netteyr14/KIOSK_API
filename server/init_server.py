@@ -11,6 +11,8 @@ def create_app():
     from routes.tbl_class_sched import tbl_class_sched_bp
     from routes.tbl_faculty import tbl_faculty_bp
     from routes.tbl_admin import tbl_admin_bp
+    from routes.tbl_lostfound import tbl_lostfound_bp
+    from routes.tbl_node import tbl_node_bp
     # Register blueprints with URL prefixes
     app.register_blueprint(tbl_student_bp)
     app.register_blueprint(tbl_course_bp)
@@ -19,6 +21,8 @@ def create_app():
     app.register_blueprint(tbl_class_sched_bp)
     app.register_blueprint(tbl_faculty_bp)
     app.register_blueprint(tbl_admin_bp)
+    app.register_blueprint(tbl_lostfound_bp)
+    app.register_blueprint(tbl_node_bp)
     return app
 
 #FOR DEBUGGING PURPOSES
