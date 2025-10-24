@@ -11,7 +11,7 @@ def route_get_tbl_info():
     req_order_by = request.args.get('order_by')
     req_order_type = request.args.get('order_type')
     req_search = request.args.get('search')
-    req_deleted = request.args.get('deleted')
+    req_deleted = request.args.get('deleted', type=int)
 
     return get_tbl_info(
     table_name=req_table_name,
