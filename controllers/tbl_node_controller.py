@@ -3,11 +3,11 @@ from helpers.connection_helpers import fetch_all, fetch_one, execute_query
 
 #==============GET-A-TABLE=================# #pwedeng magamit ng kahit anong routes as return
 def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None):
-    allowed_tables = ["tbl_attendance"]
+    allowed_tables = ["tbl_node"]
     if table_name not in allowed_tables:
         return jsonify({"error": "Invalid table name"}), 400
     
-    allowed_columns = ["attendance_id", "student_no", "node_no", "logs"]
+    allowed_columns = ["node_id", "node_name", "location", "device_uid"]
     if order_by and order_by not in allowed_columns:
         return jsonify({"error": "Invalid order column"}), 400
 
@@ -20,10 +20,10 @@ def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None):
 
     if search:
         sql += """ AND (
-                attendance_id LIKE %s OR 
-                student_no LIKE %s OR
-                node_no LIKE %s OR 
-                logs LIKE %s)
+                node_id LIKE %s OR 
+                node_name LIKE %s OR
+                location LIKE %s OR 
+                device_uid LIKE %s)
         """
         search_param = f"%{search}%"
         params += [search_param] * 4
@@ -36,7 +36,7 @@ def get_tbl_info(table_name=None, order_by=None, order_type=None, search=None):
 
 
 def get_a_row(table_name=None, column_name=None, value=None):
-    allowed_columns = ["attendance_id", "student_no", "node_no", "logs"]
+    allowed_columns = ["node_id", "node_name", "location", "device_uid"]
     if column_name not in allowed_columns:
         return jsonify({"error": "Invalid column name"}), 400
 
@@ -46,49 +46,49 @@ def get_a_row(table_name=None, column_name=None, value=None):
 
 #===============POST/INSERT=================#
 
-def post(attendance_info=None):
-    sql = """INSERT INTO tbl_attendance
-    (student_no, node_no, logs)
+def post(node_info=None):
+    sql = """INSERT INTO tbl_node
+    (node_name, location, device_uid)
     VALUES
     (%s,%s,%s)"""
 
     params = (
-        attendance_info["student_no"],
-        attendance_info["node_no"],
-        attendance_info["logs"]
+        node_info["node_name"],
+        node_info["location"],
+        node_info["device_uid"]
     )
 
     data = execute_query(sql, params)
     return jsonify(data)
 
 #===============PUT/UPDATE=================#
-def put(attendance_info=None):
-    sql = """UPDATE tbl_attendance SET
-    student_no = %s,
-    node_no = %s,
-    logs = %s
-    WHERE attendance_id = %s"""
+def put(node_info=None):
+    sql = """UPDATE tbl_node SET
+    node_name = %s,
+    location = %s,
+    device_uid = %s
+    WHERE node_id = %s"""
 
     params = (
-        attendance_info['student_no'],
-        attendance_info['node_no'],
-        attendance_info['logs'],
-        attendance_info['attendance_id']
+        node_info["node_name"],
+        node_info["location"],
+        node_info["device_uid"],
+        node_info["node_id"]
     )
 
     data = execute_query(sql, params)
     return jsonify(data)
 
 # #===============DELETE=================#
-# def delete(attendance_info):
-#     attendance_id = attendance_info.get("attendance_id")
-#     sql = f"UPDATE tbl_attendance SET isdeleted = 1 WHERE attendance_id = %s"
-#     data = execute_query(sql, (attendance_id,))
+# def delete(lostfound_info):
+#     lostfound_id = lostfound_info.get("lostfound_id")
+#     sql = f"UPDATE tbl_lostfound SET isdeleted = 1 WHERE lostfound_id = %s"
+#     data = execute_query(sql, (lostfound_id,))
 #     return jsonify(data)
 
-# #===============RESTORE=================#
-# def delete(attendance_info):
-#     attendance_id = attendance_info.get("attendance_id")
-#     sql = f"UPDATE tbl_announcement SET isdeleted = 0 WHERE attendance_id = %s"
-#     data = execute_query(sql, (attendance_id,))
+# #===============DELETE=================#
+# def delete(lostfound_info):
+#     lostfound_id = lostfound_info.get("lostfound_id")
+#     sql = f"UPDATE tbl_lostfound SET isdeleted = 0 WHERE lostfound_id = %s"
+#     data = execute_query(sql, (lostfound_id,))
 #     return jsonify(data)

@@ -1,11 +1,11 @@
 from flask import Blueprint, request
-from controllers.tbl_student_controller import get_tbl_info, get_a_row, post, put, delete, restore
+from controllers.tbl_schedule_controller import get_tbl_info, get_a_row, post, put, delete, restore
 
-tbl_student_bp = Blueprint('tbl_student_bp', __name__, url_prefix='/tbl_student') #adds this first before routes. Example: /tbl_student/get_tbl_info
+tbl_schedule_bp = Blueprint('tbl_schedule_bp', __name__, url_prefix='/tbl_schedule') #adds this first before routes. Example: /tbl_student/get_tbl_info
 
 #Load/Get Routes
 
-@tbl_student_bp.route('/get_tbl_info', methods=['GET'])
+@tbl_schedule_bp.route('/get_tbl_info', methods=['GET'])
 def route_get_tbl_info():
     req_table_name = request.args.get('table_name')
     req_order_by = request.args.get('order_by')
@@ -21,7 +21,7 @@ def route_get_tbl_info():
     deleted=req_deleted
     )
 
-@tbl_student_bp.route('/get_a_column', methods=['GET'])
+@tbl_schedule_bp.route('/get_a_column', methods=['GET'])
 def route_get_a_row():
     req_table_name = request.args.get('table_name')
     req_column_name = request.args.get('column_name')
@@ -34,22 +34,22 @@ def route_get_a_row():
     )
 
 #Post/Insert, Put/Update, Delete, Restore Routes
-@tbl_student_bp.route('/post', methods=['POST'])
+@tbl_schedule_bp.route('/post', methods=['POST'])
 def route_post():
-    student_info = request.get_json()
-    return post(student_info)
+    schedule_info = request.get_json()
+    return post(schedule_info)
 
-@tbl_student_bp.route('/put', methods=['PUT'])
+@tbl_schedule_bp.route('/put', methods=['PUT'])
 def route_put():
-    student_info = request.get_json()
-    return put(student_info)
+    schedule_info = request.get_json()
+    return put(schedule_info)
 
-@tbl_student_bp.route('/del', methods=['PUT'])
+@tbl_schedule_bp.route('/del', methods=['PUT'])
 def route_del():
-    student_info = request.get_json()
-    return delete(student_info)
+    schedule_info = request.get_json()
+    return delete(schedule_info)
 
-@tbl_student_bp.route('/res', methods=['PUT'])
+@tbl_schedule_bp.route('/res', methods=['PUT'])
 def route_res():
-    student_info = request.get_json()
-    return restore(student_info)
+    schedule_info = request.get_json()
+    return restore(schedule_info)

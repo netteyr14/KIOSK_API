@@ -20,7 +20,7 @@ def route_get_tbl_info():
     )
 
 @tbl_attendance_bp.route('/get_a_column', methods=['GET'])
-def route_get_a_column():
+def route_get_a_row():
     req_table_name = request.args.get('table_name')
     req_column_name = request.args.get('column_name')
     req_value = request.args.get('value')

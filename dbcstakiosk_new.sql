@@ -28,16 +28,13 @@ CREATE TABLE `tbl_admin` (
   `role` varchar(50) DEFAULT NULL,
   `isactive` int DEFAULT '1',
   `isdeleted` int DEFAULT '0',
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_admin` */
 
 LOCK TABLES `tbl_admin` WRITE;
-
-insert  into `tbl_admin`(`admin_id`,`fullname`,`uname`,`pword`,`role`,`isactive`,`isdeleted`,`created_at`) values 
-(1,'Isorena, Arvin Jay O.','Isorena27','Ambin','Super Administrator',1,0,'2025-10-15 23:35:03');
 
 UNLOCK TABLES;
 
@@ -80,36 +77,11 @@ CREATE TABLE `tbl_attendance` (
   KEY `fk_attendance_node` (`node_no`),
   CONSTRAINT `fk_attendance_node` FOREIGN KEY (`node_no`) REFERENCES `tbl_node` (`node_id`),
   CONSTRAINT `fk_attendance_student` FOREIGN KEY (`student_no`) REFERENCES `tbl_student` (`student_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_attendance` */
 
 LOCK TABLES `tbl_attendance` WRITE;
-
-insert  into `tbl_attendance`(`attendance_id`,`student_no`,`node_no`,`logs`) values 
-(4,1,7,'2025-10-18 03:00:47'),
-(5,1,7,'2025-10-18 03:00:54'),
-(6,1,7,'2025-10-18 03:01:11'),
-(7,1,7,'2025-10-18 03:01:18'),
-(8,1,7,'2025-10-18 03:01:24'),
-(9,1,7,'2025-10-18 03:01:35'),
-(10,1,7,'2025-10-18 20:27:11'),
-(11,1,7,'2025-10-18 20:27:30'),
-(12,1,7,'2025-10-18 20:28:39'),
-(13,1,7,'2025-10-18 20:28:46'),
-(14,1,7,'2025-10-18 20:28:53'),
-(15,1,7,'2025-10-18 21:05:33'),
-(16,1,7,'2025-10-18 21:08:47'),
-(17,1,7,'2025-10-18 21:08:53'),
-(18,1,7,'2025-10-18 21:09:21'),
-(19,1,7,'2025-10-18 21:09:27'),
-(20,1,7,'2025-10-18 21:09:34'),
-(21,1,7,'2025-10-18 21:09:49'),
-(22,1,7,'2025-10-18 21:09:55'),
-(23,1,7,'2025-10-18 21:10:02'),
-(24,1,7,'2025-10-18 21:10:15'),
-(25,1,7,'2025-10-18 21:11:19'),
-(26,1,7,'2025-10-18 21:12:22');
 
 UNLOCK TABLES;
 
@@ -141,17 +113,11 @@ CREATE TABLE `tbl_course` (
   `isdeleted` int DEFAULT '0',
   PRIMARY KEY (`course_id`),
   UNIQUE KEY `course_code` (`course_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_course` */
 
 LOCK TABLES `tbl_course` WRITE;
-
-insert  into `tbl_course`(`course_id`,`course_code`,`course_name`,`isdeleted`) values 
-(1,'BSIT','Bachelor of Science in Information Technology',0),
-(2,'BSTM','Bachelor of Science in Tourism Management',0),
-(3,'BSHM','Bachelor of Science in Hospitality Management',0),
-(4,'BEED','Bachelor of Elementary Education',0);
 
 UNLOCK TABLES;
 
@@ -167,16 +133,11 @@ CREATE TABLE `tbl_faculty` (
   `isactive` int DEFAULT '1',
   `isdeleted` int DEFAULT '0',
   PRIMARY KEY (`faculty_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_faculty` */
 
 LOCK TABLES `tbl_faculty` WRITE;
-
-insert  into `tbl_faculty`(`faculty_id`,`fname`,`mname`,`lname`,`isactive`,`isdeleted`) values 
-(1,'James','S.','Abenir',1,0),
-(2,'Harold','C.','Lucero',1,0),
-(3,'Arvin Jay','O.','Isorena',1,0);
 
 UNLOCK TABLES;
 
@@ -195,14 +156,11 @@ CREATE TABLE `tbl_lostfound` (
   `claimed_by` varchar(255) DEFAULT '---',
   `claimed_at` datetime DEFAULT NULL,
   PRIMARY KEY (`lostfound_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_lostfound` */
 
 LOCK TABLES `tbl_lostfound` WRITE;
-
-insert  into `tbl_lostfound`(`lostfound_id`,`item_name`,`description`,`image_path`,`status`,`reported_by`,`reported_at`,`claimed_by`,`claimed_at`) values 
-(1,'iPhone XII','asdasdasd','ÿØÿá','LOST','Isorena','2025-10-16 00:18:00','Ambin','2025-10-16 00:39:03');
 
 UNLOCK TABLES;
 
@@ -216,20 +174,11 @@ CREATE TABLE `tbl_node` (
   `location` varchar(100) DEFAULT NULL,
   `device_uid` int DEFAULT NULL,
   PRIMARY KEY (`node_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_node` */
 
 LOCK TABLES `tbl_node` WRITE;
-
-insert  into `tbl_node`(`node_id`,`node_name`,`location`,`device_uid`) values 
-(1,'node 1','LAB 1',1),
-(2,'node 2','LAB 2',2),
-(3,'node 3','LAB 3',3),
-(4,'node 4','LAB 4',4),
-(5,'node 5','LAB 5',5),
-(6,'node 6','LAB 6',6),
-(7,'node 7','TECH ROOM',7);
 
 UNLOCK TABLES;
 
@@ -254,14 +203,11 @@ CREATE TABLE `tbl_schedule` (
   CONSTRAINT `fk_schedule_faculty` FOREIGN KEY (`faculty_no`) REFERENCES `tbl_faculty` (`faculty_id`),
   CONSTRAINT `fk_schedule_student` FOREIGN KEY (`student_no`) REFERENCES `tbl_student` (`student_id`),
   CONSTRAINT `fk_schedule_subject` FOREIGN KEY (`subject_no`) REFERENCES `tbl_subject` (`subject_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_schedule` */
 
 LOCK TABLES `tbl_schedule` WRITE;
-
-insert  into `tbl_schedule`(`schedule_id`,`student_no`,`subject_no`,`day_of_week`,`time_start`,`time_end`,`room`,`faculty_no`,`isdeleted`) values 
-(1,1,2,'SATURDAY','20:20:00','22:30:00','7',2,0);
 
 UNLOCK TABLES;
 
@@ -281,19 +227,16 @@ CREATE TABLE `tbl_student` (
   `section` varchar(20) DEFAULT NULL,
   `isactive` int DEFAULT '1',
   `isdeleted` int DEFAULT '0',
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT NULL,
   `img_path` text,
   PRIMARY KEY (`student_id`),
   KEY `fk_student_course` (`course_no`),
   CONSTRAINT `fk_student_course` FOREIGN KEY (`course_no`) REFERENCES `tbl_course` (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_student` */
 
 LOCK TABLES `tbl_student` WRITE;
-
-insert  into `tbl_student`(`student_id`,`stud_number`,`rfid_card`,`fname`,`mname`,`lname`,`course_no`,`year_level`,`section`,`isactive`,`isdeleted`,`created_at`,`img_path`) values 
-(1,'24-00084','5a959ab7','Arvin Jay ','Orenzo','Isorena',1,'3RD YEAR','3-1',1,0,'2025-10-16 00:06:43','C:\\Users\\Netteyr14\\Downloads\\IMG_20250822_030444522.jpg');
 
 UNLOCK TABLES;
 
@@ -308,19 +251,11 @@ CREATE TABLE `tbl_subject` (
   `isdeleted` int DEFAULT '0',
   PRIMARY KEY (`subject_id`),
   UNIQUE KEY `subject_code` (`subject_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_subject` */
 
 LOCK TABLES `tbl_subject` WRITE;
-
-insert  into `tbl_subject`(`subject_id`,`subject_code`,`subject_name`,`isdeleted`) values 
-(1,'APPDEV','Application Development',0),
-(2,'DBSYS','Database Systems',0),
-(3,'NET-1','Networking 1',0),
-(4,'NET-2','Networking 2',0),
-(5,'IPT','Integrative Programming Technologies',0),
-(6,'ITELECT-2','IT Elective 2',0);
 
 UNLOCK TABLES;
 
